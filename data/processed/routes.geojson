@@ -1,0 +1,135 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000006",
+        "name": "坂室",
+        "sourceType": "osm-road",
+        "source": "OpenStreetMap way name match: 坂室バイパス (way 92624025)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.1592387, 35.9803993]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000009",
+        "name": "高部",
+        "sourceType": "osm-area",
+        "source": "OpenStreetMap Nominatim: 高部; 茅野市内の地名代表点"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.1279433, 35.9948235]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000010",
+        "name": "猿ヶ入",
+        "sourceType": "osm-road",
+        "source": "OpenStreetMap way name match: 林道猿ヶ入線 (way 146988886)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.154256, 35.948294]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000011",
+        "name": "棚嵐線",
+        "sourceType": "official-map",
+        "source": "諏訪市森林整備計画 1/7 概要図 ①から代表点を採取"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.130704, 35.990815]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000012",
+        "name": "赤ジッコ線",
+        "sourceType": "official-map",
+        "source": "諏訪市森林整備計画 1/7 概要図 ②から代表点を採取"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.059967, 35.951961]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000013",
+        "name": "扇平南峠線",
+        "sourceType": "official-map",
+        "source": "諏訪市森林整備計画 1/7 概要図 ③/⑦から代表点を採取"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.177284, 36.089968]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000014",
+        "name": "付上線",
+        "sourceType": "official-map",
+        "source": "諏訪市森林整備計画 1/7 概要図 ⑧から代表点を採取"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.067546, 35.960035]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000015",
+        "name": "科ノ木線",
+        "sourceType": "official-map",
+        "source": "諏訪市森林整備計画 1/7 概要図 ④から代表点を採取"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.189442, 36.113684]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000016",
+        "name": "日向入山線",
+        "sourceType": "official-map",
+        "source": "諏訪市森林整備計画 1/7 概要図 ⑤から代表点を採取"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.087125, 35.948933]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "NGN-000017",
+        "name": "上後２号線",
+        "sourceType": "official-map",
+        "source": "諏訪市森林整備計画 1/7 概要図 ⑥から代表点を採取"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [138.064072, 35.993338]
+      }
+    }
+  ]
+}

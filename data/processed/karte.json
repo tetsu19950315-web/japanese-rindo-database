@@ -1,0 +1,139 @@
+[
+  {
+    "id": "NGN-000010",
+    "name": "猿ヶ入",
+    "summary": "茅野側の本命候補。茅野市森林整備計画では局部改良 50m・利用区域面積 67ha の林道として載り、OSM では『林道猿ヶ入線』が track / grade2 で記録されている。",
+    "entry": "OSM上の林道猿ヶ入線の西端付近（35.950112, 138.151812）。入口座標は線形から直接取得。",
+    "exit_or_terminus": "OSM上の林道猿ヶ入線の東端付近（35.946144, 138.157366）。",
+    "surface_summary": "OSMでは highway=track, tracktype=grade2。近傍にも surface=ground の track があり、未舗装の可能性が高い。ただし現地未確認。",
+    "access_status": "2026-07-08時点で公式の通行可否公表は確認できず。近傍に access=no の path があるため、進入分岐の現地確認が必要。",
+    "cautions": [
+      "入口と終点はOSM線形ベース",
+      "近傍に access=no の path があるため分岐の読み違いに注意",
+      "ゲート・作業規制・荒廃状況は現地確認前提"
+    ],
+    "last_checked": "2026-07-08",
+    "confidence": "medium",
+    "sources": [
+      {
+        "title": "茅野市森林整備計画書",
+        "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "note": "基幹路網整備計画に『猿ヶ入』を掲載。局部改良 50m（1箇所）、利用区域面積 67ha。"
+      },
+      {
+        "title": "OpenStreetMap way 146988886",
+        "url": "https://www.openstreetmap.org/way/146988886",
+        "note": "name=林道猿ヶ入線, highway=track, tracktype=grade2。"
+      },
+      {
+        "title": "OpenStreetMap way 141175028",
+        "url": "https://www.openstreetmap.org/way/141175028",
+        "note": "近傍の track に surface=ground の記録あり。"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000011",
+    "name": "棚嵐線",
+    "summary": "諏訪側の本命候補。諏訪市森林整備計画では開設 3,300m・利用区域面積 106ha の路線として掲載され、代表点の近くに OSM の track が複数ある。",
+    "entry": "諏訪市森林整備計画 1/7 概要図①の代表点付近（35.990815, 138.130704）。近傍約160mに『鎌倉道』、約200mに track がある。",
+    "exit_or_terminus": "公式概要図では終点未明示。現時点では未特定。",
+    "surface_summary": "代表点近傍に OSM tracktype=grade1 の track が2本、grade3 / surface=gravel の track が1本ある。林道本線と一致は未確認だが、未舗装系の手がかりはある。",
+    "access_status": "2026-07-08時点で公式の通行可否公表は確認できず。近傍は service / residential / track が混在するため、入口の見極めが必要。",
+    "cautions": [
+      "入口は公式概要図の代表点ベースで精度は粗い",
+      "終点は未特定",
+      "現地では鎌倉道や周辺生活道と取り違えないよう注意"
+    ],
+    "last_checked": "2026-07-08",
+    "confidence": "medium",
+    "sources": [
+      {
+        "title": "諏訪市森林整備計画 変更計画書",
+        "url": "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf",
+        "note": "基幹路網整備計画に『棚嵐線』を掲載。開設 3,300m、利用区域面積 106ha、対図番号 1/7①。"
+      },
+      {
+        "title": "OpenStreetMap way 1318012782",
+        "url": "https://www.openstreetmap.org/way/1318012782",
+        "note": "代表点近傍の track。tracktype=grade1。"
+      },
+      {
+        "title": "OpenStreetMap way 141284509",
+        "url": "https://www.openstreetmap.org/way/141284509",
+        "note": "代表点近傍の track。tracktype=grade1。"
+      },
+      {
+        "title": "OpenStreetMap way 141284921",
+        "url": "https://www.openstreetmap.org/way/141284921",
+        "note": "代表点近傍の track。tracktype=grade3, surface=gravel。"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000012",
+    "name": "赤ジッコ線",
+    "summary": "諏訪側の有力候補。諏訪市森林整備計画では法面保全 1,000m・利用区域面積 197ha の路線として載り、代表点の周辺に OSM の track が2本ある。",
+    "entry": "諏訪市森林整備計画 1/7 概要図②の代表点付近（35.951961, 138.059967）。最寄りの OSM track までは約146m。",
+    "exit_or_terminus": "公式概要図では終点未明示。現時点では未特定。",
+    "surface_summary": "代表点の近くに OSM の track が2本あるが、surface タグは未記録。未舗装の可能性はあるが、林道本線との一致は現地確認が必要。",
+    "access_status": "2026-07-08時点で公式の通行可否公表は確認できず。代表点は公式図由来で粗く、入口位置は仮置き。",
+    "cautions": [
+      "入口は公式概要図の代表点ベース",
+      "終点は未特定",
+      "最寄り track との対応関係を現地で確認する前提"
+    ],
+    "last_checked": "2026-07-08",
+    "confidence": "medium-low",
+    "sources": [
+      {
+        "title": "諏訪市森林整備計画 変更計画書",
+        "url": "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf",
+        "note": "基幹路網整備計画に『赤ジッコ線』を掲載。法面保全 1,000m（10箇所）、利用区域面積 197ha、対図番号 1/7②。"
+      },
+      {
+        "title": "OpenStreetMap way 140644025",
+        "url": "https://www.openstreetmap.org/way/140644025",
+        "note": "代表点近傍の track。"
+      },
+      {
+        "title": "OpenStreetMap way 140643990",
+        "url": "https://www.openstreetmap.org/way/140643990",
+        "note": "代表点近傍の別 track。"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000013",
+    "name": "扇平南峠線",
+    "summary": "諏訪側の見極め枠。諏訪市森林整備計画では局部改良 200m と舗装 1,000m の両方が載るため、全線舗装ではなく区間差がある可能性を見に行く価値がある。",
+    "entry": "諏訪市森林整備計画 1/7 概要図③の代表点付近（36.089968, 138.173021）。近傍約250mに OSM track がある。",
+    "exit_or_terminus": "諏訪市森林整備計画 1/7 概要図⑦の代表点付近（36.089968, 138.181547）。ビーナスライン近傍。",
+    "surface_summary": "公式計画には舗装 1,000m の記載がある。一方で代表点近傍に OSM track があり、未舗装区間が残る可能性はあるが、公開情報だけでは区間特定できない。",
+    "access_status": "2026-07-08時点で公式の通行可否公表は確認できず。ビーナスライン側接続の可能性があり、進入・離脱とも現地判断が必要。",
+    "cautions": [
+      "入口と終点は公式概要図の代表点ベース",
+      "舗装区間と未舗装区間の切り替わりは未特定",
+      "ビーナスライン近傍のため観光交通と重なる可能性あり"
+    ],
+    "last_checked": "2026-07-08",
+    "confidence": "medium-low",
+    "sources": [
+      {
+        "title": "諏訪市森林整備計画 変更計画書",
+        "url": "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf",
+        "note": "基幹路網整備計画に『扇平南峠線』を2回掲載。局部改良 200m（2箇所）と舗装 1,000m、利用区域面積 125ha、対図番号 1/7③・⑦。"
+      },
+      {
+        "title": "OpenStreetMap way 140466054",
+        "url": "https://www.openstreetmap.org/way/140466054",
+        "note": "代表点近傍の track。"
+      },
+      {
+        "title": "OpenStreetMap way 28671444",
+        "url": "https://www.openstreetmap.org/way/28671444",
+        "note": "終点側近傍のビーナスライン。"
+      }
+    ]
+  }
+]

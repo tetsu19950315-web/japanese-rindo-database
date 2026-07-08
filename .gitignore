@@ -1,0 +1,5 @@
+.agents/
+.codex/
+tmp/
+scripts/__pycache__/
+*.pyc

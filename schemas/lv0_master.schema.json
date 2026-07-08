@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Japan Rindo DB Lv0 Row",
+  "type": "object",
+  "required": ["ID", "林道名", "取得元"],
+  "additionalProperties": false,
+  "properties": {
+    "ID": {
+      "type": "string",
+      "pattern": "^[A-Z]{3}-[0-9]{6}$"
+    },
+    "林道名": {
+      "type": "string",
+      "minLength": 1
+    },
+    "取得元": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

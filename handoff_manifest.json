@@ -1,0 +1,11 @@
+{
+  "project": "日本林道データベース",
+  "handoff_date": "2026-07-08",
+  "immediate_deadline": "2026-07-11/12 weekend field use",
+  "primary_agent_instruction": "AGENTS.md",
+  "bootstrap_prompt": "prompts/CODEX_BOOTSTRAP_PROMPT.md",
+  "current_lv0_data": "data/raw/NGN_Lv0_Master_高速モード_v0.1.csv",
+  "reference_workbook": "data/reference/林道マスター_v2.xlsx",
+  "next_task_source": "TASKS.md",
+  "long_task_plan": "PLANS.md"
+}

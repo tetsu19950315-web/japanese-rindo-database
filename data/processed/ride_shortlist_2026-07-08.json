@@ -1,0 +1,116 @@
+{
+  "generatedOn": "2026-07-08",
+  "selectionMode": "P0-3 real ride shortlist",
+  "selectionCriteria": [
+    "茅野・諏訪の今回行動エリアに入ること",
+    "公開情報に未舗装または林道らしい道路種別の手がかりがあること",
+    "入口または代表点まで現実的にアクセスしやすいこと",
+    "次のカルテ作成に進めるだけの情報量があること"
+  ],
+  "selected": [
+    {
+      "order": 1,
+      "id": "NGN-000010",
+      "name": "猿ヶ入",
+      "municipality": "茅野市",
+      "officialPlanNote": "茅野市森林整備計画の基幹路網整備計画に掲載。局部改良 50m（1箇所）、利用区域面積 67ha。",
+      "publicUnpavedSignal": "OSMに『林道猿ヶ入線』として way 146988886 があり、highway=track, tracktype=grade2。近傍にも highway=track + surface=ground の道路あり。",
+      "accessSignal": "代表点から named track まで約300m。入口点は OSM から直接取得済み。",
+      "informationAmount": "high",
+      "selectionReason": "10件の中で唯一、路線名がそのまま OSM の track として結びついている。入口精度も高く、MVP後のカルテ化が最も進めやすい。",
+      "sources": [
+        "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "https://www.openstreetmap.org/way/146988886",
+        "https://www.openstreetmap.org/way/141175028"
+      ]
+    },
+    {
+      "order": 2,
+      "id": "NGN-000011",
+      "name": "棚嵐線",
+      "municipality": "諏訪市",
+      "officialPlanNote": "諏訪市森林整備計画の基幹路網整備計画に掲載。開設 3,300m、利用区域面積 106ha、対図番号 1/7①。",
+      "publicUnpavedSignal": "代表点の近傍約200mに OSM highway=track（way 1318012782, tracktype=grade1 / way 141284509, tracktype=grade1）がある。",
+      "accessSignal": "近傍に service / residential / path が混在し、入口探索の現実性が比較的高い。",
+      "informationAmount": "medium-high",
+      "selectionReason": "公式資料上で新設寄りの 3.3km 路線として出ており、周辺 OSM にも track がある。諏訪側の本命候補。",
+      "sources": [
+        "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf",
+        "https://www.openstreetmap.org/way/1318012782",
+        "https://www.openstreetmap.org/way/141284509"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "NGN-000012",
+      "name": "赤ジッコ線",
+      "municipality": "諏訪市",
+      "officialPlanNote": "諏訪市森林整備計画の基幹路網整備計画に掲載。法面保全 1,000m（10箇所）、利用区域面積 197ha、対図番号 1/7②。",
+      "publicUnpavedSignal": "代表点近傍約325mに OSM highway=track（way 140644025）と、約348mに別の track（way 140643990）がある。",
+      "accessSignal": "代表点は公式図由来で粗いが、近傍に track が複数あり、入口探索の余地がある。",
+      "informationAmount": "medium",
+      "selectionReason": "公式図で位置が押さえられ、近傍の OSM に track が複数ある。面積も比較的大きく、次の深掘り対象として妥当。",
+      "sources": [
+        "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf",
+        "https://www.openstreetmap.org/way/140644025",
+        "https://www.openstreetmap.org/way/140643990"
+      ]
+    },
+    {
+      "order": 4,
+      "id": "NGN-000013",
+      "name": "扇平南峠線",
+      "municipality": "諏訪市",
+      "officialPlanNote": "諏訪市森林整備計画の基幹路網整備計画に 2回掲載。局部改良 200m（2箇所）と舗装 1,000m、利用区域面積 125ha、対図番号 1/7③・⑦。",
+      "publicUnpavedSignal": "代表点近傍約332mに OSM highway=track（way 140466054）があり、両端寄りには path が見える。",
+      "accessSignal": "公式図で 2地点が示されており、ルートの両側に当たりを付けやすい。",
+      "informationAmount": "medium",
+      "selectionReason": "舗装記載はあるが、2地点でルート候補が見え、OSM track も近い。現地確認で『どこまで舗装済みか』を見極める価値がある。",
+      "sources": [
+        "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf",
+        "https://www.openstreetmap.org/way/140466054"
+      ]
+    }
+  ],
+  "reserve": [
+    {
+      "id": "NGN-000014",
+      "name": "付上線",
+      "municipality": "諏訪市",
+      "officialPlanNote": "諏訪市森林整備計画の基幹路網整備計画に掲載。局部改良 60m（2箇所）、利用区域面積 68ha、対図番号 1/7⑧。",
+      "publicUnpavedSignal": "代表点近傍約340mに OSM highway=track（way 140644021）がある。",
+      "selectionReason": "本命4本より情報量が一段薄いが、予備としては十分残す価値がある。",
+      "sources": [
+        "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf",
+        "https://www.openstreetmap.org/way/140644021"
+      ]
+    }
+  ],
+  "notSelected": [
+    {
+      "id": "NGN-000006",
+      "name": "坂室",
+      "reason": "公式計画で『拡張（舗装）1,800m』の記載が前面にあり、未舗装狙いの優先度を下げた。OSMも生活道路寄りの当たりが強い。"
+    },
+    {
+      "id": "NGN-000009",
+      "name": "高部",
+      "reason": "位置が地名代表点止まりで、入口未特定。次のカルテ作成に進めるには情報が薄い。"
+    },
+    {
+      "id": "NGN-000015",
+      "name": "科ノ木線",
+      "reason": "公式計画で『拡張（舗装）2,500m』の記載が強く、近傍 OSM も path 中心で未舗装の手がかりが弱い。"
+    },
+    {
+      "id": "NGN-000016",
+      "name": "日向入山線",
+      "reason": "公式計画で『拡張（舗装）2,000m』。代表点近傍も tertiary/path が先に立ち、未舗装の優先候補にしにくい。"
+    },
+    {
+      "id": "NGN-000017",
+      "name": "上後２号線",
+      "reason": "公式計画で『拡張（舗装）1,500m』。近傍に track はあるが、生活道路との混在が強く、まず他候補を優先した。"
+    }
+  ]
+}

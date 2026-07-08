@@ -26,13 +26,18 @@ const state = {
   map: null,
   markers: new Map(),
   selectedId: null,
+  sheetState: "collapsed",
   view: "trip",
 };
 
 const ui = {
   summaryText: document.getElementById("summaryText"),
+  detailSheet: document.getElementById("detailSheet"),
   detailEmpty: document.getElementById("detailEmpty"),
   detailCard: document.getElementById("detailCard"),
+  sheetToggle: document.getElementById("sheetToggle"),
+  sheetToggleTitle: document.getElementById("sheetToggleTitle"),
+  sheetToggleHint: document.getElementById("sheetToggleHint"),
   roadId: document.getElementById("roadId"),
   roadName: document.getElementById("roadName"),
   sourceBadge: document.getElementById("sourceBadge"),
@@ -63,6 +68,37 @@ function parseInitialState() {
     view: ["all", "selected", "trip"].includes(requestedView) ? requestedView : "trip",
     roadId: requestedRoad,
   };
+}
+
+function isDesktopLayout() {
+  return window.matchMedia("(min-width: 900px)").matches;
+}
+
+function getSelectedRoad() {
+  return state.allRoads.find((item) => item.id === state.selectedId) || null;
+}
+
+function updateSheetToggle() {
+  const selectedRoad = getSelectedRoad();
+  const hasSelection = Boolean(selectedRoad);
+  const isExpanded = state.sheetState === "expanded";
+
+  ui.sheetToggleTitle.textContent = hasSelection ? selectedRoad.name : "候補をタップ";
+  ui.sheetToggleHint.textContent = hasSelection
+    ? isExpanded
+      ? "地図を広く見る"
+      : "カルテを開く"
+    : "地図を見ながら候補を探す";
+  ui.sheetToggle.setAttribute("aria-expanded", String(isExpanded));
+}
+
+function setSheetState(nextState) {
+  state.sheetState = isDesktopLayout() ? "expanded" : nextState;
+  ui.detailSheet.dataset.sheetState = state.sheetState;
+  updateSheetToggle();
+  if (state.map) {
+    window.setTimeout(() => state.map.invalidateSize(), 180);
+  }
 }
 
 function buildGoogleMapsUrl(road) {
@@ -204,6 +240,7 @@ function selectRoad(id, options = {}) {
   }
 
   state.selectedId = road.id;
+  setSheetState(options.expandSheet === false ? "collapsed" : "expanded");
   ui.detailEmpty.classList.add("hidden");
   ui.detailCard.classList.remove("hidden");
 
@@ -232,6 +269,7 @@ function selectRoad(id, options = {}) {
 
   updateSelectionStyles();
   updateUrl();
+  updateSheetToggle();
 
   if (!options.skipFly) {
     state.map.flyTo([road.displayLat, road.displayLon], Math.max(state.map.getZoom(), 12), {
@@ -256,7 +294,7 @@ function setView(view) {
   if (state.selectedId) {
     selectRoad(state.selectedId, { skipFly: true });
   } else {
-    const fallback = getVisibleRoads()[0];
+    const fallback = isDesktopLayout() ? getVisibleRoads()[0] : null;
     if (fallback) {
       selectRoad(fallback.id, { skipFly: true });
     }
@@ -381,6 +419,11 @@ function bindUi() {
     button.addEventListener("click", () => setView(button.dataset.view));
   });
 
+  ui.sheetToggle.addEventListener("click", () => {
+    if (!state.selectedId && state.sheetState === "collapsed") return;
+    setSheetState(state.sheetState === "expanded" ? "collapsed" : "expanded");
+  });
+
   ui.shareButton.addEventListener("click", () => {
     shareCurrentRoad().catch((error) => {
       console.error(error);
@@ -390,6 +433,19 @@ function bindUi() {
       }, 1600);
     });
   });
+
+  window.addEventListener("resize", () => {
+    if (isDesktopLayout()) {
+      setSheetState("expanded");
+      return;
+    }
+
+    ui.detailSheet.dataset.sheetState = state.sheetState;
+    updateSheetToggle();
+    if (state.map) {
+      window.setTimeout(() => state.map.invalidateSize(), 120);
+    }
+  });
 }
 
 async function bootstrap() {
@@ -397,6 +453,7 @@ async function bootstrap() {
 
   createMap();
   bindUi();
+  setSheetState(initialState.roadId || isDesktopLayout() ? "expanded" : "collapsed");
   await loadRoads();
   addMarkers();
 
@@ -408,11 +465,16 @@ async function bootstrap() {
   const preferredRoad =
     state.allRoads.find((item) => item.id === initialState.roadId && isVisibleInCurrentView(item)) ||
     state.allRoads.find((item) => item.id === initialState.roadId) ||
-    getVisibleRoads()[0];
+    (isDesktopLayout() ? getVisibleRoads()[0] : null);
 
   if (preferredRoad) {
-    selectRoad(preferredRoad.id, { skipFly: true });
+    selectRoad(preferredRoad.id, {
+      skipFly: true,
+      expandSheet: Boolean(initialState.roadId) || isDesktopLayout(),
+    });
   }
+
+  updateSheetToggle();
 }
 
 bootstrap().catch((error) => {

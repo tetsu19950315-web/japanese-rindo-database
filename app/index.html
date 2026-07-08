@@ -40,8 +40,14 @@
         <div id="map" aria-label="林道候補マップ"></div>
       </main>
 
-      <aside class="detail-sheet" id="detailSheet">
-        <div class="sheet-handle"></div>
+      <aside class="detail-sheet" id="detailSheet" data-sheet-state="collapsed">
+        <button class="sheet-toggle" id="sheetToggle" type="button" aria-expanded="false">
+          <span class="sheet-handle"></span>
+          <span class="sheet-toggle-copy">
+            <span class="sheet-toggle-title" id="sheetToggleTitle">候補をタップ</span>
+            <span class="sheet-toggle-hint" id="sheetToggleHint">カルテを開く</span>
+          </span>
+        </button>
         <div class="sheet-body">
           <div class="detail-empty" id="detailEmpty">
             <p class="empty-title">候補をタップ</p>

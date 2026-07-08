@@ -42,6 +42,10 @@
 - 2026-07-08: `app/` に本命/予備フィルタとURL共有状態を追加。公開後は、そのまま仲間へ個別候補URLを渡せる状態。
 - 2026-07-08: GitHub Pages 公開用にルート `index.html`、`scripts/build_pages_bundle.py`、`.github/workflows/deploy-pages.yml` を追加。`tmp/pages-dist/` への束ねとローカル root 配信で読み込み確認済み。
 - 2026-07-08: `git` 初期化は実施。GitHub 側公開はアカウント認証待ち。
+- 2026-07-09: GitHub リポジトリ `tetsu19950315-web/japanese-rindo-database` を作成し、`main` を初回 push。
+- 2026-07-09: `actions/deploy-pages` 方式は初回実行で「Pages 未有効」のため失敗。`gh-pages` ブランチへ静的成果物を直接公開する方式に切替。
+- 2026-07-09: 公開URL `https://tetsu19950315-web.github.io/japanese-rindo-database/` は HTTP 200 応答を確認。`karte.json` と共有URL形式も応答確認済み。
+- 2026-07-09: `.github/workflows/deploy-pages.yml` を `main` から `gh-pages` を自動更新する内容へ変更。次回 push で継続運用可能。
 
 ### Decision discipline
 

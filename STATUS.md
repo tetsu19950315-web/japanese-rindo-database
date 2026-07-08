@@ -1,6 +1,6 @@
 # STATUS — 現在地
 
-最終更新: 2026-07-08
+最終更新: 2026-07-09
 
 ## 現在のフェーズ
 
@@ -10,7 +10,7 @@
 - 候補林道の位置情報付与: 完了（10件）
 - 実走候補3〜5本の選定: 完了（4本 + 予備1本）
 - カルテ作成: 実走候補4本の正式カルテ完了
-- MVP地図: ローカル起動可
+- MVP地図: GitHub Pages 公開URLあり
 
 ## 現在のデータ
 
@@ -59,6 +59,8 @@
 - 正式カルテ: `data/processed/karte.json`
 - 静的Webアプリ: `app/index.html`
 - ローカル確認URL: `http://127.0.0.1:8000/app/`
+- GitHub リポジトリ: `https://github.com/tetsu19950315-web/japanese-rindo-database`
+- 公開URL: `https://tetsu19950315-web.github.io/japanese-rindo-database/`
 
 ## 位置データの現状
 
@@ -116,6 +118,17 @@
 - 選択中の林道を URL パラメータで共有可能
 - 地図上で 本命 / 予備 / その他 を見分けられる
 - カルテに選定理由を表示
+- 公開URLは HTTP 200 確認済み
+- `data/processed/karte.json` の公開配信も HTTP 200 確認済み
+- 共有URL例: `https://tetsu19950315-web.github.io/japanese-rindo-database/?view=selected&road=NGN-000010`
+
+## 公開運用メモ
+
+- `main` ブランチに実装・データを置く
+- `gh-pages` ブランチに公開用静的成果物を置く
+- 初回の `actions/deploy-pages` は Pages 未有効のため失敗
+- 現在は `gh-pages` 直配信で公開中
+- `.github/workflows/deploy-pages.yml` は `main` push 時に `scripts/build_pages_bundle.py` で成果物を作り、`gh-pages` を更新する方式に変更済み
 
 ## 直近のユーザー目標
 
@@ -156,5 +169,6 @@
 
 ## 次の一手
 
-- P0-6: 公開URL化とスマホ実機確認
+- P0-6: Android / iPhone 実機で公開URL確認
+- P0-6: Google Maps ナビボタンの実機遷移確認
 - 実走前に通行情報の再チェック

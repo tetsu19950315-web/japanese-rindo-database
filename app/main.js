@@ -1014,5 +1014,7 @@ async function bootstrap() {
 
 bootstrap().catch((error) => {
   console.error(error);
-  ui.summaryText.textContent = "データの読み込みに失敗しました";
+  ui.summaryText.textContent = typeof window.L === "undefined"
+    ? "地図機能の読み込みに失敗しました"
+    : "データの読み込みに失敗しました";
 });

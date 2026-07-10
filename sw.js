@@ -1,4 +1,4 @@
-const CACHE_VERSION = "rindo-v2-20260710";
+const CACHE_VERSION = "rindo-v3-20260710";
 const APP_CACHE = `${CACHE_VERSION}-app`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const fromRoot = (path) => new URL(path, self.location.href).toString();
@@ -10,6 +10,8 @@ const APP_SHELL = [
   fromRoot("./app/index.html"),
   fromRoot("./app/main.js"),
   fromRoot("./app/styles.css"),
+  fromRoot("./app/vendor/leaflet/leaflet.js"),
+  fromRoot("./app/vendor/leaflet/leaflet.css"),
   fromRoot("./manifest.webmanifest"),
   fromRoot("./icons/rindo-192.png"),
   fromRoot("./icons/rindo-512.png"),
@@ -21,8 +23,6 @@ const APP_SHELL = [
 ];
 
 const EXTERNAL_ASSETS = [
-  "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css",
-  "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
   "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap",
 ];
 

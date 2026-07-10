@@ -41,6 +41,10 @@ def main() -> None:
     referenced_ids = set(re.findall(r'getElementById\("([^"]+)"\)', app_js))
     missing_ids = sorted(referenced_ids - set(parser.ids))
     require(not missing_ids, f"JavaScript references missing HTML ids: {missing_ids}")
+    require("./vendor/leaflet/leaflet.js" in app_html, "Leaflet JavaScript must be served locally")
+    require("./vendor/leaflet/leaflet.css" in app_html, "Leaflet CSS must be served locally")
+    require("unpkg.com/leaflet" not in app_html, "App must not depend on the Leaflet CDN")
+    require((BUILD / "app" / "vendor" / "leaflet" / "LICENSE").is_file(), "Leaflet license is missing")
 
     manifest = json.loads((BUILD / "manifest.webmanifest").read_text(encoding="utf-8"))
     require(manifest.get("display") == "standalone", "PWA display must be standalone")

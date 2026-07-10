@@ -19,15 +19,28 @@ const VIEW_LABEL = {
 
 const APP_CONFIG = window.RINDO_APP_CONFIG || {};
 const DATA_BASE_PATH = APP_CONFIG.dataBasePath || "../data/processed";
+const RECORD_DB_NAME = "japanese-rindo-field-records";
+const RECORD_STORE_NAME = "roadRecords";
+const MAX_PHOTOS = 3;
 
 const state = {
   allRoads: [],
   candidateCount: 0,
   map: null,
   markers: new Map(),
+  routeLayers: new Map(),
+  routeFeatures: [],
   selectedId: null,
   sheetState: "collapsed",
   view: "trip",
+  userLocation: null,
+  userMarker: null,
+  accuracyCircle: null,
+  records: new Map(),
+  recordStorageReady: false,
+  recordDraftLocation: null,
+  recordDraftPhotos: [],
+  deferredInstallPrompt: null,
 };
 
 const ui = {
@@ -42,31 +55,56 @@ const ui = {
   roadName: document.getElementById("roadName"),
   sourceBadge: document.getElementById("sourceBadge"),
   rideBadge: document.getElementById("rideBadge"),
+  recordBadge: document.getElementById("recordBadge"),
   roadSummary: document.getElementById("roadSummary"),
   roadMunicipality: document.getElementById("roadMunicipality"),
   roadSurface: document.getElementById("roadSurface"),
   roadAccess: document.getElementById("roadAccess"),
   roadChecked: document.getElementById("roadChecked"),
   roadConfidence: document.getElementById("roadConfidence"),
+  roadRouteStatus: document.getElementById("roadRouteStatus"),
   roadEntry: document.getElementById("roadEntry"),
+  entryCoordinates: document.getElementById("entryCoordinates"),
   roadExit: document.getElementById("roadExit"),
   roadRideNote: document.getElementById("roadRideNote"),
   positionSource: document.getElementById("positionSource"),
   candidateSource: document.getElementById("candidateSource"),
+  sourceLinksBlock: document.getElementById("sourceLinksBlock"),
+  sourceLinks: document.getElementById("sourceLinks"),
   cautions: document.getElementById("cautions"),
   navButton: document.getElementById("navButton"),
   shareButton: document.getElementById("shareButton"),
+  openRecordButton: document.getElementById("openRecordButton"),
+  copyCoordinatesButton: document.getElementById("copyCoordinatesButton"),
+  distanceBanner: document.getElementById("distanceBanner"),
+  entryDistance: document.getElementById("entryDistance"),
+  locationButton: document.getElementById("locationButton"),
+  installButton: document.getElementById("installButton"),
+  exportButton: document.getElementById("exportButton"),
+  connectionBadge: document.getElementById("connectionBadge"),
+  fieldRecord: document.getElementById("fieldRecord"),
+  recordForm: document.getElementById("recordForm"),
+  recordSummaryStatus: document.getElementById("recordSummaryStatus"),
+  recordObservedAt: document.getElementById("recordObservedAt"),
+  recordAccess: document.getElementById("recordAccess"),
+  recordSurface: document.getElementById("recordSurface"),
+  recordGate: document.getElementById("recordGate"),
+  recordLocationText: document.getElementById("recordLocationText"),
+  recordLocationButton: document.getElementById("recordLocationButton"),
+  recordNote: document.getElementById("recordNote"),
+  recordPhotos: document.getElementById("recordPhotos"),
+  photoPreview: document.getElementById("photoPreview"),
+  recordMessage: document.getElementById("recordMessage"),
+  deleteRecordButton: document.getElementById("deleteRecordButton"),
   filterButtons: Array.from(document.querySelectorAll(".filter-chip")),
 };
 
 function parseInitialState() {
   const params = new URLSearchParams(window.location.search);
   const requestedView = params.get("view");
-  const requestedRoad = params.get("road");
-
   return {
     view: ["all", "selected", "trip"].includes(requestedView) ? requestedView : "trip",
-    roadId: requestedRoad,
+    roadId: params.get("road"),
   };
 }
 
@@ -78,16 +116,56 @@ function getSelectedRoad() {
   return state.allRoads.find((item) => item.id === state.selectedId) || null;
 }
 
+function toLocalInputValue(value = new Date()) {
+  const date = value instanceof Date ? value : new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  const offset = date.getTimezoneOffset() * 60_000;
+  return new Date(date.getTime() - offset).toISOString().slice(0, 16);
+}
+
+function formatDistance(meters) {
+  if (!Number.isFinite(meters)) return "—";
+  if (meters < 1000) return `${Math.max(1, Math.round(meters / 10) * 10)} m`;
+  return `${(meters / 1000).toFixed(meters < 10_000 ? 1 : 0)} km`;
+}
+
+function distanceMeters(lat1, lon1, lat2, lon2) {
+  const radius = 6_371_000;
+  const toRadians = (degrees) => (degrees * Math.PI) / 180;
+  const dLat = toRadians(lat2 - lat1);
+  const dLon = toRadians(lon2 - lon1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLon / 2) ** 2;
+  return radius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function selectedRoadDistance() {
+  const road = getSelectedRoad();
+  if (!road || !state.userLocation || !Number.isFinite(road.entryLat) || !Number.isFinite(road.entryLon)) {
+    return null;
+  }
+  return distanceMeters(
+    state.userLocation.latitude,
+    state.userLocation.longitude,
+    road.entryLat,
+    road.entryLon,
+  );
+}
+
 function updateSheetToggle() {
   const selectedRoad = getSelectedRoad();
   const hasSelection = Boolean(selectedRoad);
   const isExpanded = state.sheetState === "expanded";
+  const distance = selectedRoadDistance();
 
   ui.sheetToggleTitle.textContent = hasSelection ? selectedRoad.name : "候補をタップ";
   ui.sheetToggleHint.textContent = hasSelection
-    ? isExpanded
-      ? "地図を広く見る"
-      : "カルテを開く"
+    ? distance !== null
+      ? `入口まで ${formatDistance(distance)}`
+      : isExpanded
+        ? "地図を広く見る"
+        : "カルテを開く"
     : "地図を見ながら候補を探す";
   ui.sheetToggle.setAttribute("aria-expanded", String(isExpanded));
 }
@@ -130,7 +208,7 @@ function getTierMeta(road) {
   return {
     tier: "other",
     label: "候補",
-    stroke: "rgba(31, 42, 34, 0.24)",
+    stroke: "#59685c",
     fillOpacity: 0.9,
     weight: 2,
   };
@@ -148,6 +226,19 @@ function markerStyle(road, isSelected) {
   };
 }
 
+function routeStyle(road, feature, isSelected) {
+  const tierMeta = getTierMeta(road);
+  const exact = feature.properties.relation === "name-match";
+  return {
+    color: tierMeta.stroke,
+    weight: isSelected ? 6 : exact ? 4 : 3,
+    opacity: isSelected ? 0.96 : exact ? 0.84 : 0.58,
+    dashArray: exact ? null : "7 7",
+    lineCap: "round",
+    lineJoin: "round",
+  };
+}
+
 function isVisibleInCurrentView(road) {
   if (state.view === "all") return true;
   if (state.view === "selected") return road.rideTier === "selected";
@@ -160,19 +251,15 @@ function getVisibleRoads() {
 
 function updateSummary() {
   const visibleCount = getVisibleRoads().length;
-  ui.summaryText.textContent = `${VIEW_LABEL[state.view]} ${visibleCount}件表示 / 候補${state.candidateCount}件`;
+  const recordCount = state.records.size;
+  ui.summaryText.textContent = `${VIEW_LABEL[state.view]} ${visibleCount}件 / 候補${state.candidateCount}件${recordCount ? ` / 現地記録${recordCount}件` : ""}`;
 }
 
 function updateUrl() {
   const url = new URL(window.location.href);
   url.searchParams.set("view", state.view);
-
-  if (state.selectedId) {
-    url.searchParams.set("road", state.selectedId);
-  } else {
-    url.searchParams.delete("road");
-  }
-
+  if (state.selectedId) url.searchParams.set("road", state.selectedId);
+  else url.searchParams.delete("road");
   window.history.replaceState({}, "", url);
 }
 
@@ -184,49 +271,101 @@ function setBadge(road) {
   const tierMeta = getTierMeta(road);
   ui.rideBadge.textContent = tierMeta.label;
   ui.rideBadge.dataset.tier = tierMeta.tier;
+
+  const hasRecord = state.records.has(road.id);
+  ui.recordBadge.hidden = !hasRecord;
 }
 
 function updateSelectionStyles() {
   state.markers.forEach((marker, roadId) => {
     const road = state.allRoads.find((item) => item.id === roadId);
+    if (road) marker.setStyle(markerStyle(road, roadId === state.selectedId));
+  });
+
+  state.routeLayers.forEach((layers, roadId) => {
+    const road = state.allRoads.find((item) => item.id === roadId);
     if (!road) return;
-    marker.setStyle(markerStyle(road, roadId === state.selectedId));
+    layers.forEach(({ layer, feature }) => {
+      layer.setStyle(routeStyle(road, feature, roadId === state.selectedId));
+      if (roadId === state.selectedId && state.map.hasLayer(layer)) layer.bringToFront();
+    });
   });
 }
 
-function renderMarkers() {
+function renderMapLayers({ fit = true } = {}) {
   const bounds = [];
 
   state.allRoads.forEach((road) => {
     const marker = state.markers.get(road.id);
     if (!marker) return;
+    const visible = isVisibleInCurrentView(road);
 
-    if (isVisibleInCurrentView(road)) {
-      if (!state.map.hasLayer(marker)) {
-        marker.addTo(state.map);
-      }
+    if (visible) {
+      if (!state.map.hasLayer(marker)) marker.addTo(state.map);
       bounds.push([road.displayLat, road.displayLon]);
     } else if (state.map.hasLayer(marker)) {
       marker.removeFrom(state.map);
     }
+
+    (state.routeLayers.get(road.id) || []).forEach(({ layer }) => {
+      if (visible) {
+        if (!state.map.hasLayer(layer)) layer.addTo(state.map);
+      } else if (state.map.hasLayer(layer)) {
+        layer.removeFrom(state.map);
+      }
+    });
   });
 
   updateSelectionStyles();
   updateSummary();
-
-  if (bounds.length > 0) {
-    state.map.fitBounds(bounds, { padding: [48, 48] });
-  }
+  if (fit && bounds.length > 0) state.map.fitBounds(bounds, { padding: [48, 48] });
 }
 
 function ensureVisibleSelection() {
   if (!state.selectedId) return;
-
   const selectedRoad = state.allRoads.find((item) => item.id === state.selectedId);
   if (selectedRoad && !isVisibleInCurrentView(selectedRoad)) {
-    const fallback = getVisibleRoads()[0];
-    state.selectedId = fallback ? fallback.id : null;
+    state.selectedId = getVisibleRoads()[0]?.id || null;
   }
+}
+
+function updateDistanceDisplay() {
+  const distance = selectedRoadDistance();
+  ui.distanceBanner.hidden = distance === null;
+  ui.entryDistance.textContent = distance === null ? "—" : formatDistance(distance);
+  updateSheetToggle();
+}
+
+function renderSourceLinks(road) {
+  ui.sourceLinks.innerHTML = "";
+  (road.karteSources || []).forEach((source) => {
+    if (!source.url) return;
+    const item = document.createElement("li");
+    const link = document.createElement("a");
+    link.href = source.url;
+    link.target = "_blank";
+    link.rel = "noreferrer";
+    link.textContent = source.title || source.url;
+    item.appendChild(link);
+    ui.sourceLinks.appendChild(item);
+  });
+  ui.sourceLinksBlock.hidden = ui.sourceLinks.children.length === 0;
+}
+
+function renderCautions(road) {
+  ui.cautions.innerHTML = "";
+  const cautions = road.cautions?.length ? road.cautions : ["現地で最新状況を確認"];
+  cautions.forEach((text) => {
+    const item = document.createElement("li");
+    item.textContent = text;
+    ui.cautions.appendChild(item);
+  });
+}
+
+function routeStatusLabel(road) {
+  if (road.routeRelations.includes("name-match")) return "OSMで路線名一致（実線）";
+  if (road.routeRelations.includes("nearby-track")) return "周辺OSM track（破線・参考）";
+  return "線形未確認（入口 / 代表点のみ）";
 }
 
 function selectRoad(id, options = {}) {
@@ -236,7 +375,7 @@ function selectRoad(id, options = {}) {
   if (!isVisibleInCurrentView(road)) {
     state.view = "all";
     syncFilterButtons();
-    renderMarkers();
+    renderMapLayers();
   }
 
   state.selectedId = road.id;
@@ -250,26 +389,24 @@ function selectRoad(id, options = {}) {
   ui.roadMunicipality.textContent = road.municipality;
   ui.roadSurface.textContent = road.surfaceSummary;
   ui.roadAccess.textContent = road.accessStatus;
-  ui.roadChecked.textContent = road.lastChecked;
+  ui.roadChecked.textContent = road.lastChecked || "未確認";
   ui.roadConfidence.textContent = CONFIDENCE_LABEL[road.confidence] || road.confidence || "未設定";
-  ui.roadEntry.textContent = road.entryText || "未作成";
+  ui.roadRouteStatus.textContent = routeStatusLabel(road);
+  ui.roadEntry.textContent = road.entryText || "入口情報未作成";
+  ui.entryCoordinates.textContent = `${road.entryLat.toFixed(6)}, ${road.entryLon.toFixed(6)}`;
   ui.roadExit.textContent = road.exitText || "未作成";
   ui.roadRideNote.textContent = road.rideNote || "カルテ化済み候補";
   ui.positionSource.textContent = road.positionSource;
   ui.candidateSource.textContent = road.candidateSource;
   ui.navButton.href = buildGoogleMapsUrl(road);
+
   setBadge(road);
-
-  ui.cautions.innerHTML = "";
-  (road.cautions || []).forEach((text) => {
-    const item = document.createElement("li");
-    item.textContent = text;
-    ui.cautions.appendChild(item);
-  });
-
+  renderCautions(road);
+  renderSourceLinks(road);
+  loadRecordForm(road);
+  updateDistanceDisplay();
   updateSelectionStyles();
   updateUrl();
-  updateSheetToggle();
 
   if (!options.skipFly) {
     state.map.flyTo([road.displayLat, road.displayLon], Math.max(state.map.getZoom(), 12), {
@@ -281,7 +418,9 @@ function selectRoad(id, options = {}) {
 
 function syncFilterButtons() {
   ui.filterButtons.forEach((button) => {
-    button.classList.toggle("is-active", button.dataset.view === state.view);
+    const active = button.dataset.view === state.view;
+    button.classList.toggle("is-active", active);
+    button.setAttribute("aria-selected", String(active));
   });
 }
 
@@ -289,24 +428,27 @@ function setView(view) {
   state.view = view;
   syncFilterButtons();
   ensureVisibleSelection();
-  renderMarkers();
+  renderMapLayers();
 
-  if (state.selectedId) {
-    selectRoad(state.selectedId, { skipFly: true });
-  } else {
-    const fallback = isDesktopLayout() ? getVisibleRoads()[0] : null;
-    if (fallback) {
-      selectRoad(fallback.id, { skipFly: true });
-    }
+  if (state.selectedId) selectRoad(state.selectedId, { skipFly: true });
+  else if (isDesktopLayout()) {
+    const fallback = getVisibleRoads()[0];
+    if (fallback) selectRoad(fallback.id, { skipFly: true });
   }
-
   updateUrl();
 }
 
-async function shareCurrentRoad() {
-  const road = state.allRoads.find((item) => item.id === state.selectedId);
-  if (!road) return;
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+  } else {
+    window.prompt("コピーしてください", text);
+  }
+}
 
+async function shareCurrentRoad() {
+  const road = getSelectedRoad();
+  if (!road) return;
   const shareUrl = new URL(window.location.href);
   shareUrl.searchParams.set("view", state.view);
   shareUrl.searchParams.set("road", road.id);
@@ -322,20 +464,13 @@ async function shareCurrentRoad() {
       await navigator.share(payload);
       return;
     } catch (error) {
-      if (error && error.name === "AbortError") return;
+      if (error?.name === "AbortError") return;
     }
   }
 
-  if (navigator.clipboard?.writeText) {
-    await navigator.clipboard.writeText(payload.url);
-  } else {
-    window.prompt("共有URL", payload.url);
-    return;
-  }
+  await copyText(payload.url);
   ui.shareButton.textContent = "共有URLをコピー済み";
-  window.setTimeout(() => {
-    ui.shareButton.textContent = "この候補を共有";
-  }, 1600);
+  window.setTimeout(() => (ui.shareButton.textContent = "候補を共有"), 1600);
 }
 
 function createMap() {
@@ -345,26 +480,40 @@ function createMap() {
   }).setView([35.99, 138.12], 11);
 
   L.control.zoom({ position: "bottomright" }).addTo(state.map);
-
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
     maxZoom: 19,
   }).addTo(state.map);
 }
 
-function addMarkers() {
+function addMapLayers() {
   state.allRoads.forEach((road) => {
     const marker = L.circleMarker([road.displayLat, road.displayLon], markerStyle(road, false));
-    const tierLabel = getTierMeta(road).label;
-    marker.bindPopup(`<div class="marker-popup"><strong>${road.name}</strong><br>${road.id} / ${tierLabel}</div>`);
+    const recordLabel = state.records.has(road.id) ? " / 記録済み" : "";
+    marker.bindPopup(
+      `<div class="marker-popup"><strong>${road.name}</strong><br>${road.id} / ${getTierMeta(road).label}${recordLabel}</div>`,
+    );
     marker.on("click", () => selectRoad(road.id));
     state.markers.set(road.id, marker);
   });
 
-  renderMarkers();
+  state.routeFeatures.forEach((feature) => {
+    if (feature.geometry?.type !== "LineString") return;
+    const road = state.allRoads.find((item) => item.id === feature.properties?.id);
+    if (!road) return;
+    const latLngs = feature.geometry.coordinates.map(([lon, lat]) => [lat, lon]);
+    const layer = L.polyline(latLngs, routeStyle(road, feature, false));
+    layer.bindTooltip(`${road.name} / ${feature.properties.relation === "name-match" ? "名前一致線形" : "周辺参考線"}`);
+    layer.on("click", () => selectRoad(road.id));
+    const existing = state.routeLayers.get(road.id) || [];
+    existing.push({ layer, feature });
+    state.routeLayers.set(road.id, existing);
+  });
+
+  renderMapLayers();
 }
 
-function enrichRoads(roads, karteRows, shortlist) {
+function enrichRoads(roads, karteRows, shortlist, routeFeatures) {
   const karteById = new Map(karteRows.map((item) => [item.id, item]));
   const selectedById = new Map(shortlist.selected.map((item) => [item.id, item]));
   const reserveById = new Map(shortlist.reserve.map((item) => [item.id, item]));
@@ -373,6 +522,9 @@ function enrichRoads(roads, karteRows, shortlist) {
     const karte = karteById.get(road.id);
     const selected = selectedById.get(road.id);
     const reserve = reserveById.get(road.id);
+    const routeRelations = routeFeatures
+      .filter((feature) => feature.properties?.id === road.id)
+      .map((feature) => feature.properties.relation);
 
     return {
       ...road,
@@ -385,6 +537,7 @@ function enrichRoads(roads, karteRows, shortlist) {
       entryText: karte ? karte.entry : road.entryText,
       exitText: karte ? karte.exit_or_terminus : road.exitText,
       karteSources: karte ? karte.sources : [],
+      routeRelations,
       rideTier: selected ? "selected" : reserve ? "reserve" : "other",
       rideOrder: selected ? selected.order : null,
       rideNote: selected ? selected.selectionReason : reserve ? reserve.selectionReason : null,
@@ -396,22 +549,343 @@ function buildDataUrl(fileName) {
   return new URL(`${DATA_BASE_PATH}/${fileName}`, window.location.href).toString();
 }
 
+async function checkedFetch(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`${response.status} ${url}`);
+  return response;
+}
+
 async function loadRoads() {
-  const [roadsResponse, candidatesResponse, karteResponse, shortlistResponse] = await Promise.all([
-    fetch(buildDataUrl("mvp_map_data.json")),
-    fetch(buildDataUrl("suwa_chino_candidates.csv")),
-    fetch(buildDataUrl("karte.json")),
-    fetch(buildDataUrl("ride_shortlist_2026-07-08.json")),
+  const [roadsResponse, candidatesResponse, karteResponse, shortlistResponse, routesResponse] = await Promise.all([
+    checkedFetch(buildDataUrl("mvp_map_data.json")),
+    checkedFetch(buildDataUrl("suwa_chino_candidates.csv")),
+    checkedFetch(buildDataUrl("karte.json")),
+    checkedFetch(buildDataUrl("ride_shortlist_2026-07-08.json")),
+    checkedFetch(buildDataUrl("routes.geojson")),
   ]);
 
   const roads = await roadsResponse.json();
   const candidateCsv = await candidatesResponse.text();
   const karteRows = await karteResponse.json();
   const shortlist = await shortlistResponse.json();
-  const candidateRows = candidateCsv.trim().split("\n").slice(1);
+  const routeCollection = await routesResponse.json();
+  state.routeFeatures = routeCollection.features || [];
+  state.candidateCount = candidateCsv.trim().split(/\r?\n/).slice(1).length;
+  state.allRoads = enrichRoads(roads, karteRows, shortlist, state.routeFeatures);
+}
 
-  state.candidateCount = candidateRows.length;
-  state.allRoads = enrichRoads(roads, karteRows, shortlist);
+function locationErrorMessage(error) {
+  if (error?.code === 1) return "位置情報が許可されていません";
+  if (error?.code === 2) return "現在地を取得できませんでした";
+  if (error?.code === 3) return "現在地の取得がタイムアウトしました";
+  return "現在地を取得できませんでした";
+}
+
+function applyUserLocation(position, { center = false } = {}) {
+  const { latitude, longitude, accuracy } = position.coords;
+  state.userLocation = { latitude, longitude, accuracy, capturedAt: new Date().toISOString() };
+
+  if (!state.userMarker) {
+    state.accuracyCircle = L.circle([latitude, longitude], {
+      radius: accuracy,
+      color: "#245f86",
+      weight: 1,
+      fillColor: "#4c9ac7",
+      fillOpacity: 0.12,
+      interactive: false,
+    }).addTo(state.map);
+    state.userMarker = L.circleMarker([latitude, longitude], {
+      radius: 8,
+      color: "#ffffff",
+      weight: 3,
+      fillColor: "#176f9e",
+      fillOpacity: 1,
+    }).addTo(state.map);
+    state.userMarker.bindTooltip("現在地");
+  } else {
+    state.userMarker.setLatLng([latitude, longitude]);
+    state.accuracyCircle.setLatLng([latitude, longitude]).setRadius(accuracy);
+  }
+
+  if (center) state.map.setView([latitude, longitude], Math.max(state.map.getZoom(), 13));
+  ui.locationButton.textContent = "現在地を更新";
+  ui.locationButton.classList.add("is-active");
+  updateDistanceDisplay();
+}
+
+function requestCurrentLocation({ center = false } = {}) {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject(new Error("この端末は位置情報に対応していません"));
+      return;
+    }
+    ui.locationButton.disabled = true;
+    ui.locationButton.textContent = "現在地を取得中...";
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        applyUserLocation(position, { center });
+        ui.locationButton.disabled = false;
+        resolve(state.userLocation);
+      },
+      (error) => {
+        ui.locationButton.disabled = false;
+        ui.locationButton.textContent = state.userLocation ? "現在地を更新" : "現在地を表示";
+        reject(new Error(locationErrorMessage(error)));
+      },
+      { enableHighAccuracy: true, timeout: 12_000, maximumAge: 15_000 },
+    );
+  });
+}
+
+function openRecordDb() {
+  return new Promise((resolve, reject) => {
+    if (!window.indexedDB) {
+      reject(new Error("端末内保存に対応していません"));
+      return;
+    }
+    const request = indexedDB.open(RECORD_DB_NAME, 1);
+    request.onupgradeneeded = () => {
+      const db = request.result;
+      if (!db.objectStoreNames.contains(RECORD_STORE_NAME)) {
+        db.createObjectStore(RECORD_STORE_NAME, { keyPath: "roadId" });
+      }
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function recordDbRequest(mode, operation) {
+  const db = await openRecordDb();
+  return new Promise((resolve, reject) => {
+    const transaction = db.transaction(RECORD_STORE_NAME, mode);
+    const store = transaction.objectStore(RECORD_STORE_NAME);
+    const request = operation(store);
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+    transaction.oncomplete = () => db.close();
+    transaction.onerror = () => reject(transaction.error);
+  });
+}
+
+function getAllRecords() {
+  return recordDbRequest("readonly", (store) => store.getAll());
+}
+
+function saveRecord(record) {
+  return recordDbRequest("readwrite", (store) => store.put(record));
+}
+
+function removeRecord(roadId) {
+  return recordDbRequest("readwrite", (store) => store.delete(roadId));
+}
+
+async function initializeRecords() {
+  try {
+    const records = await getAllRecords();
+    state.records = new Map(records.map((record) => [record.roadId, record]));
+    state.recordStorageReady = true;
+  } catch (error) {
+    console.error(error);
+    state.recordStorageReady = false;
+  }
+  updateRecordControls();
+}
+
+function updateRecordControls() {
+  ui.exportButton.hidden = state.records.size === 0;
+  updateSummary();
+}
+
+function renderRecordLocation() {
+  const location = state.recordDraftLocation;
+  ui.recordLocationText.textContent = location
+    ? `${location.latitude.toFixed(6)}, ${location.longitude.toFixed(6)}（精度 約${Math.round(location.accuracy || 0)}m）`
+    : "位置未記録";
+}
+
+function renderPhotoPreview() {
+  ui.photoPreview.innerHTML = "";
+  state.recordDraftPhotos.forEach((photo, index) => {
+    const figure = document.createElement("figure");
+    const image = document.createElement("img");
+    image.src = photo.dataUrl;
+    image.alt = photo.name || `現地写真 ${index + 1}`;
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.textContent = "削除";
+    removeButton.setAttribute("aria-label", `${image.alt}を削除`);
+    removeButton.addEventListener("click", () => {
+      state.recordDraftPhotos.splice(index, 1);
+      renderPhotoPreview();
+    });
+    figure.append(image, removeButton);
+    ui.photoPreview.appendChild(figure);
+  });
+}
+
+function loadRecordForm(road) {
+  const record = state.records.get(road.id);
+  ui.recordObservedAt.value = record ? toLocalInputValue(record.observedAt) : toLocalInputValue();
+  ui.recordAccess.value = record?.accessStatus || "未確認";
+  ui.recordSurface.value = record?.surface || "未確認";
+  ui.recordGate.value = record?.gate || "不明";
+  ui.recordNote.value = record?.note || "";
+  ui.recordMessage.textContent = "";
+  ui.recordSummaryStatus.textContent = record ? `保存済み ${new Date(record.savedAt).toLocaleDateString("ja-JP")}` : "未記録";
+  ui.deleteRecordButton.hidden = !record;
+  state.recordDraftLocation = record?.location ? { ...record.location } : null;
+  state.recordDraftPhotos = record?.photos ? record.photos.map((photo) => ({ ...photo })) : [];
+  ui.recordPhotos.value = "";
+  renderRecordLocation();
+  renderPhotoPreview();
+}
+
+function blobToDataUrl(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(blob);
+  });
+}
+
+function loadImageFromFile(file) {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const image = new Image();
+    image.onload = () => {
+      URL.revokeObjectURL(url);
+      resolve(image);
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(url);
+      reject(new Error("写真を読み込めませんでした"));
+    };
+    image.src = url;
+  });
+}
+
+async function compressPhoto(file) {
+  if (!file.type.startsWith("image/")) throw new Error("画像ファイルを選んでください");
+  if (file.size > 15 * 1024 * 1024) throw new Error("15MB以下の写真を選んでください");
+  const image = await loadImageFromFile(file);
+  const maxSide = 1280;
+  const scale = Math.min(1, maxSide / Math.max(image.naturalWidth, image.naturalHeight));
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.max(1, Math.round(image.naturalWidth * scale));
+  canvas.height = Math.max(1, Math.round(image.naturalHeight * scale));
+  canvas.getContext("2d").drawImage(image, 0, 0, canvas.width, canvas.height);
+  const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/jpeg", 0.78));
+  if (!blob) throw new Error("写真を縮小できませんでした");
+  return {
+    id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    name: file.name,
+    type: blob.type,
+    size: blob.size,
+    dataUrl: await blobToDataUrl(blob),
+  };
+}
+
+async function addSelectedPhotos(files) {
+  const remaining = MAX_PHOTOS - state.recordDraftPhotos.length;
+  if (remaining <= 0) throw new Error("写真は最大3枚です");
+  const selected = Array.from(files).slice(0, remaining);
+  ui.recordMessage.textContent = "写真を縮小中...";
+  for (const file of selected) {
+    state.recordDraftPhotos.push(await compressPhoto(file));
+    renderPhotoPreview();
+  }
+  ui.recordMessage.textContent = selected.length < files.length ? "写真は最大3枚まで保存できます" : "写真を追加しました";
+}
+
+async function submitRecord(event) {
+  event.preventDefault();
+  const road = getSelectedRoad();
+  if (!road) return;
+  if (!state.recordStorageReady) {
+    ui.recordMessage.textContent = "この端末では記録を保存できません";
+    return;
+  }
+
+  const observedAt = ui.recordObservedAt.value ? new Date(ui.recordObservedAt.value).toISOString() : new Date().toISOString();
+  const record = {
+    schemaVersion: 1,
+    roadId: road.id,
+    roadName: road.name,
+    municipality: road.municipality,
+    observedAt,
+    accessStatus: ui.recordAccess.value,
+    surface: ui.recordSurface.value,
+    gate: ui.recordGate.value,
+    note: ui.recordNote.value.trim(),
+    location: state.recordDraftLocation ? { ...state.recordDraftLocation } : null,
+    photos: state.recordDraftPhotos.map((photo) => ({ ...photo })),
+    savedAt: new Date().toISOString(),
+  };
+
+  try {
+    await saveRecord(record);
+    state.records.set(road.id, record);
+    ui.recordMessage.textContent = "端末内に保存しました";
+    ui.recordSummaryStatus.textContent = `保存済み ${new Date(record.savedAt).toLocaleDateString("ja-JP")}`;
+    ui.deleteRecordButton.hidden = false;
+    setBadge(road);
+    updateRecordControls();
+  } catch (error) {
+    console.error(error);
+    ui.recordMessage.textContent = "保存できませんでした。写真を減らして再度お試しください";
+  }
+}
+
+async function deleteCurrentRecord() {
+  const road = getSelectedRoad();
+  if (!road || !state.records.has(road.id)) return;
+  if (!window.confirm(`${road.name}の現地記録を削除しますか？`)) return;
+  try {
+    await removeRecord(road.id);
+    state.records.delete(road.id);
+    loadRecordForm(road);
+    setBadge(road);
+    updateRecordControls();
+    ui.recordMessage.textContent = "記録を削除しました";
+  } catch (error) {
+    console.error(error);
+    ui.recordMessage.textContent = "削除できませんでした";
+  }
+}
+
+function exportRecords() {
+  const payload = {
+    schemaVersion: 1,
+    exportedAt: new Date().toISOString(),
+    app: "日本林道データベース",
+    records: Array.from(state.records.values()).sort((a, b) => a.roadId.localeCompare(b.roadId)),
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `rindo-field-records-${new Date().toISOString().slice(0, 10)}.json`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function updateConnectionStatus() {
+  const online = navigator.onLine;
+  ui.connectionBadge.textContent = online ? "オンライン" : "オフライン";
+  ui.connectionBadge.classList.toggle("is-offline", !online);
+}
+
+async function registerServiceWorker() {
+  if (!("serviceWorker" in navigator) || !window.isSecureContext) return;
+  try {
+    await navigator.serviceWorker.register(APP_CONFIG.serviceWorkerPath || "../sw.js");
+  } catch (error) {
+    console.error("Service worker registration failed", error);
+  }
 }
 
 function bindUi() {
@@ -424,43 +898,103 @@ function bindUi() {
     setSheetState(state.sheetState === "expanded" ? "collapsed" : "expanded");
   });
 
+  ui.locationButton.addEventListener("click", async () => {
+    try {
+      await requestCurrentLocation({ center: true });
+    } catch (error) {
+      ui.locationButton.textContent = error.message;
+      window.setTimeout(() => {
+        ui.locationButton.textContent = state.userLocation ? "現在地を更新" : "現在地を表示";
+      }, 2200);
+    }
+  });
+
+  ui.copyCoordinatesButton.addEventListener("click", async () => {
+    const road = getSelectedRoad();
+    if (!road) return;
+    await copyText(`${road.entryLat},${road.entryLon}`);
+    ui.copyCoordinatesButton.textContent = "コピー済み";
+    window.setTimeout(() => (ui.copyCoordinatesButton.textContent = "座標をコピー"), 1400);
+  });
+
   ui.shareButton.addEventListener("click", () => {
     shareCurrentRoad().catch((error) => {
       console.error(error);
       ui.shareButton.textContent = "共有に失敗";
-      window.setTimeout(() => {
-        ui.shareButton.textContent = "この候補を共有";
-      }, 1600);
+      window.setTimeout(() => (ui.shareButton.textContent = "候補を共有"), 1600);
     });
   });
 
-  window.addEventListener("resize", () => {
-    if (isDesktopLayout()) {
-      setSheetState("expanded");
-      return;
-    }
+  ui.openRecordButton.addEventListener("click", () => {
+    ui.fieldRecord.open = true;
+    ui.fieldRecord.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
 
-    ui.detailSheet.dataset.sheetState = state.sheetState;
-    updateSheetToggle();
-    if (state.map) {
-      window.setTimeout(() => state.map.invalidateSize(), 120);
+  ui.recordForm.addEventListener("submit", submitRecord);
+  ui.deleteRecordButton.addEventListener("click", deleteCurrentRecord);
+  ui.exportButton.addEventListener("click", exportRecords);
+
+  ui.recordLocationButton.addEventListener("click", async () => {
+    try {
+      const location = state.userLocation || (await requestCurrentLocation());
+      state.recordDraftLocation = { ...location };
+      renderRecordLocation();
+      ui.recordMessage.textContent = "現在地を記録欄へ追加しました。保存ボタンで確定します";
+    } catch (error) {
+      ui.recordMessage.textContent = error.message;
+    }
+  });
+
+  ui.recordPhotos.addEventListener("change", () => {
+    addSelectedPhotos(ui.recordPhotos.files).catch((error) => {
+      console.error(error);
+      ui.recordMessage.textContent = error.message;
+    });
+  });
+
+  window.addEventListener("online", updateConnectionStatus);
+  window.addEventListener("offline", updateConnectionStatus);
+  window.addEventListener("beforeinstallprompt", (event) => {
+    event.preventDefault();
+    state.deferredInstallPrompt = event;
+    ui.installButton.hidden = false;
+  });
+  window.addEventListener("appinstalled", () => {
+    state.deferredInstallPrompt = null;
+    ui.installButton.hidden = true;
+  });
+  ui.installButton.addEventListener("click", async () => {
+    if (!state.deferredInstallPrompt) return;
+    state.deferredInstallPrompt.prompt();
+    await state.deferredInstallPrompt.userChoice;
+    state.deferredInstallPrompt = null;
+    ui.installButton.hidden = true;
+  });
+
+  window.addEventListener("resize", () => {
+    if (isDesktopLayout()) setSheetState("expanded");
+    else {
+      ui.detailSheet.dataset.sheetState = state.sheetState;
+      updateSheetToggle();
+      if (state.map) window.setTimeout(() => state.map.invalidateSize(), 120);
     }
   });
 }
 
 async function bootstrap() {
   const initialState = parseInitialState();
-
   createMap();
   bindUi();
+  updateConnectionStatus();
   setSheetState(initialState.roadId || isDesktopLayout() ? "expanded" : "collapsed");
-  await loadRoads();
-  addMarkers();
+
+  await Promise.all([loadRoads(), initializeRecords()]);
+  addMapLayers();
 
   state.view = initialState.view;
   syncFilterButtons();
   ensureVisibleSelection();
-  renderMarkers();
+  renderMapLayers();
 
   const preferredRoad =
     state.allRoads.find((item) => item.id === initialState.roadId && isVisibleInCurrentView(item)) ||
@@ -475,6 +1009,7 @@ async function bootstrap() {
   }
 
   updateSheetToggle();
+  registerServiceWorker();
 }
 
 bootstrap().catch((error) => {

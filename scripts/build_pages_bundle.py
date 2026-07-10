@@ -9,10 +9,16 @@ OUTPUT_DIR = ROOT / "tmp" / "pages-dist"
 
 FILES_TO_COPY = [
     (ROOT / "index.html", OUTPUT_DIR / "index.html"),
+    (ROOT / "app" / "index.html", OUTPUT_DIR / "app" / "index.html"),
     (ROOT / "app" / "main.js", OUTPUT_DIR / "app" / "main.js"),
     (ROOT / "app" / "styles.css", OUTPUT_DIR / "app" / "styles.css"),
+    (ROOT / "manifest.webmanifest", OUTPUT_DIR / "manifest.webmanifest"),
+    (ROOT / "sw.js", OUTPUT_DIR / "sw.js"),
+    (ROOT / "icons" / "rindo-192.png", OUTPUT_DIR / "icons" / "rindo-192.png"),
+    (ROOT / "icons" / "rindo-512.png", OUTPUT_DIR / "icons" / "rindo-512.png"),
     (ROOT / "data" / "processed" / "mvp_map_data.json", OUTPUT_DIR / "data" / "processed" / "mvp_map_data.json"),
     (ROOT / "data" / "processed" / "karte.json", OUTPUT_DIR / "data" / "processed" / "karte.json"),
+    (ROOT / "data" / "processed" / "routes.geojson", OUTPUT_DIR / "data" / "processed" / "routes.geojson"),
     (
         ROOT / "data" / "processed" / "ride_shortlist_2026-07-08.json",
         OUTPUT_DIR / "data" / "processed" / "ride_shortlist_2026-07-08.json",

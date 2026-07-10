@@ -2,146 +2,15 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>日本林道データベース MVP</title>
-    <meta name="theme-color" content="#506a3f" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <link rel="stylesheet" href="./app/styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>日本林道データベース</title>
+    <meta name="theme-color" content="#314c24" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <script>
+      window.location.replace(`./app/${window.location.search}${window.location.hash}`);
+    </script>
   </head>
   <body>
-    <div class="app-shell">
-      <header class="topbar">
-        <div class="title-block">
-          <p class="eyebrow">2026-07-11 / 07-12 長野MVP</p>
-          <h1>日本林道データベース</h1>
-          <p class="meta" id="summaryText">候補を読み込み中...</p>
-          <div class="filter-bar" role="tablist" aria-label="表示切替">
-            <button class="filter-chip is-active" type="button" data-view="trip" id="filterTrip">本命+予備</button>
-            <button class="filter-chip" type="button" data-view="selected" id="filterSelected">本命だけ</button>
-            <button class="filter-chip" type="button" data-view="all" id="filterAll">全部</button>
-          </div>
-        </div>
-        <div class="legend">
-          <span class="legend-item"><i class="dot official"></i>公式図</span>
-          <span class="legend-item"><i class="dot osm-road"></i>OSM道路</span>
-          <span class="legend-item"><i class="dot osm-area"></i>OSM地名</span>
-        </div>
-      </header>
-
-      <main class="map-wrap">
-        <div id="map" aria-label="林道候補マップ"></div>
-      </main>
-
-      <aside class="detail-sheet" id="detailSheet" data-sheet-state="collapsed">
-        <button class="sheet-toggle" id="sheetToggle" type="button" aria-expanded="false">
-          <span class="sheet-handle"></span>
-          <span class="sheet-toggle-copy">
-            <span class="sheet-toggle-title" id="sheetToggleTitle">候補をタップ</span>
-            <span class="sheet-toggle-hint" id="sheetToggleHint">カルテを開く</span>
-          </span>
-        </button>
-        <div class="sheet-body">
-          <div class="detail-empty" id="detailEmpty">
-            <p class="empty-title">候補をタップ</p>
-            <p class="empty-copy">茅野・諏訪周辺の候補林道を地図で確認できます。</p>
-          </div>
-
-          <article class="detail-card hidden" id="detailCard">
-            <div class="card-top">
-              <div>
-                <p class="card-id" id="roadId"></p>
-                <h2 id="roadName"></h2>
-              </div>
-              <div class="badge-stack">
-                <span class="badge ride-badge" id="rideBadge"></span>
-                <span class="badge" id="sourceBadge"></span>
-              </div>
-            </div>
-
-            <p class="card-summary" id="roadSummary"></p>
-
-            <dl class="info-grid">
-              <div>
-                <dt>自治体</dt>
-                <dd id="roadMunicipality"></dd>
-              </div>
-              <div>
-                <dt>路面</dt>
-                <dd id="roadSurface"></dd>
-              </div>
-              <div>
-                <dt>通行情報</dt>
-                <dd id="roadAccess"></dd>
-              </div>
-              <div>
-                <dt>最終確認</dt>
-                <dd id="roadChecked"></dd>
-              </div>
-              <div>
-                <dt>信頼度</dt>
-                <dd id="roadConfidence"></dd>
-              </div>
-            </dl>
-
-            <div class="source-block">
-              <p class="label">入口</p>
-              <p id="roadEntry"></p>
-            </div>
-
-            <div class="source-block">
-              <p class="label">出口 / 終点</p>
-              <p id="roadExit"></p>
-            </div>
-
-            <div class="source-block">
-              <p class="label">選定理由</p>
-              <p id="roadRideNote"></p>
-            </div>
-
-            <div class="source-block">
-              <p class="label">位置ソース</p>
-              <p id="positionSource"></p>
-            </div>
-
-            <div class="source-block">
-              <p class="label">候補出典</p>
-              <p id="candidateSource"></p>
-            </div>
-
-            <div class="source-block">
-              <p class="label">注意</p>
-              <ul id="cautions"></ul>
-            </div>
-
-            <div class="actions">
-              <a class="primary-action" id="navButton" href="#" target="_blank" rel="noreferrer">
-                Google Mapsで入口までナビ
-              </a>
-              <button class="secondary-action" id="shareButton" type="button">この候補を共有</button>
-            </div>
-          </article>
-        </div>
-      </aside>
-    </div>
-
-    <script
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
-    <script>
-      window.RINDO_APP_CONFIG = {
-        dataBasePath: "./data/processed",
-      };
-    </script>
-    <script src="./app/main.js"></script>
+    <p><a href="./app/">日本林道データベースを開く</a></p>
   </body>
 </html>

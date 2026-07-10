@@ -11,6 +11,9 @@
 ## 現在の読み込みデータ
 
 - `data/processed/mvp_map_data.json`
+- `data/processed/karte.json`
+- `data/processed/ride_shortlist_2026-07-08.json`
+- `data/processed/routes.geojson`
 
 ## MVPの現在地
 
@@ -20,5 +23,10 @@
 - Google Mapsナビ遷移
 - 本命 / 予備 / 全件の切替
 - URLで選択中の候補と表示状態を共有可能
+- 現在地と入口までの直線距離表示
+- 通行情報・注意事項を優先した現地判断カルテ
+- 名前一致線形と周辺参考線形を区別したルート表示
+- PWAホーム画面追加と基本オフライン対応
+- 写真・位置付き現地記録の端末内保存とJSON書き出し
 
-公開URL化と実機確認は次段階で行う。
+完全オフライン地図、ログイン、サーバー同期は対象外。

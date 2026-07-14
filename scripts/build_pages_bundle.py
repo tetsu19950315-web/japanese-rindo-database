@@ -19,16 +19,16 @@ FILES_TO_COPY = [
     (ROOT / "sw.js", OUTPUT_DIR / "sw.js"),
     (ROOT / "icons" / "rindo-192.png", OUTPUT_DIR / "icons" / "rindo-192.png"),
     (ROOT / "icons" / "rindo-512.png", OUTPUT_DIR / "icons" / "rindo-512.png"),
-    (ROOT / "data" / "processed" / "mvp_map_data.json", OUTPUT_DIR / "data" / "processed" / "mvp_map_data.json"),
+    (ROOT / "data" / "processed" / "nagano_map_data.json", OUTPUT_DIR / "data" / "processed" / "nagano_map_data.json"),
     (ROOT / "data" / "processed" / "karte.json", OUTPUT_DIR / "data" / "processed" / "karte.json"),
-    (ROOT / "data" / "processed" / "routes.geojson", OUTPUT_DIR / "data" / "processed" / "routes.geojson"),
+    (ROOT / "data" / "processed" / "nagano_routes.geojson", OUTPUT_DIR / "data" / "processed" / "nagano_routes.geojson"),
     (
-        ROOT / "data" / "processed" / "ride_shortlist_2026-07-08.json",
-        OUTPUT_DIR / "data" / "processed" / "ride_shortlist_2026-07-08.json",
+        ROOT / "data" / "processed" / "nagano_shortlist.json",
+        OUTPUT_DIR / "data" / "processed" / "nagano_shortlist.json",
     ),
     (
-        ROOT / "data" / "processed" / "suwa_chino_candidates.csv",
-        OUTPUT_DIR / "data" / "processed" / "suwa_chino_candidates.csv",
+        ROOT / "data" / "processed" / "nagano_candidate_master.csv",
+        OUTPUT_DIR / "data" / "processed" / "nagano_candidate_master.csv",
     ),
 ]
 

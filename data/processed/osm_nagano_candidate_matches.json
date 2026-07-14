@@ -1,0 +1,1929 @@
+{
+  "generatedOn": "2026-07-10",
+  "bbox": [
+    35.15,
+    137.25,
+    37.1,
+    138.9
+  ],
+  "candidateNameCount": 81,
+  "matchedWayCount": 110,
+  "elements": [
+    {
+      "type": "way",
+      "id": 99144102,
+      "center": {
+        "lat": 35.7335365,
+        "lon": 137.8829482
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道古城線",
+        "source": "survey",
+        "surface": "compacted"
+      },
+      "candidateNames": [
+        "古城線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 112753991,
+      "center": {
+        "lat": 35.4422567,
+        "lon": 137.6657661
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道弓の又線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "弓の又線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 112754871,
+      "center": {
+        "lat": 35.3831122,
+        "lon": 137.7331861
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道極楽峠線",
+        "name:en": "Gokuraku-toge Forest Road",
+        "name:ja": "林道極楽峠線",
+        "source": "YahooJapan/ALPSMAP",
+        "tracktype": "grade1"
+      },
+      "candidateNames": [
+        "極楽峠線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 112927668,
+      "center": {
+        "lat": 35.4876066,
+        "lon": 137.9548843
+      },
+      "tags": {
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道大島氏乗線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大島氏乗線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 112928183,
+      "center": {
+        "lat": 35.4719617,
+        "lon": 137.9297738
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大島氏乗線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大島氏乗線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122668983,
+      "center": {
+        "lat": 35.264092,
+        "lon": 137.568887
+      },
+      "tags": {
+        "highway": "service",
+        "name": "林道本洞線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "本洞線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122669022,
+      "center": {
+        "lat": 35.2666785,
+        "lon": 137.5795285
+      },
+      "tags": {
+        "highway": "service",
+        "name": "林道本洞線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "本洞線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122676535,
+      "center": {
+        "lat": 35.3354854,
+        "lon": 137.6567661
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道売木うつぼ線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "売木うつぼ線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122676683,
+      "center": {
+        "lat": 35.3267,
+        "lon": 137.6763188
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道売木うつぼ線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "売木うつぼ線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122703351,
+      "center": {
+        "lat": 35.3115108,
+        "lon": 137.6953593
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道売木うつぼ線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "売木うつぼ線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122703885,
+      "center": {
+        "lat": 35.305398,
+        "lon": 137.7354315
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道売木うつぼ線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "売木うつぼ線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122704320,
+      "center": {
+        "lat": 35.3090177,
+        "lon": 137.6999595
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道売木うつぼ線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "売木うつぼ線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122730483,
+      "center": {
+        "lat": 35.3050145,
+        "lon": 137.7127545
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道売木うつぼ線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "売木うつぼ線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122733725,
+      "center": {
+        "lat": 35.3967645,
+        "lon": 137.746152
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道極楽峠線",
+        "name:en": "Gokuraku-toge Forest Road",
+        "name:ja": "林道極楽峠線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "極楽峠線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122733936,
+      "center": {
+        "lat": 35.3957135,
+        "lon": 137.746418
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道極楽峠線",
+        "name:en": "Gokuraku-toge Forest Road",
+        "name:ja": "林道極楽峠線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "極楽峠線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122734139,
+      "center": {
+        "lat": 35.3957265,
+        "lon": 137.7488365
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道極楽峠線",
+        "name:en": "Gokuraku-toge Forest Road",
+        "name:ja": "林道極楽峠線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "極楽峠線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 122734219,
+      "center": {
+        "lat": 35.392759,
+        "lon": 137.7403296
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道極楽峠線",
+        "name:en": "Gokuraku-toge Forest Road",
+        "name:ja": "林道極楽峠線",
+        "source": "YahooJapan/ALPSMAP",
+        "tracktype": "grade1"
+      },
+      "candidateNames": [
+        "極楽峠線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127042018,
+      "center": {
+        "lat": 35.2522165,
+        "lon": 138.252088
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127043488,
+      "center": {
+        "lat": 35.2391725,
+        "lon": 138.261135
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127044051,
+      "center": {
+        "lat": 35.2220349,
+        "lon": 138.2582215
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127044365,
+      "center": {
+        "lat": 35.2476701,
+        "lon": 138.2542739
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127044941,
+      "center": {
+        "lat": 35.217691,
+        "lon": 138.2576073
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127044979,
+      "center": {
+        "lat": 35.2414627,
+        "lon": 138.2598269
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127063473,
+      "center": {
+        "lat": 35.2663285,
+        "lon": 138.2397968
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127063646,
+      "center": {
+        "lat": 35.2612899,
+        "lon": 138.2425375
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127063698,
+      "center": {
+        "lat": 35.2292505,
+        "lon": 138.2618545
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127063756,
+      "center": {
+        "lat": 35.2132515,
+        "lon": 138.2575246
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127063767,
+      "center": {
+        "lat": 35.2351705,
+        "lon": 138.2608105
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 127064007,
+      "center": {
+        "lat": 35.226063,
+        "lon": 138.2589345
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道小河内川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "小河内川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 142724564,
+      "center": {
+        "lat": 36.1225085,
+        "lon": 138.056463
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道横河山線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "横河山線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 142724792,
+      "center": {
+        "lat": 36.13139,
+        "lon": 138.0593315
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道横河山線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "横河山線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 146988886,
+      "center": {
+        "lat": 35.948128,
+        "lon": 138.1542295
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道猿ヶ入線",
+        "source": "YahooJapan/ALPSMAP",
+        "tracktype": "grade2"
+      },
+      "candidateNames": [
+        "猿ヶ入"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 146992570,
+      "center": {
+        "lat": 35.7349017,
+        "lon": 137.8765801
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道古城線",
+        "source": "YahooJapan/ALPSMAP;Bing;survey",
+        "surface": "compacted"
+      },
+      "candidateNames": [
+        "古城線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 150698933,
+      "center": {
+        "lat": 36.1873285,
+        "lon": 138.0444326
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道宮ノ入線",
+        "source": "YahooJapan/ALPSMAP",
+        "tracktype": "grade1"
+      },
+      "candidateNames": [
+        "宮ノ入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 150699179,
+      "center": {
+        "lat": 36.1741533,
+        "lon": 138.0139231
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道宮ノ入線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "宮ノ入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151293896,
+      "center": {
+        "lat": 35.5065801,
+        "lon": 137.7559217
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳩打線",
+        "name:en": "Hatouchi Pass",
+        "name:ja": "鳩打峠",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "鳩打線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151412226,
+      "center": {
+        "lat": 35.5566131,
+        "lon": 137.7641565
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道松川入線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "松川入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151412259,
+      "center": {
+        "lat": 35.5517664,
+        "lon": 137.7255419
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳩打線",
+        "name:en": "Hatouchi Pass",
+        "name:ja": "鳩打峠",
+        "source": "YahooJapan/ALPSMAP",
+        "surface": "gravel"
+      },
+      "candidateNames": [
+        "鳩打線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151412261,
+      "center": {
+        "lat": 35.5108644,
+        "lon": 137.7457926
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳩打線",
+        "name:en": "Hatouchi Tunnel",
+        "name:ja": "鳩打隧道",
+        "source": "YahooJapan/ALPSMAP",
+        "tunnel": "yes"
+      },
+      "candidateNames": [
+        "鳩打線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151546931,
+      "center": {
+        "lat": 35.5710095,
+        "lon": 137.7612675
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道松川入線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "松川入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151547074,
+      "center": {
+        "lat": 35.5676635,
+        "lon": 137.766338
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道松川入線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "松川入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151547134,
+      "center": {
+        "lat": 35.5728515,
+        "lon": 137.7623694
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道松川入線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "松川入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151804778,
+      "center": {
+        "lat": 35.3554925,
+        "lon": 137.9650572
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道赤石線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "赤石線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151804861,
+      "center": {
+        "lat": 35.3820127,
+        "lon": 137.9952429
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道赤石線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "赤石線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151941364,
+      "center": {
+        "lat": 35.3914243,
+        "lon": 138.0313675
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道赤石線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "赤石線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151941450,
+      "center": {
+        "lat": 35.3870169,
+        "lon": 138.009611
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道赤石線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "赤石線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151941536,
+      "center": {
+        "lat": 35.3910705,
+        "lon": 138.0288057
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道赤石線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "赤石線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 151941621,
+      "center": {
+        "lat": 35.3855396,
+        "lon": 138.018462
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道赤石線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "赤石線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154400734,
+      "center": {
+        "lat": 35.5577713,
+        "lon": 138.0700383
+      },
+      "tags": {
+        "highway": "unclassified",
+        "maxspeed": "30",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154400744,
+      "center": {
+        "lat": 35.5513198,
+        "lon": 138.0786112
+      },
+      "tags": {
+        "highway": "unclassified",
+        "maxspeed": "30",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154400754,
+      "center": {
+        "lat": 35.5604479,
+        "lon": 138.0624876
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154400761,
+      "center": {
+        "lat": 35.552616,
+        "lon": 138.1102158
+      },
+      "tags": {
+        "bicycle": "yes",
+        "bridge": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "layer": "1",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154400826,
+      "center": {
+        "lat": 35.5516607,
+        "lon": 138.0936223
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154400841,
+      "center": {
+        "lat": 35.5539537,
+        "lon": 138.0700726
+      },
+      "tags": {
+        "highway": "unclassified",
+        "maxspeed": "30",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154581900,
+      "center": {
+        "lat": 35.577871,
+        "lon": 138.0454823
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154797206,
+      "center": {
+        "lat": 35.5668623,
+        "lon": 138.0576471
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154797262,
+      "center": {
+        "lat": 35.5676499,
+        "lon": 138.0558196
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154797282,
+      "center": {
+        "lat": 35.5744108,
+        "lon": 138.0438729
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154797285,
+      "center": {
+        "lat": 35.5658583,
+        "lon": 138.0504394
+      },
+      "tags": {
+        "highway": "unclassified",
+        "lanes": "1",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線",
+        "source": "survey;local knowledge;aerial imagery;gps;streetlevel imagery"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 154797329,
+      "center": {
+        "lat": 35.5676697,
+        "lon": 138.0458711
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線",
+        "oneway": "no",
+        "source": "survey;local knowledge;aerial imagery;gps;streetlevel imagery",
+        "surface": "asphalt"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 156125459,
+      "center": {
+        "lat": 36.2367462,
+        "lon": 138.5730742
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道九竜平線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "九竜平線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 156125494,
+      "center": {
+        "lat": 36.2403195,
+        "lon": 138.592489
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道九竜平線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "九竜平線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 156125514,
+      "center": {
+        "lat": 36.2388135,
+        "lon": 138.582723
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道九竜平線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "九竜平線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 167503507,
+      "center": {
+        "lat": 35.8604882,
+        "lon": 138.5955904
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道本谷線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "本谷線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 167504382,
+      "center": {
+        "lat": 35.8564315,
+        "lon": 138.5903085
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道本谷線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "本谷線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 167505933,
+      "center": {
+        "lat": 35.8595445,
+        "lon": 138.5929884
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道本谷線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "本谷線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 167506235,
+      "center": {
+        "lat": 35.8660116,
+        "lon": 138.5970726
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道本谷線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "本谷線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 167508451,
+      "center": {
+        "lat": 35.8542497,
+        "lon": 138.5829132
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道本谷線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "本谷線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 170035476,
+      "center": {
+        "lat": 36.1389105,
+        "lon": 138.6002376
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 172215158,
+      "center": {
+        "lat": 36.7788415,
+        "lon": 137.989781
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 172215236,
+      "center": {
+        "lat": 36.7642835,
+        "lon": 137.9859825
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 173707891,
+      "center": {
+        "lat": 36.748425,
+        "lon": 137.978031
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大川線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大川線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659741,
+      "center": {
+        "lat": 36.153361,
+        "lon": 138.6010305
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659753,
+      "center": {
+        "lat": 36.1551985,
+        "lon": 138.6211066
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659755,
+      "center": {
+        "lat": 36.1528505,
+        "lon": 138.6014765
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659761,
+      "center": {
+        "lat": 36.1579935,
+        "lon": 138.626848
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659763,
+      "center": {
+        "lat": 36.1521405,
+        "lon": 138.6007405
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659764,
+      "center": {
+        "lat": 36.1595479,
+        "lon": 138.6262426
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659776,
+      "center": {
+        "lat": 36.1544332,
+        "lon": 138.615934
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659781,
+      "center": {
+        "lat": 36.1531685,
+        "lon": 138.6109325
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659805,
+      "center": {
+        "lat": 36.1587694,
+        "lon": 138.626717
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659808,
+      "center": {
+        "lat": 36.1518215,
+        "lon": 138.60661
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 190659822,
+      "center": {
+        "lat": 36.156492,
+        "lon": 138.6242731
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大上線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大上線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 598309082,
+      "center": {
+        "lat": 35.5494156,
+        "lon": 138.1147373
+      },
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "track",
+        "horse": "no",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線",
+        "source": "GSImaps/std",
+        "tracktype": "grade2",
+        "width": "2"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 598309083,
+      "center": {
+        "lat": 35.5505961,
+        "lon": 138.1103226
+      },
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線",
+        "source": "GSImaps/std"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 598327521,
+      "center": {
+        "lat": 35.5503857,
+        "lon": 138.0697949
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 837276172,
+      "center": {
+        "lat": 35.5131123,
+        "lon": 137.7441123
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳩打線",
+        "name:en": "Hatouchi Forest Road",
+        "name:ja": "鳩打峠",
+        "source": "YahooJapan/ALPSMAP",
+        "surface": "gravel"
+      },
+      "candidateNames": [
+        "鳩打線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 854519284,
+      "center": {
+        "lat": 35.5212756,
+        "lon": 137.7390785
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳩打線",
+        "name:en": "Hatouchi Forest Road",
+        "name:ja": "鳩打峠",
+        "source": "YahooJapan/ALPSMAP",
+        "surface": "gravel"
+      },
+      "candidateNames": [
+        "鳩打線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 854519295,
+      "center": {
+        "lat": 35.5448996,
+        "lon": 137.7269443
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳩打線",
+        "name:en": "Hatouchi Pass",
+        "name:ja": "鳩打峠",
+        "source": "YahooJapan/ALPSMAP",
+        "surface": "gravel"
+      },
+      "candidateNames": [
+        "鳩打線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 884939103,
+      "center": {
+        "lat": 35.5582707,
+        "lon": 138.1045327
+      },
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 943679047,
+      "center": {
+        "lat": 35.5355767,
+        "lon": 137.73183
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳩打線",
+        "name:en": "Hatouchi Pass",
+        "name:ja": "鳩打峠",
+        "source": "YahooJapan/ALPSMAP",
+        "surface": "gravel"
+      },
+      "candidateNames": [
+        "鳩打線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 944099216,
+      "center": {
+        "lat": 36.0652875,
+        "lon": 138.7556435
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道東沢線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "東沢線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 971249083,
+      "center": {
+        "lat": 36.1967838,
+        "lon": 138.058749
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道宮ノ入線",
+        "source": "YahooJapan/ALPSMAP",
+        "tracktype": "grade1"
+      },
+      "candidateNames": [
+        "宮ノ入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 971249084,
+      "center": {
+        "lat": 36.1959117,
+        "lon": 138.056617
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "track",
+        "layer": "1",
+        "name": "林道宮ノ入線",
+        "source": "YahooJapan/ALPSMAP",
+        "tracktype": "grade1"
+      },
+      "candidateNames": [
+        "宮ノ入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1055868709,
+      "center": {
+        "lat": 35.4699498,
+        "lon": 137.9220436
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道大島氏乗線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大島氏乗線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1055868710,
+      "center": {
+        "lat": 35.4704465,
+        "lon": 137.9226419
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道大島氏乗線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大島氏乗線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1055869086,
+      "center": {
+        "lat": 35.490318,
+        "lon": 137.9560462
+      },
+      "tags": {
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道大島氏乗線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大島氏乗線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1055869087,
+      "center": {
+        "lat": 35.488607,
+        "lon": 137.9561948
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "name": "林道大島氏乗線",
+        "source": "YahooJapan/ALPSMAP"
+      },
+      "candidateNames": [
+        "大島氏乗線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1195956152,
+      "center": {
+        "lat": 35.5529867,
+        "lon": 138.0688315
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1195956153,
+      "center": {
+        "lat": 35.5520242,
+        "lon": 138.0701018
+      },
+      "tags": {
+        "embankment": "yes",
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1229231245,
+      "center": {
+        "lat": 35.5821865,
+        "lon": 138.0466152
+      },
+      "tags": {
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1229231246,
+      "center": {
+        "lat": 35.5811905,
+        "lon": 138.0472894
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1268579004,
+      "center": {
+        "lat": 36.1746142,
+        "lon": 138.016309
+      },
+      "tags": {
+        "highway": "track",
+        "name": "林道宮ノ入線",
+        "source": "YahooJapan/ALPSMAP",
+        "tracktype": "grade1"
+      },
+      "candidateNames": [
+        "宮ノ入線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1284760625,
+      "center": {
+        "lat": 35.5498463,
+        "lon": 138.112294
+      },
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "track",
+        "horse": "no",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線",
+        "source": "GSImaps/std",
+        "tracktype": "grade2",
+        "width": "2"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1284764767,
+      "center": {
+        "lat": 35.5544137,
+        "lon": 138.1093454
+      },
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1284764768,
+      "center": {
+        "lat": 35.5578174,
+        "lon": 138.1087234
+      },
+      "tags": {
+        "bicycle": "yes",
+        "bridge": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "layer": "1",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1284766051,
+      "center": {
+        "lat": 35.5569887,
+        "lon": 138.1090901
+      },
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1284766052,
+      "center": {
+        "lat": 35.5561584,
+        "lon": 138.1094241
+      },
+      "tags": {
+        "bicycle": "yes",
+        "bridge": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "layer": "1",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1284766060,
+      "center": {
+        "lat": 35.5524444,
+        "lon": 138.1104364
+      },
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "unclassified",
+        "horse": "no",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線",
+        "source": "GSImaps/std"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    },
+    {
+      "type": "way",
+      "id": 1284766061,
+      "center": {
+        "lat": 35.5522012,
+        "lon": 138.1105003
+      },
+      "tags": {
+        "bridge": "yes",
+        "highway": "unclassified",
+        "layer": "1",
+        "motor_vehicle": "no",
+        "name": "林道鳥倉線",
+        "name:en": "Torikura Forest Road",
+        "name:ja": "林道鳥倉線",
+        "source": "GSImaps/std"
+      },
+      "candidateNames": [
+        "鳥倉線"
+      ]
+    }
+  ]
+}

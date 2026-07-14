@@ -21,21 +21,31 @@ const APP_CONFIG = window.RINDO_APP_CONFIG || {};
 const DATA_BASE_PATH = APP_CONFIG.dataBasePath || "../data/processed";
 const RECORD_DB_NAME = "japanese-rindo-field-records";
 const RECORD_STORE_NAME = "roadRecords";
+const BASE_MAP_STORAGE_KEY = "japanese-rindo-base-map";
 const MAX_PHOTOS = 3;
 
 const state = {
   allRoads: [],
   candidateCount: 0,
   map: null,
+  baseMap: "osm",
+  tileLayers: {},
   markers: new Map(),
   routeLayers: new Map(),
   routeFeatures: [],
   selectedId: null,
   sheetState: "collapsed",
   view: "trip",
+  region: "all",
   userLocation: null,
   userMarker: null,
   accuracyCircle: null,
+  googleMap: null,
+  googleMarkers: new Map(),
+  googleRouteLayers: new Map(),
+  googleUserMarker: null,
+  googleAccuracyCircle: null,
+  googleApiPromise: null,
   records: new Map(),
   recordStorageReady: false,
   recordDraftLocation: null,
@@ -82,6 +92,11 @@ const ui = {
   installButton: document.getElementById("installButton"),
   exportButton: document.getElementById("exportButton"),
   connectionBadge: document.getElementById("connectionBadge"),
+  regionFilter: document.getElementById("regionFilter"),
+  baseMapSelect: document.getElementById("baseMapSelect"),
+  mapProviderMessage: document.getElementById("mapProviderMessage"),
+  leafletMap: document.getElementById("map"),
+  googleMap: document.getElementById("googleMap"),
   fieldRecord: document.getElementById("fieldRecord"),
   recordForm: document.getElementById("recordForm"),
   recordSummaryStatus: document.getElementById("recordSummaryStatus"),
@@ -102,8 +117,17 @@ const ui = {
 function parseInitialState() {
   const params = new URLSearchParams(window.location.search);
   const requestedView = params.get("view");
+  let savedBaseMap = "osm";
+  try {
+    savedBaseMap = window.localStorage.getItem(BASE_MAP_STORAGE_KEY) || "osm";
+  } catch (error) {
+    console.warn("背景地図の設定を読み込めませんでした", error);
+  }
+  const requestedBaseMap = params.get("map") || savedBaseMap;
   return {
     view: ["all", "selected", "trip"].includes(requestedView) ? requestedView : "trip",
+    region: ["all", "東信", "南信", "中信", "北信"].includes(params.get("region")) ? params.get("region") : "all",
+    baseMap: ["osm", "gsi", "google"].includes(requestedBaseMap) ? requestedBaseMap : "osm",
     roadId: params.get("road"),
   };
 }
@@ -240,6 +264,8 @@ function routeStyle(road, feature, isSelected) {
 }
 
 function isVisibleInCurrentView(road) {
+  const regionMatches = state.region === "all" || road.region === state.region;
+  if (!regionMatches) return false;
   if (state.view === "all") return true;
   if (state.view === "selected") return road.rideTier === "selected";
   return road.rideTier === "selected" || road.rideTier === "reserve";
@@ -258,6 +284,10 @@ function updateSummary() {
 function updateUrl() {
   const url = new URL(window.location.href);
   url.searchParams.set("view", state.view);
+  if (state.region === "all") url.searchParams.delete("region");
+  else url.searchParams.set("region", state.region);
+  if (state.baseMap === "osm") url.searchParams.delete("map");
+  else url.searchParams.set("map", state.baseMap);
   if (state.selectedId) url.searchParams.set("road", state.selectedId);
   else url.searchParams.delete("road");
   window.history.replaceState({}, "", url);
@@ -290,6 +320,7 @@ function updateSelectionStyles() {
       if (roadId === state.selectedId && state.map.hasLayer(layer)) layer.bringToFront();
     });
   });
+  updateGoogleSelectionStyles();
 }
 
 function renderMapLayers({ fit = true } = {}) {
@@ -318,7 +349,8 @@ function renderMapLayers({ fit = true } = {}) {
 
   updateSelectionStyles();
   updateSummary();
-  if (fit && bounds.length > 0) state.map.fitBounds(bounds, { padding: [48, 48] });
+  if (state.baseMap === "google") syncGoogleMapLayers({ fit });
+  else if (fit && bounds.length > 0) state.map.fitBounds(bounds, { padding: [48, 48] });
 }
 
 function ensureVisibleSelection() {
@@ -374,6 +406,8 @@ function selectRoad(id, options = {}) {
 
   if (!isVisibleInCurrentView(road)) {
     state.view = "all";
+    state.region = "all";
+    ui.regionFilter.value = "all";
     syncFilterButtons();
     renderMapLayers();
   }
@@ -408,7 +442,10 @@ function selectRoad(id, options = {}) {
   updateSelectionStyles();
   updateUrl();
 
-  if (!options.skipFly) {
+  if (!options.skipFly && state.baseMap === "google" && state.googleMap) {
+    state.googleMap.setCenter({ lat: road.displayLat, lng: road.displayLon });
+    state.googleMap.setZoom(Math.max(state.googleMap.getZoom() || 0, 12));
+  } else if (!options.skipFly) {
     state.map.flyTo([road.displayLat, road.displayLon], Math.max(state.map.getZoom(), 12), {
       animate: true,
       duration: 0.5,
@@ -427,6 +464,19 @@ function syncFilterButtons() {
 function setView(view) {
   state.view = view;
   syncFilterButtons();
+  ensureVisibleSelection();
+  renderMapLayers();
+
+  if (state.selectedId) selectRoad(state.selectedId, { skipFly: true });
+  else if (isDesktopLayout()) {
+    const fallback = getVisibleRoads()[0];
+    if (fallback) selectRoad(fallback.id, { skipFly: true });
+  }
+  updateUrl();
+}
+
+function setRegion(region) {
+  state.region = region;
   ensureVisibleSelection();
   renderMapLayers();
 
@@ -473,6 +523,242 @@ async function shareCurrentRoad() {
   window.setTimeout(() => (ui.shareButton.textContent = "候補を共有"), 1600);
 }
 
+function setMapProviderMessage(message = "") {
+  ui.mapProviderMessage.textContent = message;
+  ui.mapProviderMessage.hidden = !message;
+}
+
+function loadGoogleMapsApi() {
+  if (window.google?.maps) return Promise.resolve(window.google.maps);
+  if (state.googleApiPromise) return state.googleApiPromise;
+
+  const apiKey = String(APP_CONFIG.googleMapsApiKey || "").trim();
+  if (!apiKey) {
+    return Promise.reject(new Error("GoogleマップのAPIキーが未設定です"));
+  }
+
+  state.googleApiPromise = new Promise((resolve, reject) => {
+    const callbackName = `initRindoGoogleMap${Date.now()}`;
+    const script = document.createElement("script");
+    window[callbackName] = () => {
+      delete window[callbackName];
+      resolve(window.google.maps);
+    };
+    window.gm_authFailure = () => {
+      state.googleApiPromise = null;
+      setMapProviderMessage("GoogleマップのAPIキーまたは参照元制限を確認してください");
+    };
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${encodeURIComponent(apiKey)}&v=weekly&loading=async&callback=${callbackName}`;
+    script.async = true;
+    script.onerror = () => {
+      delete window[callbackName];
+      state.googleApiPromise = null;
+      reject(new Error("Googleマップを読み込めませんでした"));
+    };
+    document.head.appendChild(script);
+  });
+  return state.googleApiPromise;
+}
+
+function googleMarkerIcon(road, isSelected = false) {
+  const sourceMeta = SOURCE_META[road.sourceType] || SOURCE_META["official-map"];
+  const tierMeta = getTierMeta(road);
+  return {
+    path: window.google.maps.SymbolPath.CIRCLE,
+    scale: isSelected ? 10 : road.rideTier === "selected" ? 9 : road.rideTier === "reserve" ? 8 : 7,
+    fillColor: sourceMeta.color,
+    fillOpacity: 1,
+    strokeColor: tierMeta.stroke,
+    strokeOpacity: 1,
+    strokeWeight: isSelected ? tierMeta.weight + 1 : tierMeta.weight,
+  };
+}
+
+function addGoogleMapLayers() {
+  if (!state.googleMap || state.googleMarkers.size > 0) return;
+
+  state.allRoads.forEach((road) => {
+    const marker = new window.google.maps.Marker({
+      position: { lat: road.displayLat, lng: road.displayLon },
+      title: `${road.name} / ${road.id}`,
+      icon: googleMarkerIcon(road),
+      optimized: true,
+    });
+    marker.addListener("click", () => selectRoad(road.id));
+    state.googleMarkers.set(road.id, marker);
+  });
+
+  state.routeFeatures.forEach((feature) => {
+    if (feature.geometry?.type !== "LineString") return;
+    const road = state.allRoads.find((item) => item.id === feature.properties?.id);
+    if (!road) return;
+    const style = routeStyle(road, feature, false);
+    const line = new window.google.maps.Polyline({
+      path: feature.geometry.coordinates.map(([lng, lat]) => ({ lat, lng })),
+      strokeColor: style.color,
+      strokeOpacity: style.opacity,
+      strokeWeight: style.weight,
+      clickable: true,
+    });
+    line.addListener("click", () => selectRoad(road.id));
+    const existing = state.googleRouteLayers.get(road.id) || [];
+    existing.push({ layer: line, feature });
+    state.googleRouteLayers.set(road.id, existing);
+  });
+}
+
+function updateGoogleSelectionStyles() {
+  if (!state.googleMap) return;
+  state.googleMarkers.forEach((marker, roadId) => {
+    const road = state.allRoads.find((item) => item.id === roadId);
+    if (road) marker.setIcon(googleMarkerIcon(road, roadId === state.selectedId));
+  });
+  state.googleRouteLayers.forEach((layers, roadId) => {
+    const road = state.allRoads.find((item) => item.id === roadId);
+    if (!road) return;
+    layers.forEach(({ layer, feature }) => {
+      const style = routeStyle(road, feature, roadId === state.selectedId);
+      layer.setOptions({
+        strokeColor: style.color,
+        strokeOpacity: style.opacity,
+        strokeWeight: style.weight,
+        zIndex: roadId === state.selectedId ? 20 : 10,
+      });
+    });
+  });
+}
+
+function syncGoogleUserLocation() {
+  if (!state.googleMap || !state.userLocation) return;
+  const center = { lat: state.userLocation.latitude, lng: state.userLocation.longitude };
+  if (!state.googleUserMarker) {
+    state.googleUserMarker = new window.google.maps.Marker({
+      map: state.googleMap,
+      position: center,
+      title: "現在地",
+      zIndex: 30,
+      icon: {
+        path: window.google.maps.SymbolPath.CIRCLE,
+        scale: 8,
+        fillColor: "#176f9e",
+        fillOpacity: 1,
+        strokeColor: "#ffffff",
+        strokeWeight: 3,
+      },
+    });
+    state.googleAccuracyCircle = new window.google.maps.Circle({
+      map: state.googleMap,
+      center,
+      radius: state.userLocation.accuracy || 0,
+      strokeColor: "#245f86",
+      strokeOpacity: 0.8,
+      strokeWeight: 1,
+      fillColor: "#4c9ac7",
+      fillOpacity: 0.12,
+      clickable: false,
+    });
+  } else {
+    state.googleUserMarker.setMap(state.googleMap);
+    state.googleUserMarker.setPosition(center);
+    state.googleAccuracyCircle.setMap(state.googleMap);
+    state.googleAccuracyCircle.setCenter(center);
+    state.googleAccuracyCircle.setRadius(state.userLocation.accuracy || 0);
+  }
+}
+
+function syncGoogleMapLayers({ fit = false } = {}) {
+  if (!state.googleMap) return;
+  const bounds = new window.google.maps.LatLngBounds();
+  let visibleCount = 0;
+  state.allRoads.forEach((road) => {
+    const visible = isVisibleInCurrentView(road);
+    state.googleMarkers.get(road.id)?.setMap(visible ? state.googleMap : null);
+    if (visible) {
+      bounds.extend({ lat: road.displayLat, lng: road.displayLon });
+      visibleCount += 1;
+    }
+    (state.googleRouteLayers.get(road.id) || []).forEach(({ layer }) => layer.setMap(visible ? state.googleMap : null));
+  });
+  syncGoogleUserLocation();
+  updateGoogleSelectionStyles();
+  if (fit && visibleCount > 1) state.googleMap.fitBounds(bounds, 52);
+  else if (fit && visibleCount === 1) {
+    state.googleMap.setCenter(bounds.getCenter());
+    state.googleMap.setZoom(13);
+  }
+}
+
+async function ensureGoogleMap() {
+  await loadGoogleMapsApi();
+  if (state.googleMap) return;
+  const center = state.map.getCenter();
+  state.googleMap = new window.google.maps.Map(ui.googleMap, {
+    center: { lat: center.lat, lng: center.lng },
+    zoom: state.map.getZoom(),
+    mapTypeId: "roadmap",
+    mapTypeControl: false,
+    streetViewControl: false,
+    fullscreenControl: false,
+    gestureHandling: "greedy",
+  });
+  addGoogleMapLayers();
+}
+
+function saveBaseMapPreference(provider) {
+  try {
+    window.localStorage.setItem(BASE_MAP_STORAGE_KEY, provider);
+  } catch (error) {
+    console.warn("背景地図の設定を保存できませんでした", error);
+  }
+}
+
+async function setBaseMap(provider, { fit = false } = {}) {
+  const nextProvider = ["osm", "gsi", "google"].includes(provider) ? provider : "osm";
+  const previousProvider = state.baseMap;
+  ui.baseMapSelect.disabled = true;
+
+  if (nextProvider === "google") {
+    setMapProviderMessage("Googleマップを読み込み中...");
+    try {
+      await ensureGoogleMap();
+    } catch (error) {
+      setMapProviderMessage(`${error.message}。アプリ設定にキーを追加すると利用できます`);
+      ui.baseMapSelect.value = previousProvider;
+      ui.baseMapSelect.disabled = false;
+      return false;
+    }
+    const center = state.map.getCenter();
+    state.googleMap.setCenter({ lat: center.lat, lng: center.lng });
+    state.googleMap.setZoom(state.map.getZoom());
+    state.baseMap = "google";
+    ui.leafletMap.hidden = true;
+    ui.googleMap.hidden = false;
+    setMapProviderMessage("");
+    syncGoogleMapLayers({ fit });
+  } else {
+    if (previousProvider === "google" && state.googleMap) {
+      const center = state.googleMap.getCenter();
+      state.map.setView([center.lat(), center.lng()], state.googleMap.getZoom(), { animate: false });
+    }
+    Object.values(state.tileLayers).forEach((layer) => {
+      if (state.map.hasLayer(layer)) state.map.removeLayer(layer);
+    });
+    state.tileLayers[nextProvider].addTo(state.map);
+    state.baseMap = nextProvider;
+    ui.googleMap.hidden = true;
+    ui.leafletMap.hidden = false;
+    setMapProviderMessage("");
+    window.setTimeout(() => state.map.invalidateSize(), 0);
+    if (fit) renderMapLayers({ fit: true });
+  }
+
+  ui.baseMapSelect.value = state.baseMap;
+  ui.baseMapSelect.disabled = false;
+  saveBaseMapPreference(state.baseMap);
+  updateUrl();
+  return true;
+}
+
 function createMap() {
   state.map = L.map("map", {
     zoomControl: false,
@@ -480,10 +766,18 @@ function createMap() {
   }).setView([35.99, 138.12], 11);
 
   L.control.zoom({ position: "bottomright" }).addTo(state.map);
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    maxZoom: 19,
-  }).addTo(state.map);
+  state.tileLayers = {
+    osm: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 19,
+    }),
+    gsi: L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png", {
+      attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noreferrer">国土地理院</a>',
+      maxNativeZoom: 18,
+      maxZoom: 19,
+    }),
+  };
+  state.tileLayers.osm.addTo(state.map);
 }
 
 function addMapLayers() {
@@ -536,7 +830,7 @@ function enrichRoads(roads, karteRows, shortlist, routeFeatures) {
       confidence: karte ? karte.confidence : road.confidence,
       entryText: karte ? karte.entry : road.entryText,
       exitText: karte ? karte.exit_or_terminus : road.exitText,
-      karteSources: karte ? karte.sources : [],
+      karteSources: karte ? karte.sources : road.sourceLinks || [],
       routeRelations,
       rideTier: selected ? "selected" : reserve ? "reserve" : "other",
       rideOrder: selected ? selected.order : null,
@@ -556,21 +850,19 @@ async function checkedFetch(url) {
 }
 
 async function loadRoads() {
-  const [roadsResponse, candidatesResponse, karteResponse, shortlistResponse, routesResponse] = await Promise.all([
-    checkedFetch(buildDataUrl("mvp_map_data.json")),
-    checkedFetch(buildDataUrl("suwa_chino_candidates.csv")),
+  const [roadsResponse, karteResponse, shortlistResponse, routesResponse] = await Promise.all([
+    checkedFetch(buildDataUrl("nagano_map_data.json")),
     checkedFetch(buildDataUrl("karte.json")),
-    checkedFetch(buildDataUrl("ride_shortlist_2026-07-08.json")),
-    checkedFetch(buildDataUrl("routes.geojson")),
+    checkedFetch(buildDataUrl("nagano_shortlist.json")),
+    checkedFetch(buildDataUrl("nagano_routes.geojson")),
   ]);
 
   const roads = await roadsResponse.json();
-  const candidateCsv = await candidatesResponse.text();
   const karteRows = await karteResponse.json();
   const shortlist = await shortlistResponse.json();
   const routeCollection = await routesResponse.json();
   state.routeFeatures = routeCollection.features || [];
-  state.candidateCount = candidateCsv.trim().split(/\r?\n/).slice(1).length;
+  state.candidateCount = shortlist.counts?.master || roads.length;
   state.allRoads = enrichRoads(roads, karteRows, shortlist, state.routeFeatures);
 }
 
@@ -608,6 +900,11 @@ function applyUserLocation(position, { center = false } = {}) {
   }
 
   if (center) state.map.setView([latitude, longitude], Math.max(state.map.getZoom(), 13));
+  syncGoogleUserLocation();
+  if (center && state.baseMap === "google" && state.googleMap) {
+    state.googleMap.setCenter({ lat: latitude, lng: longitude });
+    state.googleMap.setZoom(Math.max(state.googleMap.getZoom() || 0, 13));
+  }
   ui.locationButton.textContent = "現在地を更新";
   ui.locationButton.classList.add("is-active");
   updateDistanceDisplay();
@@ -892,6 +1189,15 @@ function bindUi() {
   ui.filterButtons.forEach((button) => {
     button.addEventListener("click", () => setView(button.dataset.view));
   });
+  ui.regionFilter.addEventListener("change", () => setRegion(ui.regionFilter.value));
+  ui.baseMapSelect.addEventListener("change", () => {
+    setBaseMap(ui.baseMapSelect.value).catch((error) => {
+      console.error(error);
+      setMapProviderMessage("背景地図の切り替えに失敗しました");
+      ui.baseMapSelect.value = state.baseMap;
+      ui.baseMapSelect.disabled = false;
+    });
+  });
 
   ui.sheetToggle.addEventListener("click", () => {
     if (!state.selectedId && state.sheetState === "collapsed") return;
@@ -972,6 +1278,7 @@ function bindUi() {
   });
 
   window.addEventListener("resize", () => {
+    if (state.googleMap && window.google?.maps) window.google.maps.event.trigger(state.googleMap, "resize");
     if (isDesktopLayout()) setSheetState("expanded");
     else {
       ui.detailSheet.dataset.sheetState = state.sheetState;
@@ -992,8 +1299,11 @@ async function bootstrap() {
   addMapLayers();
 
   state.view = initialState.view;
+  state.region = initialState.region;
+  ui.regionFilter.value = state.region;
   syncFilterButtons();
   ensureVisibleSelection();
+  await setBaseMap(initialState.baseMap, { fit: false });
   renderMapLayers();
 
   const preferredRoad =

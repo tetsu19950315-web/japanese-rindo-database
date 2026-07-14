@@ -1,0 +1,207 @@
+{
+  "generatedOn": "2026-07-10",
+  "selectionMode": "長野県全域・行政資料と市町村確認済みOSMの高速選定",
+  "selectionCriteria": [
+    "行政資料に路線名が掲載されている",
+    "位置は公式図またはOSM名前一致を市町村境界で確認できる",
+    "track・gravel等の未舗装手掛かりを優先する",
+    "舗装計画・通行制限タグ・位置不明は優先度を下げる",
+    "通行可否は現地または管理者確認前提とする"
+  ],
+  "selected": [
+    {
+      "order": 1,
+      "id": "NGN-000026",
+      "name": "古城線",
+      "municipality": "駒ヶ根市",
+      "region": "南信",
+      "priority": "A",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。trackまたは未舗装系タグあり。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "強",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/99144102"
+      ]
+    },
+    {
+      "order": 2,
+      "id": "NGN-000063",
+      "name": "鳥倉線",
+      "municipality": "大鹿村",
+      "region": "南信",
+      "priority": "A",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。trackまたは未舗装系タグあり。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "強",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/598309082"
+      ]
+    },
+    {
+      "order": 3,
+      "id": "NGN-000123",
+      "name": "鳩打線",
+      "municipality": "飯田市",
+      "region": "南信",
+      "priority": "A",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。trackまたは未舗装系タグあり。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "強",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/151412259"
+      ]
+    },
+    {
+      "order": 4,
+      "id": "NGN-000041",
+      "name": "宮ノ入線",
+      "municipality": "松本市",
+      "region": "中信",
+      "priority": "B",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "中",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/150698933"
+      ]
+    },
+    {
+      "order": 5,
+      "id": "NGN-000046",
+      "name": "大川線",
+      "municipality": "長野市",
+      "region": "北信",
+      "priority": "B",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "中",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/172215158"
+      ]
+    },
+    {
+      "order": 6,
+      "id": "NGN-000010",
+      "name": "猿ヶ入",
+      "municipality": "茅野市",
+      "region": "南信",
+      "priority": "B",
+      "selectionReason": "市森林整備計画で整備内容・延長・利用区域を確認。OSM名前一致を市町村境界で確認。trackまたは未舗装系タグあり。",
+      "positionStatus": "線形あり",
+      "unpavedSignal": "強",
+      "sources": [
+        "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "https://www.openstreetmap.org/way/146988886"
+      ]
+    },
+    {
+      "order": 7,
+      "id": "NGN-000021",
+      "name": "横河山線",
+      "municipality": "岡谷市",
+      "region": "南信",
+      "priority": "B",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "中",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/142724564"
+      ]
+    },
+    {
+      "order": 8,
+      "id": "NGN-000030",
+      "name": "売木うつぼ線",
+      "municipality": "阿南町",
+      "region": "南信",
+      "priority": "B",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "中",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/122676683"
+      ]
+    },
+    {
+      "order": 9,
+      "id": "NGN-000106",
+      "name": "九竜平線",
+      "municipality": "佐久市",
+      "region": "東信",
+      "priority": "B",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "中",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/156125459"
+      ]
+    },
+    {
+      "order": 10,
+      "id": "NGN-000107",
+      "name": "大上線",
+      "municipality": "佐久穂町",
+      "region": "東信",
+      "priority": "B",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。",
+      "positionStatus": "OSM名前一致代表点",
+      "unpavedSignal": "中",
+      "sources": [
+        "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "https://www.openstreetmap.org/way/170035476"
+      ]
+    }
+  ],
+  "reserve": [
+    {
+      "id": "NGN-000036",
+      "name": "赤石線",
+      "municipality": "飯田市",
+      "region": "南信",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。"
+    },
+    {
+      "id": "NGN-000038",
+      "name": "弓の又線",
+      "municipality": "阿智村",
+      "region": "南信",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。"
+    },
+    {
+      "id": "NGN-000125",
+      "name": "松川入線",
+      "municipality": "飯田市",
+      "region": "南信",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。"
+    },
+    {
+      "id": "NGN-000133",
+      "name": "極楽峠線",
+      "municipality": "下條村",
+      "region": "南信",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。"
+    },
+    {
+      "id": "NGN-000134",
+      "name": "大島氏乗線",
+      "municipality": "喬木村",
+      "region": "南信",
+      "selectionReason": "長野県R7-R11計画掲載。OSM名前一致を市町村境界で確認。"
+    }
+  ],
+  "counts": {
+    "master": 144,
+    "mapped": 24,
+    "selected": 10,
+    "priorityA": 3,
+    "priorityB": 12
+  }
+}

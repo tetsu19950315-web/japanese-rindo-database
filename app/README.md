@@ -17,8 +17,8 @@
 
 ## MVPの現在地
 
-- 地図表示
-- 10件の候補代表点表示
+- OSM / 国土地理院地図 / Googleマップの背景地図切替
+- 長野県全域の候補代表点表示
 - タップでカルテ表示
 - Google Mapsナビ遷移
 - 本命 / 予備 / 全件の切替
@@ -30,3 +30,23 @@
 - 写真・位置付き現地記録の端末内保存とJSON書き出し
 
 完全オフライン地図、ログイン、サーバー同期は対象外。
+
+## 背景地図
+
+- OSM: 初期表示。追加設定なしで利用可能
+- 国土地理院地図: 「背景地図」から選択。標準地図タイルと出典表記を使用
+- Googleマップ: Google Maps JavaScript API の公式実装。APIキー設定後に利用可能
+
+Googleマップを有効にする場合は、Google Cloud で Maps JavaScript API と課金を有効にし、`app/index.html` の設定へキーを追加する。
+
+```html
+googleMapsApiKey: "YOUR_GOOGLE_MAPS_API_KEY",
+```
+
+ブラウザから利用するキーはHTML上で参照できるため、Google Cloud側で HTTP リファラー制限を必ず設定する。公開版の許可例:
+
+```text
+https://tetsu19950315-web.github.io/japanese-rindo-database/*
+```
+
+APIキーが未設定または読み込みに失敗した場合は、現在のLeaflet地図を維持して案内を表示する。非公式なGoogleタイルURLは使用しない。

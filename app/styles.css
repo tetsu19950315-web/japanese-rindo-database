@@ -143,6 +143,32 @@ input[type="file"] {
   border-color: transparent;
 }
 
+.region-filter {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 36px;
+  padding: 4px 7px 4px 11px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(249, 246, 238, 0.94);
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.region-filter select {
+  min-height: 28px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 700;
+  padding: 2px 24px 2px 8px;
+}
+
 .legend {
   display: flex;
   flex-wrap: wrap;
@@ -205,7 +231,9 @@ input[type="file"] {
 }
 
 .connection-badge,
-.map-tool-button {
+.map-tool-button,
+.basemap-control,
+.map-provider-message {
   border-radius: 999px;
   backdrop-filter: blur(9px);
 }
@@ -244,6 +272,42 @@ input[type="file"] {
   font-size: 0.78rem;
 }
 
+.basemap-control {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 38px;
+  padding: 4px 7px 4px 11px;
+  border: 1px solid var(--line);
+  background: rgba(249, 246, 238, 0.94);
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 700;
+  box-shadow: var(--shadow);
+}
+
+.basemap-control select {
+  min-height: 28px;
+  max-width: 134px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--ink);
+  font-weight: 700;
+  padding: 2px 24px 2px 8px;
+}
+
+.map-provider-message {
+  max-width: min(290px, calc(100vw - 24px));
+  padding: 7px 10px;
+  border: 1px solid var(--warning-line);
+  background: var(--warning-bg);
+  color: #714d10;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  box-shadow: var(--shadow);
+}
+
 .map-tool-button.is-active {
   color: #f7f5ef;
   background: var(--blue);
@@ -254,9 +318,20 @@ input[type="file"] {
 }
 
 .map-wrap,
-#map {
+#map,
+#googleMap {
   height: 100%;
   width: 100%;
+}
+
+.map-wrap {
+  position: relative;
+}
+
+#map,
+#googleMap {
+  position: absolute;
+  inset: 0;
 }
 
 .detail-sheet {

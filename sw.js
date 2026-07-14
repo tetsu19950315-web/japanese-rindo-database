@@ -1,4 +1,4 @@
-const CACHE_VERSION = "rindo-v3-20260710";
+const CACHE_VERSION = "rindo-v5-20260714";
 const APP_CACHE = `${CACHE_VERSION}-app`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const fromRoot = (path) => new URL(path, self.location.href).toString();
@@ -15,11 +15,10 @@ const APP_SHELL = [
   fromRoot("./manifest.webmanifest"),
   fromRoot("./icons/rindo-192.png"),
   fromRoot("./icons/rindo-512.png"),
-  fromRoot("./data/processed/mvp_map_data.json"),
+  fromRoot("./data/processed/nagano_map_data.json"),
   fromRoot("./data/processed/karte.json"),
-  fromRoot("./data/processed/ride_shortlist_2026-07-08.json"),
-  fromRoot("./data/processed/suwa_chino_candidates.csv"),
-  fromRoot("./data/processed/routes.geojson"),
+  fromRoot("./data/processed/nagano_shortlist.json"),
+  fromRoot("./data/processed/nagano_routes.geojson"),
 ];
 
 const EXTERNAL_ASSETS = [

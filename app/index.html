@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>日本林道データベース</title>
-    <meta name="description" content="茅野・諏訪周辺の実走候補林道を、地図・カルテ・現地記録で確認するモバイルWebアプリ" />
+    <meta name="description" content="長野県全域の林道候補を、地図・カルテ・現地記録で確認するモバイルWebアプリ" />
     <meta name="theme-color" content="#314c24" />
     <link rel="manifest" href="../manifest.webmanifest" />
     <link rel="icon" href="../icons/rindo-192.png" type="image/png" />
@@ -19,24 +19,42 @@
     <div class="app-shell">
       <header class="topbar">
         <div class="title-block">
-          <p class="eyebrow">2026-07-11 / 07-12 長野 実走版</p>
+          <p class="eyebrow">長野県全域 / 高速調査版</p>
           <h1>日本林道データベース</h1>
           <p class="meta" id="summaryText">候補を読み込み中...</p>
           <div class="filter-bar" role="tablist" aria-label="表示切替">
             <button class="filter-chip is-active" type="button" data-view="trip" id="filterTrip">本命+予備</button>
             <button class="filter-chip" type="button" data-view="selected" id="filterSelected">本命だけ</button>
             <button class="filter-chip" type="button" data-view="all" id="filterAll">全部</button>
+            <label class="region-filter">
+              <span>地域</span>
+              <select id="regionFilter" aria-label="地域で絞り込み">
+                <option value="all">全県</option>
+                <option value="東信">東信</option>
+                <option value="南信">南信</option>
+                <option value="中信">中信</option>
+                <option value="北信">北信</option>
+              </select>
+            </label>
           </div>
         </div>
         <div class="legend" aria-label="地図凡例">
           <span class="legend-item"><i class="route-sample exact"></i>名前一致線形</span>
-          <span class="legend-item"><i class="route-sample nearby"></i>周辺参考線</span>
           <span class="legend-item"><i class="dot current"></i>現在地</span>
         </div>
       </header>
 
       <div class="map-tools" aria-label="地図ツール">
         <span class="connection-badge" id="connectionBadge" aria-live="polite">オンライン</span>
+        <label class="basemap-control">
+          <span>背景地図</span>
+          <select id="baseMapSelect" aria-label="背景地図を切り替え">
+            <option value="osm">OSM</option>
+            <option value="gsi">国土地理院</option>
+            <option value="google">Googleマップ</option>
+          </select>
+        </label>
+        <span class="map-provider-message" id="mapProviderMessage" role="status" aria-live="polite" hidden></span>
         <button class="map-tool-button" id="installButton" type="button" hidden>ホーム画面に追加</button>
         <button class="map-tool-button location-button" id="locationButton" type="button">現在地を表示</button>
         <button class="map-tool-button" id="exportButton" type="button" hidden>記録を書き出す</button>
@@ -44,6 +62,7 @@
 
       <main class="map-wrap">
         <div id="map" aria-label="林道候補マップ"></div>
+        <div id="googleMap" aria-label="Googleマップの林道候補マップ" hidden></div>
       </main>
 
       <aside class="detail-sheet" id="detailSheet" data-sheet-state="collapsed">
@@ -231,6 +250,7 @@
       window.RINDO_APP_CONFIG = {
         dataBasePath: "../data/processed",
         serviceWorkerPath: "../sw.js",
+        googleMapsApiKey: "",
       };
     </script>
     <script src="./main.js"></script>

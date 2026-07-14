@@ -45,6 +45,18 @@ def main() -> None:
     require("./vendor/leaflet/leaflet.css" in app_html, "Leaflet CSS must be served locally")
     require("unpkg.com/leaflet" not in app_html, "App must not depend on the Leaflet CDN")
     require((BUILD / "app" / "vendor" / "leaflet" / "LICENSE").is_file(), "Leaflet license is missing")
+    require("baseMapSelect" in parser.ids, "Base-map selector is missing")
+    require("googleMap" in parser.ids, "Google map container is missing")
+    require("googleMapsApiKey" in app_html, "Google Maps API key setting is missing")
+    require(
+        "https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png" in app_js,
+        "Official GSI standard map tile is missing",
+    )
+    require(
+        "https://maps.googleapis.com/maps/api/js" in app_js,
+        "Official Google Maps JavaScript API loader is missing",
+    )
+    require("google.com/vt" not in app_js, "Unofficial Google raster tiles must not be used")
 
     manifest = json.loads((BUILD / "manifest.webmanifest").read_text(encoding="utf-8"))
     require(manifest.get("display") == "standalone", "PWA display must be standalone")
@@ -58,20 +70,19 @@ def main() -> None:
         target = BUILD / shell_path.removeprefix("./")
         require(target.exists(), f"Offline shell target is missing: {target}")
 
-    roads = json.loads((BUILD / "data" / "processed" / "mvp_map_data.json").read_text(encoding="utf-8"))
+    roads = json.loads((BUILD / "data" / "processed" / "nagano_map_data.json").read_text(encoding="utf-8"))
     road_ids = {road["id"] for road in roads}
-    routes = json.loads((BUILD / "data" / "processed" / "routes.geojson").read_text(encoding="utf-8"))
+    routes = json.loads((BUILD / "data" / "processed" / "nagano_routes.geojson").read_text(encoding="utf-8"))
     features = routes.get("features", [])
     require(features, "Route GeoJSON has no features")
     require(all(feature.get("geometry", {}).get("type") == "LineString" for feature in features), "Routes must be LineStrings")
     require(all(feature.get("properties", {}).get("id") in road_ids for feature in features), "Route id is not in MVP data")
     relations = Counter(feature["properties"].get("relation") for feature in features)
-    require(relations["name-match"] >= 1, "At least one name-matched route is required")
-    require(relations["nearby-track"] >= 1, "At least one nearby reference route is required")
+    require(relations["name-match"] >= 8, "At least eight statewide name-matched routes are required")
 
     print(
         f"OK: {len(parser.ids)} UI ids, {len(features)} route lines "
-        f"({relations['name-match']} name match / {relations['nearby-track']} nearby), "
+        f"({relations['name-match']} name match), "
         f"{len(manifest.get('icons', []))} PWA icons"
     )
 

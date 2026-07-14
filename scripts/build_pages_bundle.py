@@ -15,6 +15,26 @@ FILES_TO_COPY = [
     (ROOT / "app" / "vendor" / "leaflet" / "leaflet.js", OUTPUT_DIR / "app" / "vendor" / "leaflet" / "leaflet.js"),
     (ROOT / "app" / "vendor" / "leaflet" / "leaflet.css", OUTPUT_DIR / "app" / "vendor" / "leaflet" / "leaflet.css"),
     (ROOT / "app" / "vendor" / "leaflet" / "LICENSE", OUTPUT_DIR / "app" / "vendor" / "leaflet" / "LICENSE"),
+    (
+        ROOT / "app" / "vendor" / "maplibre" / "maplibre-gl.js",
+        OUTPUT_DIR / "app" / "vendor" / "maplibre" / "maplibre-gl.js",
+    ),
+    (
+        ROOT / "app" / "vendor" / "maplibre" / "maplibre-gl.css",
+        OUTPUT_DIR / "app" / "vendor" / "maplibre" / "maplibre-gl.css",
+    ),
+    (
+        ROOT / "app" / "vendor" / "maplibre" / "leaflet-maplibre-gl.js",
+        OUTPUT_DIR / "app" / "vendor" / "maplibre" / "leaflet-maplibre-gl.js",
+    ),
+    (
+        ROOT / "app" / "vendor" / "maplibre" / "LICENSE-maplibre-gl.txt",
+        OUTPUT_DIR / "app" / "vendor" / "maplibre" / "LICENSE-maplibre-gl.txt",
+    ),
+    (
+        ROOT / "app" / "vendor" / "maplibre" / "LICENSE-leaflet-plugin.txt",
+        OUTPUT_DIR / "app" / "vendor" / "maplibre" / "LICENSE-leaflet-plugin.txt",
+    ),
     (ROOT / "manifest.webmanifest", OUTPUT_DIR / "manifest.webmanifest"),
     (ROOT / "sw.js", OUTPUT_DIR / "sw.js"),
     (ROOT / "icons" / "rindo-192.png", OUTPUT_DIR / "icons" / "rindo-192.png"),

@@ -22,6 +22,7 @@ const DATA_BASE_PATH = APP_CONFIG.dataBasePath || "../data/processed";
 const RECORD_DB_NAME = "japanese-rindo-field-records";
 const RECORD_STORE_NAME = "roadRecords";
 const BASE_MAP_STORAGE_KEY = "japanese-rindo-base-map";
+const BASE_MAP_PROVIDERS = new Set(["osm", "openfreemap", "gsi", "gsi-photo", "google"]);
 const MAX_PHOTOS = 3;
 
 const state = {
@@ -127,7 +128,7 @@ function parseInitialState() {
   return {
     view: ["all", "selected", "trip"].includes(requestedView) ? requestedView : "trip",
     region: ["all", "東信", "南信", "中信", "北信"].includes(params.get("region")) ? params.get("region") : "all",
-    baseMap: ["osm", "gsi", "google"].includes(requestedBaseMap) ? requestedBaseMap : "osm",
+    baseMap: BASE_MAP_PROVIDERS.has(requestedBaseMap) ? requestedBaseMap : "osm",
     roadId: params.get("road"),
   };
 }
@@ -713,7 +714,7 @@ function saveBaseMapPreference(provider) {
 }
 
 async function setBaseMap(provider, { fit = false } = {}) {
-  const nextProvider = ["osm", "gsi", "google"].includes(provider) ? provider : "osm";
+  const nextProvider = BASE_MAP_PROVIDERS.has(provider) ? provider : "osm";
   const previousProvider = state.baseMap;
   ui.baseMapSelect.disabled = true;
 
@@ -736,6 +737,13 @@ async function setBaseMap(provider, { fit = false } = {}) {
     setMapProviderMessage("");
     syncGoogleMapLayers({ fit });
   } else {
+    const nextLayer = state.tileLayers[nextProvider];
+    if (!nextLayer) {
+      setMapProviderMessage("この背景地図を読み込めませんでした。OSMを利用してください");
+      ui.baseMapSelect.value = previousProvider;
+      ui.baseMapSelect.disabled = false;
+      return false;
+    }
     if (previousProvider === "google" && state.googleMap) {
       const center = state.googleMap.getCenter();
       state.map.setView([center.lat(), center.lng()], state.googleMap.getZoom(), { animate: false });
@@ -743,7 +751,7 @@ async function setBaseMap(provider, { fit = false } = {}) {
     Object.values(state.tileLayers).forEach((layer) => {
       if (state.map.hasLayer(layer)) state.map.removeLayer(layer);
     });
-    state.tileLayers[nextProvider].addTo(state.map);
+    nextLayer.addTo(state.map);
     state.baseMap = nextProvider;
     ui.googleMap.hidden = true;
     ui.leafletMap.hidden = false;
@@ -771,12 +779,27 @@ function createMap() {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       maxZoom: 19,
     }),
-    gsi: L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png", {
+    gsi: L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png", {
+      attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noreferrer">国土地理院</a>',
+      maxNativeZoom: 18,
+      maxZoom: 19,
+    }),
+    "gsi-photo": L.tileLayer("https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg", {
       attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noreferrer">国土地理院</a>',
       maxNativeZoom: 18,
       maxZoom: 19,
     }),
   };
+  if (typeof L.maplibreGL === "function" && window.maplibregl) {
+    state.tileLayers.openfreemap = L.maplibreGL({
+      style: "https://tiles.openfreemap.org/styles/liberty",
+      interactive: false,
+      attributionControl: {
+        customAttribution:
+          '<a href="https://openfreemap.org/" target="_blank" rel="noreferrer">OpenFreeMap</a> | <a href="https://openmaptiles.org/" target="_blank" rel="noreferrer">&copy; OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">Data from OpenStreetMap</a>',
+      },
+    });
+  }
   state.tileLayers.osm.addTo(state.map);
 }
 

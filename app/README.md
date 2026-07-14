@@ -17,7 +17,7 @@
 
 ## MVPの現在地
 
-- OSM / 国土地理院地図 / Googleマップの背景地図切替
+- OSM / OpenFreeMap / 地理院淡色 / 地理院航空写真 / Googleマップの背景地図切替
 - 長野県全域の候補代表点表示
 - タップでカルテ表示
 - Google Mapsナビ遷移
@@ -34,7 +34,9 @@
 ## 背景地図
 
 - OSM: 初期表示。追加設定なしで利用可能
-- 国土地理院地図: 「背景地図」から選択。標準地図タイルと出典表記を使用
+- OpenFreeMap: LibertyスタイルをMapLibreで表示。APIキー不要
+- 地理院淡色: 「背景地図」から選択。候補点と路線を見やすく表示
+- 地理院航空写真: 全国最新写真（シームレス）を表示
 - Googleマップ: Google Maps JavaScript API の公式実装。APIキー設定後に利用可能
 
 Googleマップを有効にする場合は、Google Cloud で Maps JavaScript API と課金を有効にし、`app/index.html` の設定へキーを追加する。

@@ -45,13 +45,34 @@ def main() -> None:
     require("./vendor/leaflet/leaflet.css" in app_html, "Leaflet CSS must be served locally")
     require("unpkg.com/leaflet" not in app_html, "App must not depend on the Leaflet CDN")
     require((BUILD / "app" / "vendor" / "leaflet" / "LICENSE").is_file(), "Leaflet license is missing")
+    require("./vendor/maplibre/maplibre-gl.js" in app_html, "MapLibre JavaScript must be served locally")
+    require("./vendor/maplibre/maplibre-gl.css" in app_html, "MapLibre CSS must be served locally")
+    require("./vendor/maplibre/leaflet-maplibre-gl.js" in app_html, "Leaflet MapLibre binding must be served locally")
+    require("unpkg.com/maplibre" not in app_html, "App must not depend on the MapLibre CDN")
+    require(
+        (BUILD / "app" / "vendor" / "maplibre" / "LICENSE-maplibre-gl.txt").is_file(),
+        "MapLibre license is missing",
+    )
+    require(
+        (BUILD / "app" / "vendor" / "maplibre" / "LICENSE-leaflet-plugin.txt").is_file(),
+        "Leaflet MapLibre binding license is missing",
+    )
     require("baseMapSelect" in parser.ids, "Base-map selector is missing")
     require("googleMap" in parser.ids, "Google map container is missing")
     require("googleMapsApiKey" in app_html, "Google Maps API key setting is missing")
     require(
-        "https://cyberjapandata.gsi.go.jp/xyz/std/{z}/{x}/{y}.png" in app_js,
-        "Official GSI standard map tile is missing",
+        "https://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png" in app_js,
+        "Official GSI pale map tile is missing",
     )
+    require(
+        "https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg" in app_js,
+        "Official GSI seamless aerial photo tile is missing",
+    )
+    require(
+        "https://tiles.openfreemap.org/styles/liberty" in app_js,
+        "OpenFreeMap Liberty style is missing",
+    )
+    require("https://openmaptiles.org/" in app_js, "OpenMapTiles attribution is missing")
     require(
         "https://maps.googleapis.com/maps/api/js" in app_js,
         "Official Google Maps JavaScript API loader is missing",

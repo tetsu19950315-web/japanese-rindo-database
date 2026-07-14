@@ -38,7 +38,9 @@
 
 ### D009 背景地図は公式配信方式だけを使う
 
-- OSMと国土地理院標準地図はLeafletのタイルレイヤーとして切り替える
+- OSM、国土地理院淡色地図、地理院航空写真はLeafletのタイルレイヤーとして切り替える
+- OpenFreeMapは公式LibertyスタイルをMapLibre GL Leafletで表示する
+- MapLibre本体とLeaflet連携ライブラリはアプリ内へ同梱し、起動時のCDN依存を作らない
 - Googleマップは Maps JavaScript API を使い、非公式タイルURLは使わない
 - Google APIキーが未設定・無効の場合はLeaflet地図を維持して案内を表示する
 - 公開用Google APIキーにはHTTPリファラー制限を設定する
@@ -60,7 +62,6 @@ Codex引き継ぎ時点では、MVPの自由度と共有性から静的Webを既
 ## 将来構想
 
 - Supabase
-- MapLibre
 - Flutter
 - ユーザー投稿
 - AI自動更新

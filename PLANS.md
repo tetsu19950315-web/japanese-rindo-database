@@ -127,9 +127,11 @@ Working notes:
 
 ## 2026-07-14 背景地図切替計画
 
-既存Leafletアプリを維持し、OSM・国土地理院標準地図・Googleマップを同じ選択UIから切り替える。
+既存Leafletアプリを維持し、OSM・OpenFreeMap・地理院淡色・地理院航空写真・Googleマップを同じ選択UIから切り替える。
 
-- [x] OSMと国土地理院標準地図をLeafletレイヤーとして切替
+- [x] OSMと地理院淡色・地理院航空写真をLeafletレイヤーとして切替
+- [x] OpenFreeMap LibertyをMapLibre GL Leafletで表示
+- [x] MapLibre GL JSとLeaflet連携ライブラリをローカル同梱
 - [x] Google Maps JavaScript APIを遅延読み込み
 - [x] 候補点、路線、選択状態、現在地をGoogleマップへ同期
 - [x] URLと端末内設定に選択状態を保持

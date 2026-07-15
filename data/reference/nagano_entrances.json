@@ -1,0 +1,175 @@
+{
+  "schemaVersion": 1,
+  "checkedOn": "2026-07-15",
+  "sourcePolicy": "入口座標は行政資料、OpenStreetMap、国土地理院資料、現地GPSを根拠とする。Google Street View画像は保存・自動解析しない。",
+  "roads": [
+    {
+      "roadId": "NGN-000010",
+      "classification": "one-sided-access",
+      "classificationNote": "西端はOSM上のunclassified道路2本へ接続し、東端はtrack接続のため西端のみを推奨入口とする。",
+      "entrances": [
+        {
+          "id": "E1",
+          "lat": 35.950112,
+          "lon": 138.151812,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "public-road",
+          "surface": "unknown",
+          "navEnabled": true,
+          "description": "OSM上の林道猿ヶ入線西端。一般車道相当のunclassified道路側から進入する推定入口。",
+          "source": "OpenStreetMap way 146988886の端点と接続way 146988665・146988837",
+          "sourceUrl": "https://www.openstreetmap.org/way/146988886",
+          "checkedOn": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "roadId": "NGN-000026",
+      "classification": "through-two-accesses",
+      "classificationNote": "OSM線形の両端がそれぞれ別のunclassified道路へ接続するため、両端を推定入口として登録する。接続路面は未確認。",
+      "entrances": [
+        {
+          "id": "E1",
+          "lat": 35.7315984,
+          "lon": 137.8883453,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "public-road",
+          "surface": "unknown",
+          "navEnabled": true,
+          "description": "OSM上の林道古城線東側端点。unclassified道路へ接続する推定入口。",
+          "source": "OpenStreetMap way 99144102の端点と接続way 146992369",
+          "sourceUrl": "https://www.openstreetmap.org/way/99144102",
+          "checkedOn": "2026-07-15"
+        },
+        {
+          "id": "E2",
+          "lat": 35.734674,
+          "lon": 137.877551,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "public-road",
+          "surface": "unknown",
+          "navEnabled": true,
+          "description": "OSM上の林道古城線西側端点。unclassified道路へ接続する推定入口。",
+          "source": "OpenStreetMap way 99144102の端点と接続way 146992438",
+          "sourceUrl": "https://www.openstreetmap.org/way/99144102",
+          "checkedOn": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "roadId": "NGN-000030",
+      "classification": "through-two-accesses",
+      "classificationNote": "OSM線形の両端がそれぞれ別のunclassified道路へ接続するため、両端を推定入口として登録する。接続路面は未確認。",
+      "entrances": [
+        {
+          "id": "E1",
+          "lat": 35.3300729,
+          "lon": 137.6723525,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "public-road",
+          "surface": "unknown",
+          "navEnabled": true,
+          "description": "OSM上の林道売木うつぼ線北西側端点。unclassified道路へ接続する推定入口。",
+          "source": "OpenStreetMap way 122676683の端点と接続way 462053239",
+          "sourceUrl": "https://www.openstreetmap.org/way/122676683",
+          "checkedOn": "2026-07-15"
+        },
+        {
+          "id": "E2",
+          "lat": 35.3232838,
+          "lon": 137.6808093,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "public-road",
+          "surface": "unknown",
+          "navEnabled": true,
+          "description": "OSM上の林道売木うつぼ線南東側端点。unclassified道路へ接続する推定入口。",
+          "source": "OpenStreetMap way 122676683の端点と接続way 462053337",
+          "sourceUrl": "https://www.openstreetmap.org/way/122676683",
+          "checkedOn": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "roadId": "NGN-000106",
+      "classification": "one-sided-access",
+      "classificationNote": "西端は主要道路へ接続し、東端はunclassified道路のため西端のみを推奨入口とする。",
+      "entrances": [
+        {
+          "id": "E1",
+          "lat": 36.2357086,
+          "lon": 138.5681194,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "major-road",
+          "surface": "unknown",
+          "navEnabled": true,
+          "description": "OSM上の林道九竜平線西端。主要道路の下仁田浅科線へ接続する推定入口。",
+          "source": "OpenStreetMap way 156125459の端点とprimary way 282097279",
+          "sourceUrl": "https://www.openstreetmap.org/way/156125459",
+          "checkedOn": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "roadId": "NGN-000107",
+      "classification": "one-sided-access",
+      "classificationNote": "南端は舗装された主要道路へ接続し、北端は同名林道の別区間へ続くため南端のみを推奨入口とする。",
+      "entrances": [
+        {
+          "id": "E1",
+          "lat": 36.1258849,
+          "lon": 138.5925072,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "major-road",
+          "surface": "paved",
+          "navEnabled": true,
+          "description": "OSM上の林道大上線南端。舗装された主要道路の武州街道へ接続する推定入口。",
+          "source": "OpenStreetMap way 170035476の端点とtrunk way 1297290155（surface=paved）",
+          "sourceUrl": "https://www.openstreetmap.org/way/170035476",
+          "checkedOn": "2026-07-15"
+        }
+      ]
+    },
+    {
+      "roadId": "NGN-000123",
+      "classification": "through-two-accesses",
+      "classificationNote": "OSM線形の両端が一般車道相当の道路へ接続するため、両端を推定入口として登録する。E2側はgravel記録あり。",
+      "entrances": [
+        {
+          "id": "E1",
+          "lat": 35.5529769,
+          "lon": 137.725178,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "public-road",
+          "surface": "unknown",
+          "navEnabled": true,
+          "description": "OSM上の林道鳩打線北側端点。複数のunclassified道路へ接続する推定入口。",
+          "source": "OpenStreetMap way 151412259の端点と接続way 854514668・854521688",
+          "sourceUrl": "https://www.openstreetmap.org/way/151412259",
+          "checkedOn": "2026-07-15"
+        },
+        {
+          "id": "E2",
+          "lat": 35.5505559,
+          "lon": 137.7259066,
+          "status": "estimated",
+          "pointType": "approach",
+          "accessClass": "public-road",
+          "surface": "gravel",
+          "navEnabled": true,
+          "description": "OSM上の林道鳩打線南側端点。gravel記録のある鳩打峠へ接続する推定入口。",
+          "source": "OpenStreetMap way 151412259の端点と鳩打峠 way 854519298（surface=gravel）",
+          "sourceUrl": "https://www.openstreetmap.org/way/151412259",
+          "checkedOn": "2026-07-15"
+        }
+      ]
+    }
+  ]
+}

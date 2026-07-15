@@ -10,19 +10,23 @@
 
 ## 現在の読み込みデータ
 
-- `data/processed/mvp_map_data.json`
+- `data/processed/nagano_map_data.json`
 - `data/processed/karte.json`
-- `data/processed/ride_shortlist_2026-07-08.json`
-- `data/processed/routes.geojson`
+- `data/processed/nagano_shortlist.json`
+- `data/processed/nagano_routes.geojson`
 
 ## MVPの現在地
 
 - OSM / OpenFreeMap / 地理院淡色 / 地理院航空写真 / Googleマップの背景地図切替
-- 長野県全域の候補代表点表示
+- 長野県全域の入口・代表点表示
+- 同一林道IDに複数入口を持つ完抜け林道の①／②表示
+- 入口不明候補の代表点表示とナビ無効化
 - タップでカルテ表示
 - Google Mapsナビ遷移
+- APIキー不要のStreet View入口確認リンク
 - 本命 / 予備 / 全件の切替
 - URLで選択中の候補と表示状態を共有可能
+- `road=NGN-000026&entry=E2` 形式で入口別に共有可能
 - 現在地と入口までの直線距離表示
 - 通行情報・注意事項を優先した現地判断カルテ
 - 名前一致線形と周辺参考線形を区別したルート表示

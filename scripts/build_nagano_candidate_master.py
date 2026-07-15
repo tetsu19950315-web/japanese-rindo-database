@@ -22,6 +22,7 @@ EXISTING_MAP = PROCESSED / "mvp_map_data.json"
 MASTER_CSV = PROCESSED / "nagano_candidate_master.csv"
 MAP_JSON = PROCESSED / "nagano_map_data.json"
 SHORTLIST_JSON = PROCESSED / "nagano_shortlist.json"
+ENTRANCE_DATA = ROOT / "data" / "reference" / "nagano_entrances.json"
 
 CURRENT_PLAN_URL = "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf"
 CHINO_PLAN_URL = "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf"
@@ -99,14 +100,16 @@ def join_unique(values: list[str], separator: str = "・") -> str:
     return separator.join(dict.fromkeys(value for value in values if value))
 
 
-def load_sources() -> tuple[list[dict], list[dict], list[dict], dict, list[dict], dict]:
+def load_sources() -> tuple[list[dict], list[dict], list[dict], dict, list[dict], dict, dict]:
     current = read_csv(CURRENT_PLAN)
     history = read_csv(PLAN_HISTORY)
     osm = json.loads(OSM_MATCHES.read_text(encoding="utf-8"))["elements"]
     bounds = json.loads(MUNICIPALITY_BOUNDS.read_text(encoding="utf-8"))["municipalities"]
     existing_map = json.loads(EXISTING_MAP.read_text(encoding="utf-8"))
     map_by_id = {row["id"]: row for row in existing_map}
-    return current, history, osm, bounds, existing_map, map_by_id
+    entrance_data = json.loads(ENTRANCE_DATA.read_text(encoding="utf-8"))
+    entrances_by_id = {row["roadId"]: row for row in entrance_data.get("roads", [])}
+    return current, history, osm, bounds, existing_map, map_by_id, entrances_by_id
 
 
 def append_current_plan_to_lv0(current: list[dict]) -> list[dict]:
@@ -138,7 +141,7 @@ def append_current_plan_to_lv0(current: list[dict]) -> list[dict]:
 
 
 def build() -> None:
-    current, history, osm_elements, bounds, _existing_map, map_by_id = load_sources()
+    current, history, osm_elements, bounds, _existing_map, map_by_id, entrances_by_id = load_sources()
     lv0_rows = append_current_plan_to_lv0(current)
 
     current_by_norm: dict[str, list[dict]] = defaultdict(list)
@@ -216,8 +219,6 @@ def build() -> None:
         if existing:
             lat = existing.get("displayLat")
             lon = existing.get("displayLon")
-            entry_lat = existing.get("entryLat")
-            entry_lon = existing.get("entryLon")
             exit_lat = existing.get("exitLat")
             exit_lon = existing.get("exitLon")
             position_status = "線形あり" if exit_lat is not None else "代表点あり"
@@ -225,12 +226,11 @@ def build() -> None:
         elif best_osm:
             lat = best_osm["center"]["lat"]
             lon = best_osm["center"]["lon"]
-            entry_lat, entry_lon = lat, lon
             exit_lat = exit_lon = None
             position_status = "OSM名前一致代表点"
             position_source = f"OpenStreetMap way {best_osm['id']}（名前一致・市町村境界確認済み）"
         else:
-            lat = lon = entry_lat = entry_lon = exit_lat = exit_lon = None
+            lat = lon = exit_lat = exit_lon = None
             position_source = ""
 
         osm_ids = [str(item["id"]) for item in verified_osm]
@@ -332,6 +332,9 @@ def build() -> None:
         master.append(row)
 
         if positioned:
+            entrance_record = entrances_by_id.get(road_id, {})
+            entrances = entrance_record.get("entrances", [])
+            primary_entrance = next((item for item in entrances if item.get("navEnabled")), None)
             summary = row["選定理由"] or "行政資料に掲載された長野県内の林道候補。"
             if plan_detail:
                 summary += f" 計画記載: {plan_detail}。"
@@ -343,10 +346,14 @@ def build() -> None:
                 "priority": priority,
                 "displayLat": lat,
                 "displayLon": lon,
-                "entryLat": entry_lat if entry_lat is not None else lat,
-                "entryLon": entry_lon if entry_lon is not None else lon,
+                "entryLat": primary_entrance.get("lat") if primary_entrance else None,
+                "entryLon": primary_entrance.get("lon") if primary_entrance else None,
                 "exitLat": exit_lat,
                 "exitLon": exit_lon,
+                "positionStatus": position_status,
+                "entranceClassification": entrance_record.get("classification", "unknown"),
+                "entranceClassificationNote": entrance_record.get("classificationNote", "入口未特定。代表点として表示する。"),
+                "entrances": entrances,
                 "sourceType": existing.get("sourceType", "osm-road") if existing else "osm-road",
                 "positionSource": position_source,
                 "candidateSource": source,

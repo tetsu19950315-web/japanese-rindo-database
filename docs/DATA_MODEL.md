@@ -32,6 +32,41 @@ Lv0本体を壊さず、別ファイルで管理する。
 ID,表示緯度,表示経度,入口緯度,入口経度,出口緯度,出口経度,位置取得元,位置確認日
 ```
 
+### 複数入口
+
+正規の林道IDは林道本体に対して1つとし、入口は `entrances` 配列で管理する。
+
+```json
+{
+  "id": "NGN-000026",
+  "name": "古城線",
+  "displayLat": 35.733,
+  "displayLon": 137.883,
+  "entranceClassification": "through-two-accesses",
+  "entrances": [
+    {
+      "id": "E1",
+      "lat": 35.7315984,
+      "lon": 137.8883453,
+      "status": "estimated",
+      "pointType": "approach",
+      "accessClass": "public-road",
+      "surface": "unknown",
+      "navEnabled": true,
+      "source": "OpenStreetMapの路線端点と接続道路",
+      "checkedOn": "2026-07-15"
+    }
+  ]
+}
+```
+
+- 同一林道の入口は `E1`、`E2` で区別し、林道ID自体は変更しない。
+- 地図上の内部キーは `NGN-000026:E1` の形式とする。
+- `status` は `verified` / `estimated` を使用する。
+- `pointType=approach` はGoogle Mapsが到達しやすい公道側の分岐直前を示す。
+- 入口不明時は `entrances: []` とし、代表点を入口へ自動転記しない。
+- Street View URLは座標から実行時に生成し、画像は保存しない。
+
 ## 3. MVPカルテ（別ファイル推奨）
 
 `data/processed/karte.json`

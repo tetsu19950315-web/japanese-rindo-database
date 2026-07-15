@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/maplibre/maplibre-gl.css" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260715" />
   </head>
   <body>
     <div class="app-shell">
@@ -41,6 +41,8 @@
         </div>
         <div class="legend" aria-label="地図凡例">
           <span class="legend-item"><i class="route-sample exact"></i>名前一致線形</span>
+          <span class="legend-item"><i class="dot entrance"></i>入口</span>
+          <span class="legend-item"><i class="dot representative"></i>代表点</span>
           <span class="legend-item"><i class="dot current"></i>現在地</span>
         </div>
       </header>
@@ -90,6 +92,7 @@
               </div>
               <div class="badge-stack">
                 <span class="badge ride-badge" id="rideBadge"></span>
+                <span class="badge entrance-badge" id="entryBadge"></span>
                 <span class="badge" id="sourceBadge"></span>
                 <span class="badge record-badge" id="recordBadge" hidden>記録済み</span>
               </div>
@@ -131,7 +134,8 @@
             </dl>
 
             <div class="entry-block">
-              <p class="label">入口</p>
+              <p class="label" id="locationLabel">入口</p>
+              <div class="entrance-switcher" id="entranceSwitcher" aria-label="入口を切り替え" hidden></div>
               <p id="roadEntry"></p>
               <div class="coordinate-row">
                 <code id="entryCoordinates"></code>
@@ -144,6 +148,9 @@
                 Google Mapsで入口までナビ
               </a>
               <div class="action-grid">
+                <a class="secondary-action street-view-action" id="streetViewButton" href="#" target="_blank" rel="noreferrer">
+                  Street Viewで入口確認
+                </a>
                 <button class="secondary-action" id="shareButton" type="button">候補を共有</button>
                 <button class="secondary-action" id="openRecordButton" type="button">現地記録を開く</button>
               </div>
@@ -258,6 +265,6 @@
         googleMapsApiKey: "",
       };
     </script>
-    <script src="./main.js"></script>
+    <script src="./main.js?v=20260715"></script>
   </body>
 </html>

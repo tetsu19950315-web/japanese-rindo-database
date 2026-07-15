@@ -17,6 +17,14 @@ const VIEW_LABEL = {
   trip: "本命+予備",
 };
 
+const ENTRANCE_STATUS_LABEL = {
+  verified: "確認済み入口",
+  estimated: "OSM推定入口",
+  representative: "代表点・入口未特定",
+};
+
+const ENTRANCE_SUFFIXES = ["①", "②", "③", "④"];
+
 const APP_CONFIG = window.RINDO_APP_CONFIG || {};
 const DATA_BASE_PATH = APP_CONFIG.dataBasePath || "../data/processed";
 const RECORD_DB_NAME = "japanese-rindo-field-records";
@@ -32,9 +40,11 @@ const state = {
   baseMap: "osm",
   tileLayers: {},
   markers: new Map(),
+  markerPoints: new Map(),
   routeLayers: new Map(),
   routeFeatures: [],
   selectedId: null,
+  selectedEntranceId: null,
   sheetState: "collapsed",
   view: "trip",
   region: "all",
@@ -66,6 +76,7 @@ const ui = {
   roadName: document.getElementById("roadName"),
   sourceBadge: document.getElementById("sourceBadge"),
   rideBadge: document.getElementById("rideBadge"),
+  entryBadge: document.getElementById("entryBadge"),
   recordBadge: document.getElementById("recordBadge"),
   roadSummary: document.getElementById("roadSummary"),
   roadMunicipality: document.getElementById("roadMunicipality"),
@@ -74,6 +85,8 @@ const ui = {
   roadChecked: document.getElementById("roadChecked"),
   roadConfidence: document.getElementById("roadConfidence"),
   roadRouteStatus: document.getElementById("roadRouteStatus"),
+  locationLabel: document.getElementById("locationLabel"),
+  entranceSwitcher: document.getElementById("entranceSwitcher"),
   roadEntry: document.getElementById("roadEntry"),
   entryCoordinates: document.getElementById("entryCoordinates"),
   roadExit: document.getElementById("roadExit"),
@@ -84,6 +97,7 @@ const ui = {
   sourceLinks: document.getElementById("sourceLinks"),
   cautions: document.getElementById("cautions"),
   navButton: document.getElementById("navButton"),
+  streetViewButton: document.getElementById("streetViewButton"),
   shareButton: document.getElementById("shareButton"),
   openRecordButton: document.getElementById("openRecordButton"),
   copyCoordinatesButton: document.getElementById("copyCoordinatesButton"),
@@ -130,6 +144,7 @@ function parseInitialState() {
     region: ["all", "東信", "南信", "中信", "北信"].includes(params.get("region")) ? params.get("region") : "all",
     baseMap: BASE_MAP_PROVIDERS.has(requestedBaseMap) ? requestedBaseMap : "osm",
     roadId: params.get("road"),
+    entranceId: params.get("entry"),
   };
 }
 
@@ -139,6 +154,46 @@ function isDesktopLayout() {
 
 function getSelectedRoad() {
   return state.allRoads.find((item) => item.id === state.selectedId) || null;
+}
+
+function pointKey(roadId, entranceId = "REP") {
+  return `${roadId}:${entranceId || "REP"}`;
+}
+
+function getRoadPoints(road) {
+  if (road.entrances.length > 0) {
+    return road.entrances.map((entrance, index) => ({
+      ...entrance,
+      key: pointKey(road.id, entrance.id),
+      roadId: road.id,
+      entranceId: entrance.id,
+      kind: "entrance",
+      label: road.entrances.length > 1
+        ? `${road.name}${ENTRANCE_SUFFIXES[index] || `(${index + 1})`}`
+        : road.name,
+    }));
+  }
+
+  return [{
+    key: pointKey(road.id),
+    roadId: road.id,
+    entranceId: null,
+    kind: "representative",
+    status: "representative",
+    lat: road.displayLat,
+    lon: road.displayLon,
+    label: road.name,
+    navEnabled: false,
+    description: road.entranceClassificationNote || "入口未特定。林道の代表点として表示しています。",
+    source: road.positionSource,
+  }];
+}
+
+function getSelectedPoint() {
+  const road = getSelectedRoad();
+  if (!road) return null;
+  const points = getRoadPoints(road);
+  return points.find((point) => point.entranceId === state.selectedEntranceId) || points[0] || null;
 }
 
 function toLocalInputValue(value = new Date()) {
@@ -166,28 +221,29 @@ function distanceMeters(lat1, lon1, lat2, lon2) {
 }
 
 function selectedRoadDistance() {
-  const road = getSelectedRoad();
-  if (!road || !state.userLocation || !Number.isFinite(road.entryLat) || !Number.isFinite(road.entryLon)) {
+  const point = getSelectedPoint();
+  if (!point || point.kind !== "entrance" || !state.userLocation) {
     return null;
   }
   return distanceMeters(
     state.userLocation.latitude,
     state.userLocation.longitude,
-    road.entryLat,
-    road.entryLon,
+    point.lat,
+    point.lon,
   );
 }
 
 function updateSheetToggle() {
   const selectedRoad = getSelectedRoad();
+  const selectedPoint = getSelectedPoint();
   const hasSelection = Boolean(selectedRoad);
   const isExpanded = state.sheetState === "expanded";
   const distance = selectedRoadDistance();
 
-  ui.sheetToggleTitle.textContent = hasSelection ? selectedRoad.name : "候補をタップ";
+  ui.sheetToggleTitle.textContent = hasSelection ? selectedPoint?.label || selectedRoad.name : "候補をタップ";
   ui.sheetToggleHint.textContent = hasSelection
     ? distance !== null
-      ? `入口まで ${formatDistance(distance)}`
+      ? `${selectedPoint.status === "estimated" ? "推定入口" : "入口"}まで ${formatDistance(distance)}`
       : isExpanded
         ? "地図を広く見る"
         : "カルテを開く"
@@ -204,9 +260,14 @@ function setSheetState(nextState) {
   }
 }
 
-function buildGoogleMapsUrl(road) {
-  const destination = `${road.entryLat},${road.entryLon}`;
+function buildGoogleMapsUrl(point) {
+  const destination = `${point.lat},${point.lon}`;
   return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(destination)}&travelmode=driving`;
+}
+
+function buildStreetViewUrl(point) {
+  const viewpoint = `${point.lat},${point.lon}`;
+  return `https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=${encodeURIComponent(viewpoint)}`;
 }
 
 function getTierMeta(road) {
@@ -239,15 +300,17 @@ function getTierMeta(road) {
   };
 }
 
-function markerStyle(road, isSelected) {
+function markerStyle(road, point, isSelected) {
   const sourceMeta = SOURCE_META[road.sourceType] || SOURCE_META["official-map"];
   const tierMeta = getTierMeta(road);
+  const representative = point.kind === "representative";
   return {
     radius: isSelected ? 11 : road.rideTier === "selected" ? 10 : road.rideTier === "reserve" ? 9 : 8,
     weight: isSelected ? tierMeta.weight + 1 : tierMeta.weight,
     color: tierMeta.stroke,
     fillColor: sourceMeta.color,
-    fillOpacity: isSelected ? 1 : tierMeta.fillOpacity,
+    fillOpacity: isSelected ? 1 : representative ? 0.28 : tierMeta.fillOpacity,
+    dashArray: representative ? "4 3" : null,
   };
 }
 
@@ -277,9 +340,11 @@ function getVisibleRoads() {
 }
 
 function updateSummary() {
-  const visibleCount = getVisibleRoads().length;
+  const visibleRoads = getVisibleRoads();
+  const visibleCount = visibleRoads.length;
+  const entranceCount = visibleRoads.reduce((count, road) => count + road.entrances.length, 0);
   const recordCount = state.records.size;
-  ui.summaryText.textContent = `${VIEW_LABEL[state.view]} ${visibleCount}件 / 候補${state.candidateCount}件${recordCount ? ` / 現地記録${recordCount}件` : ""}`;
+  ui.summaryText.textContent = `${VIEW_LABEL[state.view]} ${visibleCount}件 / 入口${entranceCount}点 / 候補${state.candidateCount}件${recordCount ? ` / 現地記録${recordCount}件` : ""}`;
 }
 
 function updateUrl() {
@@ -291,6 +356,8 @@ function updateUrl() {
   else url.searchParams.set("map", state.baseMap);
   if (state.selectedId) url.searchParams.set("road", state.selectedId);
   else url.searchParams.delete("road");
+  if (state.selectedEntranceId) url.searchParams.set("entry", state.selectedEntranceId);
+  else url.searchParams.delete("entry");
   window.history.replaceState({}, "", url);
 }
 
@@ -308,9 +375,11 @@ function setBadge(road) {
 }
 
 function updateSelectionStyles() {
-  state.markers.forEach((marker, roadId) => {
-    const road = state.allRoads.find((item) => item.id === roadId);
-    if (road) marker.setStyle(markerStyle(road, roadId === state.selectedId));
+  const selectedKey = pointKey(state.selectedId, state.selectedEntranceId);
+  state.markers.forEach((marker, key) => {
+    const point = state.markerPoints.get(key);
+    const road = state.allRoads.find((item) => item.id === point?.roadId);
+    if (road && point) marker.setStyle(markerStyle(road, point, key === selectedKey));
   });
 
   state.routeLayers.forEach((layers, roadId) => {
@@ -327,18 +396,22 @@ function updateSelectionStyles() {
 function renderMapLayers({ fit = true } = {}) {
   const bounds = [];
 
-  state.allRoads.forEach((road) => {
-    const marker = state.markers.get(road.id);
-    if (!marker) return;
+  state.markers.forEach((marker, key) => {
+    const point = state.markerPoints.get(key);
+    const road = state.allRoads.find((item) => item.id === point?.roadId);
+    if (!point || !road) return;
     const visible = isVisibleInCurrentView(road);
 
     if (visible) {
       if (!state.map.hasLayer(marker)) marker.addTo(state.map);
-      bounds.push([road.displayLat, road.displayLon]);
+      bounds.push([point.lat, point.lon]);
     } else if (state.map.hasLayer(marker)) {
       marker.removeFrom(state.map);
     }
+  });
 
+  state.allRoads.forEach((road) => {
+    const visible = isVisibleInCurrentView(road);
     (state.routeLayers.get(road.id) || []).forEach(({ layer }) => {
       if (visible) {
         if (!state.map.hasLayer(layer)) layer.addTo(state.map);
@@ -359,6 +432,7 @@ function ensureVisibleSelection() {
   const selectedRoad = state.allRoads.find((item) => item.id === state.selectedId);
   if (selectedRoad && !isVisibleInCurrentView(selectedRoad)) {
     state.selectedId = getVisibleRoads()[0]?.id || null;
+    state.selectedEntranceId = null;
   }
 }
 
@@ -369,9 +443,13 @@ function updateDistanceDisplay() {
   updateSheetToggle();
 }
 
-function renderSourceLinks(road) {
+function renderSourceLinks(road, point) {
   ui.sourceLinks.innerHTML = "";
-  (road.karteSources || []).forEach((source) => {
+  const sources = [...(road.karteSources || [])];
+  if (point?.sourceUrl && !sources.some((source) => source.url === point.sourceUrl)) {
+    sources.unshift({ title: "入口位置のOSM根拠", url: point.sourceUrl });
+  }
+  sources.forEach((source) => {
     if (!source.url) return;
     const item = document.createElement("li");
     const link = document.createElement("a");
@@ -385,9 +463,14 @@ function renderSourceLinks(road) {
   ui.sourceLinksBlock.hidden = ui.sourceLinks.children.length === 0;
 }
 
-function renderCautions(road) {
+function renderCautions(road, point) {
   ui.cautions.innerHTML = "";
-  const cautions = road.cautions?.length ? road.cautions : ["現地で最新状況を確認"];
+  const cautions = [...(road.cautions?.length ? road.cautions : ["現地で最新状況を確認"])]
+  if (point?.status === "estimated") {
+    cautions.unshift("入口はOSM接続関係からの推定。ゲート・標識・Google Mapsの到達点を現地で確認");
+  } else if (point?.kind === "representative") {
+    cautions.unshift("このピンは代表点であり、林道入口ではありません");
+  }
   cautions.forEach((text) => {
     const item = document.createElement("li");
     item.textContent = text;
@@ -399,6 +482,23 @@ function routeStatusLabel(road) {
   if (road.routeRelations.includes("name-match")) return "OSMで路線名一致（実線）";
   if (road.routeRelations.includes("nearby-track")) return "周辺OSM track（破線・参考）";
   return "線形未確認（入口 / 代表点のみ）";
+}
+
+function renderEntranceSwitcher(road, selectedPoint) {
+  ui.entranceSwitcher.innerHTML = "";
+  ui.entranceSwitcher.hidden = road.entrances.length < 2;
+  if (road.entrances.length < 2) return;
+
+  road.entrances.forEach((entrance, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "entrance-choice";
+    button.classList.toggle("is-active", entrance.id === selectedPoint.entranceId);
+    button.textContent = `入口${ENTRANCE_SUFFIXES[index] || index + 1}`;
+    button.setAttribute("aria-pressed", String(entrance.id === selectedPoint.entranceId));
+    button.addEventListener("click", () => selectRoad(road.id, { entryId: entrance.id }));
+    ui.entranceSwitcher.appendChild(button);
+  });
 }
 
 function selectRoad(id, options = {}) {
@@ -413,13 +513,19 @@ function selectRoad(id, options = {}) {
     renderMapLayers();
   }
 
+  const points = getRoadPoints(road);
+  const requestedEntranceId = options.entryId ?? (state.selectedId === road.id ? state.selectedEntranceId : null);
+  const point = points.find((item) => item.entranceId === requestedEntranceId) || points[0];
   state.selectedId = road.id;
+  state.selectedEntranceId = point.entranceId;
   setSheetState(options.expandSheet === false ? "collapsed" : "expanded");
   ui.detailEmpty.classList.add("hidden");
   ui.detailCard.classList.remove("hidden");
 
-  ui.roadId.textContent = road.id;
-  ui.roadName.textContent = road.name;
+  ui.roadId.textContent = point.kind === "entrance" && road.entrances.length > 1
+    ? `${road.id} / ${point.entranceId}`
+    : road.id;
+  ui.roadName.textContent = point.label;
   ui.roadSummary.textContent = road.summary;
   ui.roadMunicipality.textContent = road.municipality;
   ui.roadSurface.textContent = road.surfaceSummary;
@@ -427,27 +533,39 @@ function selectRoad(id, options = {}) {
   ui.roadChecked.textContent = road.lastChecked || "未確認";
   ui.roadConfidence.textContent = CONFIDENCE_LABEL[road.confidence] || road.confidence || "未設定";
   ui.roadRouteStatus.textContent = routeStatusLabel(road);
-  ui.roadEntry.textContent = road.entryText || "入口情報未作成";
-  ui.entryCoordinates.textContent = `${road.entryLat.toFixed(6)}, ${road.entryLon.toFixed(6)}`;
+  ui.entryBadge.textContent = ENTRANCE_STATUS_LABEL[point.status] || "入口状態不明";
+  ui.entryBadge.dataset.status = point.status || "representative";
+  ui.locationLabel.textContent = point.kind === "entrance"
+    ? point.pointType === "approach" ? "入口 / 公道側アプローチ地点" : "入口"
+    : "代表点（入口未特定）";
+  ui.roadEntry.textContent = point.description || road.entryText || "入口情報未作成";
+  ui.entryCoordinates.textContent = `${point.lat.toFixed(6)}, ${point.lon.toFixed(6)}`;
   ui.roadExit.textContent = road.exitText || "未作成";
   ui.roadRideNote.textContent = road.rideNote || "カルテ化済み候補";
-  ui.positionSource.textContent = road.positionSource;
+  ui.positionSource.textContent = point.source || road.positionSource;
   ui.candidateSource.textContent = road.candidateSource;
-  ui.navButton.href = buildGoogleMapsUrl(road);
+  ui.navButton.hidden = point.kind !== "entrance" || !point.navEnabled;
+  ui.navButton.href = point.kind === "entrance" ? buildGoogleMapsUrl(point) : "#";
+  ui.navButton.textContent = point.status === "estimated"
+    ? "Google Mapsで推定入口までナビ"
+    : "Google Mapsで入口までナビ";
+  ui.streetViewButton.hidden = point.kind !== "entrance";
+  ui.streetViewButton.href = point.kind === "entrance" ? buildStreetViewUrl(point) : "#";
+  renderEntranceSwitcher(road, point);
 
   setBadge(road);
-  renderCautions(road);
-  renderSourceLinks(road);
+  renderCautions(road, point);
+  renderSourceLinks(road, point);
   loadRecordForm(road);
   updateDistanceDisplay();
   updateSelectionStyles();
   updateUrl();
 
   if (!options.skipFly && state.baseMap === "google" && state.googleMap) {
-    state.googleMap.setCenter({ lat: road.displayLat, lng: road.displayLon });
+    state.googleMap.setCenter({ lat: point.lat, lng: point.lon });
     state.googleMap.setZoom(Math.max(state.googleMap.getZoom() || 0, 12));
   } else if (!options.skipFly) {
-    state.map.flyTo([road.displayLat, road.displayLon], Math.max(state.map.getZoom(), 12), {
+    state.map.flyTo([point.lat, point.lon], Math.max(state.map.getZoom(), 12), {
       animate: true,
       duration: 0.5,
     });
@@ -468,7 +586,7 @@ function setView(view) {
   ensureVisibleSelection();
   renderMapLayers();
 
-  if (state.selectedId) selectRoad(state.selectedId, { skipFly: true });
+  if (state.selectedId) selectRoad(state.selectedId, { entryId: state.selectedEntranceId, skipFly: true });
   else if (isDesktopLayout()) {
     const fallback = getVisibleRoads()[0];
     if (fallback) selectRoad(fallback.id, { skipFly: true });
@@ -481,7 +599,7 @@ function setRegion(region) {
   ensureVisibleSelection();
   renderMapLayers();
 
-  if (state.selectedId) selectRoad(state.selectedId, { skipFly: true });
+  if (state.selectedId) selectRoad(state.selectedId, { entryId: state.selectedEntranceId, skipFly: true });
   else if (isDesktopLayout()) {
     const fallback = getVisibleRoads()[0];
     if (fallback) selectRoad(fallback.id, { skipFly: true });
@@ -499,14 +617,17 @@ async function copyText(text) {
 
 async function shareCurrentRoad() {
   const road = getSelectedRoad();
-  if (!road) return;
+  const point = getSelectedPoint();
+  if (!road || !point) return;
   const shareUrl = new URL(window.location.href);
   shareUrl.searchParams.set("view", state.view);
   shareUrl.searchParams.set("road", road.id);
+  if (point.entranceId) shareUrl.searchParams.set("entry", point.entranceId);
+  else shareUrl.searchParams.delete("entry");
 
   const payload = {
-    title: `日本林道データベース: ${road.name}`,
-    text: `${road.name} (${road.id})`,
+    title: `日本林道データベース: ${point.label}`,
+    text: `${point.label} (${road.id}${point.entranceId ? ` / ${point.entranceId}` : ""})`,
     url: shareUrl.toString(),
   };
 
@@ -561,14 +682,15 @@ function loadGoogleMapsApi() {
   return state.googleApiPromise;
 }
 
-function googleMarkerIcon(road, isSelected = false) {
+function googleMarkerIcon(road, point, isSelected = false) {
   const sourceMeta = SOURCE_META[road.sourceType] || SOURCE_META["official-map"];
   const tierMeta = getTierMeta(road);
+  const representative = point.kind === "representative";
   return {
     path: window.google.maps.SymbolPath.CIRCLE,
     scale: isSelected ? 10 : road.rideTier === "selected" ? 9 : road.rideTier === "reserve" ? 8 : 7,
     fillColor: sourceMeta.color,
-    fillOpacity: 1,
+    fillOpacity: representative && !isSelected ? 0.32 : 1,
     strokeColor: tierMeta.stroke,
     strokeOpacity: 1,
     strokeWeight: isSelected ? tierMeta.weight + 1 : tierMeta.weight,
@@ -579,14 +701,16 @@ function addGoogleMapLayers() {
   if (!state.googleMap || state.googleMarkers.size > 0) return;
 
   state.allRoads.forEach((road) => {
-    const marker = new window.google.maps.Marker({
-      position: { lat: road.displayLat, lng: road.displayLon },
-      title: `${road.name} / ${road.id}`,
-      icon: googleMarkerIcon(road),
-      optimized: true,
+    getRoadPoints(road).forEach((point) => {
+      const marker = new window.google.maps.Marker({
+        position: { lat: point.lat, lng: point.lon },
+        title: `${point.label} / ${road.id}`,
+        icon: googleMarkerIcon(road, point),
+        optimized: true,
+      });
+      marker.addListener("click", () => selectRoad(road.id, { entryId: point.entranceId }));
+      state.googleMarkers.set(point.key, marker);
     });
-    marker.addListener("click", () => selectRoad(road.id));
-    state.googleMarkers.set(road.id, marker);
   });
 
   state.routeFeatures.forEach((feature) => {
@@ -610,9 +734,11 @@ function addGoogleMapLayers() {
 
 function updateGoogleSelectionStyles() {
   if (!state.googleMap) return;
-  state.googleMarkers.forEach((marker, roadId) => {
-    const road = state.allRoads.find((item) => item.id === roadId);
-    if (road) marker.setIcon(googleMarkerIcon(road, roadId === state.selectedId));
+  const selectedKey = pointKey(state.selectedId, state.selectedEntranceId);
+  state.googleMarkers.forEach((marker, key) => {
+    const point = state.markerPoints.get(key);
+    const road = state.allRoads.find((item) => item.id === point?.roadId);
+    if (road && point) marker.setIcon(googleMarkerIcon(road, point, key === selectedKey));
   });
   state.googleRouteLayers.forEach((layers, roadId) => {
     const road = state.allRoads.find((item) => item.id === roadId);
@@ -671,13 +797,19 @@ function syncGoogleMapLayers({ fit = false } = {}) {
   if (!state.googleMap) return;
   const bounds = new window.google.maps.LatLngBounds();
   let visibleCount = 0;
-  state.allRoads.forEach((road) => {
+  state.googleMarkers.forEach((marker, key) => {
+    const point = state.markerPoints.get(key);
+    const road = state.allRoads.find((item) => item.id === point?.roadId);
+    if (!point || !road) return;
     const visible = isVisibleInCurrentView(road);
-    state.googleMarkers.get(road.id)?.setMap(visible ? state.googleMap : null);
+    marker.setMap(visible ? state.googleMap : null);
     if (visible) {
-      bounds.extend({ lat: road.displayLat, lng: road.displayLon });
+      bounds.extend({ lat: point.lat, lng: point.lon });
       visibleCount += 1;
     }
+  });
+  state.allRoads.forEach((road) => {
+    const visible = isVisibleInCurrentView(road);
     (state.googleRouteLayers.get(road.id) || []).forEach(({ layer }) => layer.setMap(visible ? state.googleMap : null));
   });
   syncGoogleUserLocation();
@@ -805,13 +937,19 @@ function createMap() {
 
 function addMapLayers() {
   state.allRoads.forEach((road) => {
-    const marker = L.circleMarker([road.displayLat, road.displayLon], markerStyle(road, false));
-    const recordLabel = state.records.has(road.id) ? " / 記録済み" : "";
-    marker.bindPopup(
-      `<div class="marker-popup"><strong>${road.name}</strong><br>${road.id} / ${getTierMeta(road).label}${recordLabel}</div>`,
-    );
-    marker.on("click", () => selectRoad(road.id));
-    state.markers.set(road.id, marker);
+    getRoadPoints(road).forEach((point) => {
+      const marker = L.circleMarker([point.lat, point.lon], markerStyle(road, point, false));
+      const recordLabel = state.records.has(road.id) ? " / 記録済み" : "";
+      const pointLabel = point.kind === "entrance"
+        ? ENTRANCE_STATUS_LABEL[point.status] || "入口"
+        : "代表点・入口未特定";
+      marker.bindPopup(
+        `<div class="marker-popup"><strong>${point.label}</strong><br>${road.id} / ${pointLabel} / ${getTierMeta(road).label}${recordLabel}</div>`,
+      );
+      marker.on("click", () => selectRoad(road.id, { entryId: point.entranceId }));
+      state.markers.set(point.key, marker);
+      state.markerPoints.set(point.key, point);
+    });
   });
 
   state.routeFeatures.forEach((feature) => {
@@ -845,6 +983,10 @@ function enrichRoads(roads, karteRows, shortlist, routeFeatures) {
 
     return {
       ...road,
+      entrances: (Array.isArray(road.entrances) ? road.entrances : []).filter(
+        (entrance) =>
+          entrance.id && Number.isFinite(entrance.lat) && Number.isFinite(entrance.lon),
+      ),
       summary: karte ? karte.summary : road.summary,
       surfaceSummary: karte ? karte.surface_summary : road.surfaceSummary,
       accessStatus: karte ? karte.access_status : road.accessStatus,
@@ -1239,9 +1381,9 @@ function bindUi() {
   });
 
   ui.copyCoordinatesButton.addEventListener("click", async () => {
-    const road = getSelectedRoad();
-    if (!road) return;
-    await copyText(`${road.entryLat},${road.entryLon}`);
+    const point = getSelectedPoint();
+    if (!point) return;
+    await copyText(`${point.lat},${point.lon}`);
     ui.copyCoordinatesButton.textContent = "コピー済み";
     window.setTimeout(() => (ui.copyCoordinatesButton.textContent = "座標をコピー"), 1400);
   });
@@ -1336,6 +1478,7 @@ async function bootstrap() {
 
   if (preferredRoad) {
     selectRoad(preferredRoad.id, {
+      entryId: initialState.entranceId,
       skipFly: true,
       expandSheet: Boolean(initialState.roadId) || isDesktopLayout(),
     });

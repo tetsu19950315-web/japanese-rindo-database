@@ -78,6 +78,8 @@ def main() -> None:
         "Official Google Maps JavaScript API loader is missing",
     )
     require("google.com/vt" not in app_js, "Unofficial Google raster tiles must not be used")
+    require("./main.js?v=20260715" in app_html, "JavaScript cache-buster is missing")
+    require("./styles.css?v=20260715" in app_html, "CSS cache-buster is missing")
 
     manifest = json.loads((BUILD / "manifest.webmanifest").read_text(encoding="utf-8"))
     require(manifest.get("display") == "standalone", "PWA display must be standalone")
@@ -93,6 +95,34 @@ def main() -> None:
 
     roads = json.loads((BUILD / "data" / "processed" / "nagano_map_data.json").read_text(encoding="utf-8"))
     road_ids = {road["id"] for road in roads}
+    require(all(isinstance(road.get("entrances"), list) for road in roads), "Every road must have an entrances array")
+    entrance_points = []
+    multi_entrance_roads = []
+    for road in roads:
+        entrances = road["entrances"]
+        entrance_ids = [entrance.get("id") for entrance in entrances]
+        require(len(entrance_ids) == len(set(entrance_ids)), f"Duplicate entrance id: {road['id']}")
+        for entrance in entrances:
+            require(entrance.get("id"), f"Entrance id is missing: {road['id']}")
+            require(isinstance(entrance.get("lat"), (int, float)), f"Entrance latitude is missing: {road['id']}")
+            require(isinstance(entrance.get("lon"), (int, float)), f"Entrance longitude is missing: {road['id']}")
+            require(entrance.get("status") in {"verified", "estimated"}, f"Invalid entrance status: {road['id']}")
+            require(entrance.get("source"), f"Entrance source is missing: {road['id']}")
+            entrance_points.append((road["id"], entrance["id"]))
+        if entrances:
+            primary = next((entry for entry in entrances if entry.get("navEnabled")), None)
+            require(primary is not None, f"Road entrances have no navigation point: {road['id']}")
+            require(road.get("entryLat") == primary["lat"], f"Legacy primary entry latitude mismatch: {road['id']}")
+            require(road.get("entryLon") == primary["lon"], f"Legacy primary entry longitude mismatch: {road['id']}")
+        else:
+            require(road.get("entryLat") is None, f"Representative point leaked into entry latitude: {road['id']}")
+            require(road.get("entryLon") is None, f"Representative point leaked into entry longitude: {road['id']}")
+        if len(entrances) > 1:
+            multi_entrance_roads.append(road["id"])
+    require(entrance_points, "No entrance points are registered")
+    require(multi_entrance_roads, "No through-road has multiple entrance points")
+    require("map_action=pano" in app_js, "Street View confirmation URL is missing")
+    require("streetview?size=" not in app_js, "Street View imagery must not be fetched or stored")
     routes = json.loads((BUILD / "data" / "processed" / "nagano_routes.geojson").read_text(encoding="utf-8"))
     features = routes.get("features", [])
     require(features, "Route GeoJSON has no features")
@@ -104,7 +134,8 @@ def main() -> None:
     print(
         f"OK: {len(parser.ids)} UI ids, {len(features)} route lines "
         f"({relations['name-match']} name match), "
-        f"{len(manifest.get('icons', []))} PWA icons"
+        f"{len(manifest.get('icons', []))} PWA icons, "
+        f"{len(entrance_points)} entrances ({len(multi_entrance_roads)} two-sided roads)"
     )
 
 

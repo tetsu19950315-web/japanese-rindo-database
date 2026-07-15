@@ -27,7 +27,7 @@ ENTRANCE_DATA = ROOT / "data" / "reference" / "nagano_entrances.json"
 CURRENT_PLAN_URL = "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf"
 CHINO_PLAN_URL = "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf"
 SUWA_PLAN_URL = "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf"
-CHECKED_ON = "2026-07-10"
+CHECKED_ON = "2026-07-15"
 
 
 FIRST17 = {
@@ -331,49 +331,59 @@ def build() -> None:
         }
         master.append(row)
 
-        if positioned:
-            entrance_record = entrances_by_id.get(road_id, {})
-            entrances = entrance_record.get("entrances", [])
-            primary_entrance = next((item for item in entrances if item.get("navEnabled")), None)
-            summary = row["選定理由"] or "行政資料に掲載された長野県内の林道候補。"
-            if plan_detail:
-                summary += f" 計画記載: {plan_detail}。"
-            map_rows.append({
-                "id": road_id,
-                "name": name,
-                "municipality": municipality,
-                "region": row["地域"],
-                "priority": priority,
-                "displayLat": lat,
-                "displayLon": lon,
-                "entryLat": primary_entrance.get("lat") if primary_entrance else None,
-                "entryLon": primary_entrance.get("lon") if primary_entrance else None,
-                "exitLat": exit_lat,
-                "exitLon": exit_lon,
-                "positionStatus": position_status,
-                "entranceClassification": entrance_record.get("classification", "unknown"),
-                "entranceClassificationNote": entrance_record.get("classificationNote", "入口未特定。代表点として表示する。"),
-                "entrances": entrances,
-                "sourceType": existing.get("sourceType", "osm-road") if existing else "osm-road",
-                "positionSource": position_source,
-                "candidateSource": source,
-                "summary": summary,
-                "surfaceSummary": "OSM: " + ", ".join(filter(None, [join_unique(osm_highways, "/"), join_unique(osm_surfaces, "/"), join_unique(osm_tracktypes, "/")])) if verified_osm else "未確認",
-                "accessStatus": row["通行可否"],
-                "cautions": cautions,
-                "lastChecked": CHECKED_ON,
-                "confidence": "high" if priority == "A" else "medium" if priority == "B" else "low",
-                "osmWayIds": [int(value) for value in osm_ids],
-                "primaryOsmWayId": best_osm["id"] if best_osm else None,
-                "sourceLinks": list(filter(None, [
-                    {"title": "行政計画", "url": source_url, "note": plan_detail},
-                    {
-                        "title": f"OpenStreetMap way {best_osm['id']}",
-                        "url": f"https://www.openstreetmap.org/way/{best_osm['id']}",
-                        "note": "名前一致・市町村境界確認済み",
-                    } if best_osm else None,
-                ])),
-            })
+        entrance_record = entrances_by_id.get(road_id, {}) if positioned else {}
+        entrances = entrance_record.get("entrances", [])
+        primary_entrance = next((item for item in entrances if item.get("navEnabled")), None)
+        summary = row["選定理由"] or "行政資料に掲載された長野県内の林道候補。"
+        if plan_detail:
+            summary += f" 計画記載: {plan_detail}。"
+        map_rows.append({
+            "id": road_id,
+            "name": name,
+            "municipality": municipality,
+            "region": row["地域"],
+            "priority": priority,
+            "displayLat": lat,
+            "displayLon": lon,
+            "entryLat": primary_entrance.get("lat") if primary_entrance else None,
+            "entryLon": primary_entrance.get("lon") if primary_entrance else None,
+            "exitLat": exit_lat,
+            "exitLon": exit_lon,
+            "positionStatus": position_status,
+            "entranceClassification": entrance_record.get("classification", "unknown"),
+            "entranceClassificationNote": entrance_record.get(
+                "classificationNote",
+                "入口・代表点とも未特定。行政資料の候補として一覧表示する。"
+                if not positioned
+                else "入口未特定。代表点として表示する。",
+            ),
+            "entrances": entrances,
+            "sourceType": (
+                existing.get("sourceType", "osm-road")
+                if existing
+                else "osm-road"
+                if best_osm
+                else "official-map"
+            ),
+            "positionSource": position_source or "位置情報源未特定",
+            "candidateSource": source,
+            "summary": summary,
+            "surfaceSummary": "OSM: " + ", ".join(filter(None, [join_unique(osm_highways, "/"), join_unique(osm_surfaces, "/"), join_unique(osm_tracktypes, "/")])) if verified_osm else "未確認",
+            "accessStatus": row["通行可否"],
+            "cautions": cautions,
+            "lastChecked": CHECKED_ON,
+            "confidence": "high" if priority == "A" else "medium" if priority == "B" else "low",
+            "osmWayIds": [int(value) for value in osm_ids],
+            "primaryOsmWayId": best_osm["id"] if best_osm else None,
+            "sourceLinks": list(filter(None, [
+                {"title": "行政計画", "url": source_url, "note": plan_detail},
+                {
+                    "title": f"OpenStreetMap way {best_osm['id']}",
+                    "url": f"https://www.openstreetmap.org/way/{best_osm['id']}",
+                    "note": "名前一致・市町村境界確認済み",
+                } if best_osm else None,
+            ])),
+        })
 
     output_fields = [key for key in master[0] if key not in {"score", "primaryOsmWayId"}]
     with MASTER_CSV.open("w", encoding="utf-8-sig", newline="") as handle:
@@ -434,7 +444,11 @@ def build() -> None:
         ],
         "counts": {
             "master": len(master),
-            "mapped": len(map_rows),
+            "mapped": sum(
+                isinstance(row.get("displayLat"), (int, float))
+                and isinstance(row.get("displayLon"), (int, float))
+                for row in map_rows
+            ),
             "selected": len(selected),
             "priorityA": sum(row["優先度"] == "A" for row in master),
             "priorityB": sum(row["優先度"] == "B" for row in master),
@@ -442,7 +456,12 @@ def build() -> None:
     }
     SHORTLIST_JSON.write_text(json.dumps(shortlist, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    print(f"Master: {len(master)} / mapped: {len(map_rows)} / shortlist: {len(selected)}")
+    mapped_count = sum(
+        isinstance(row.get("displayLat"), (int, float))
+        and isinstance(row.get("displayLon"), (int, float))
+        for row in map_rows
+    )
+    print(f"Master/app: {len(master)} / mapped: {mapped_count} / shortlist: {len(selected)}")
     print("Regions:", dict(per_region))
     print("Priorities:", {value: sum(row["優先度"] == value for row in master) for value in ["A", "B", "C", "D", "保留"]})
 

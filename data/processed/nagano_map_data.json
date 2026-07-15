@@ -1,5 +1,190 @@
 [
   {
+    "id": "NGN-000001",
+    "name": "東嶽",
+    "municipality": "茅野市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "茅野市「茅野市森林整備計画書」 https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+    "summary": "市森林整備計画で整備内容・延長・利用区域を確認。入口・代表点未特定。 計画記載: 開設（新設） 5,000m。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "note": "開設（新設） 5,000m"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000002",
+    "name": "美濃戸",
+    "municipality": "茅野市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "茅野市「茅野市森林整備計画書」 https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+    "summary": "市森林整備計画で整備内容・延長・利用区域を確認。入口・代表点未特定。 計画記載: 開設（新設） 5,000m。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "note": "開設（新設） 5,000m"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000003",
+    "name": "裏望岳",
+    "municipality": "茅野市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "茅野市「茅野市森林整備計画書」 https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+    "summary": "市森林整備計画で整備内容・延長・利用区域を確認。入口・代表点未特定。 計画記載: 開設（新設） 3,300m。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "note": "開設（新設） 3,300m"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000004",
+    "name": "多々羅枝",
+    "municipality": "茅野市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "茅野市「茅野市森林整備計画書」 https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+    "summary": "市森林整備計画で整備内容・延長・利用区域を確認。入口・代表点未特定。 計画記載: 開設（新設） 600m。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "note": "開設（新設） 600m"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000005",
+    "name": "多々羅",
+    "municipality": "茅野市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "茅野市「茅野市森林整備計画書」 https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+    "summary": "市森林整備計画で整備内容・延長・利用区域を確認。入口・代表点未特定。 計画記載: 開設（改築） 2,000m。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "note": "開設（改築） 2,000m"
+      }
+    ]
+  },
+  {
     "id": "NGN-000006",
     "name": "坂室",
     "municipality": "茅野市",
@@ -25,7 +210,7 @@
       "通行可否・ゲート・路面は現地未確認",
       "計画記載は施工完了や現況を保証しない"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -34,6 +219,80 @@
         "title": "行政計画",
         "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
         "note": "拡張（舗装） 1,800m"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000007",
+    "name": "天皇林支",
+    "municipality": "茅野市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "茅野市「茅野市森林整備計画書」 https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+    "summary": "市森林整備計画で整備内容・延長・利用区域を確認。入口・代表点未特定。 計画記載: 拡張（改良）・法面保全 600m・10箇所。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "note": "拡張（改良）・法面保全 600m・10箇所"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000008",
+    "name": "大沢山",
+    "municipality": "茅野市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "茅野市「茅野市森林整備計画書」 https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+    "summary": "市森林整備計画で整備内容・延長・利用区域を確認。入口・代表点未特定。 計画記載: 拡張（改良）・局部改良 1,000m・5箇所。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.city.chino.lg.jp/uploaded/attachment/28188.pdf",
+        "note": "拡張（改良）・局部改良 1,000m・5箇所"
       }
     ]
   },
@@ -62,7 +321,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -114,7 +373,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       146988886
@@ -158,7 +417,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -195,7 +454,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -233,7 +492,7 @@
       "通行可否・ゲート・路面は現地未確認",
       "計画記載は施工完了や現況を保証しない"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -270,7 +529,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -308,7 +567,7 @@
       "通行可否・ゲート・路面は現地未確認",
       "計画記載は施工完了や現況を保証しない"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -346,7 +605,7 @@
       "通行可否・ゲート・路面は現地未確認",
       "計画記載は施工完了や現況を保証しない"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -384,7 +643,7 @@
       "通行可否・ゲート・路面は現地未確認",
       "計画記載は施工完了や現況を保証しない"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "low",
     "osmWayIds": [],
     "primaryOsmWayId": null,
@@ -393,6 +652,117 @@
         "title": "行政計画",
         "url": "https://www.city.suwa.lg.jp/uploaded/life/74090_150401_misc.pdf",
         "note": "拡張（舗装） 1,500m"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000018",
+    "name": "鹿曲川線",
+    "municipality": "佐久市",
+    "region": "東信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000019",
+    "name": "山口沢線",
+    "municipality": "佐久市",
+    "region": "東信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000020",
+    "name": "八ヶ岳線",
+    "municipality": "南牧村",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=150ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=150ｍ）"
       }
     ]
   },
@@ -421,7 +791,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       142724564,
@@ -438,6 +808,154 @@
         "title": "OpenStreetMap way 142724564",
         "url": "https://www.openstreetmap.org/way/142724564",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000022",
+    "name": "砥沢線",
+    "municipality": "下諏訪町",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000023",
+    "name": "南アルプス線",
+    "municipality": "伊那市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=151ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=151ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000024",
+    "name": "日影入線",
+    "municipality": "伊那市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=32ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=32ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000025",
+    "name": "千代田湖枯木線",
+    "municipality": "伊那市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
       }
     ]
   },
@@ -495,7 +1013,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "high",
     "osmWayIds": [
       99144102,
@@ -512,6 +1030,117 @@
         "title": "OpenStreetMap way 99144102",
         "url": "https://www.openstreetmap.org/way/99144102",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000027",
+    "name": "宮ノ沢線",
+    "municipality": "飯島町",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000028",
+    "name": "不動滝線",
+    "municipality": "高森町",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000029",
+    "name": "二又沢線",
+    "municipality": "高森町",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
       }
     ]
   },
@@ -570,7 +1199,7 @@
       "通行可否・ゲート・路面は現地未確認",
       "同名OSM 1件は市町村不一致で除外"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       122676683,
@@ -590,6 +1219,192 @@
         "title": "OpenStreetMap way 122676683",
         "url": "https://www.openstreetmap.org/way/122676683",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000031",
+    "name": "大久那線",
+    "municipality": "阿南町",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000032",
+    "name": "門原線",
+    "municipality": "阿南町",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000033",
+    "name": "本洞線",
+    "municipality": "木曽町",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=83ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認",
+      "同名OSM 2件は市町村不一致で除外"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=83ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000034",
+    "name": "大恵曽線",
+    "municipality": "泰阜村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000035",
+    "name": "川端線",
+    "municipality": "泰阜村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
       }
     ]
   },
@@ -618,7 +1433,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       151804778,
@@ -639,6 +1454,43 @@
         "title": "OpenStreetMap way 151804778",
         "url": "https://www.openstreetmap.org/way/151804778",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000037",
+    "name": "御池山線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=60ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=60ｍ）"
       }
     ]
   },
@@ -667,7 +1519,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       112753991
@@ -683,6 +1535,80 @@
         "title": "OpenStreetMap way 112753991",
         "url": "https://www.openstreetmap.org/way/112753991",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000039",
+    "name": "野尻与川線",
+    "municipality": "大桑村",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=5ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=5ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000040",
+    "name": "美ヶ原線",
+    "municipality": "松本市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+        "note": ""
       }
     ]
   },
@@ -711,7 +1637,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       150698933,
@@ -731,6 +1657,154 @@
         "title": "OpenStreetMap way 150698933",
         "url": "https://www.openstreetmap.org/way/150698933",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000042",
+    "name": "奈川安曇線",
+    "municipality": "松本市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000043",
+    "name": "片丘線",
+    "municipality": "塩尻市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000044",
+    "name": "烏川線",
+    "municipality": "安曇野市",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=33ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=33ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000045",
+    "name": "氷室線",
+    "municipality": "筑北村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
       }
     ]
   },
@@ -759,7 +1833,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       172215158,
@@ -777,6 +1851,599 @@
         "title": "OpenStreetMap way 172215158",
         "url": "https://www.openstreetmap.org/way/172215158",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000047",
+    "name": "米子不動線",
+    "municipality": "須坂市",
+    "region": "北信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=13m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=13m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000048",
+    "name": "矢崎線",
+    "municipality": "中野市",
+    "region": "北信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000049",
+    "name": "金倉竜王線",
+    "municipality": "山ノ内町",
+    "region": "北信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000050",
+    "name": "清水平線",
+    "municipality": "木島平村",
+    "region": "北信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000051",
+    "name": "秋山線",
+    "municipality": "栄村",
+    "region": "北信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画の変更（第2回）」 https://www.pref.nagano.lg.jp/ringyo/documents/2022_01keikaku.pdf | 長野県「農山漁村地域整備計画（R2-R6）」 https://www.pref.nagano.lg.jp/ringyo/documents/nousangyosonchikiseibikeikakur2~r6.pdf | 長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=93m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=93m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000052",
+    "name": "長谷高遠線",
+    "municipality": "伊那市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000053",
+    "name": "高森山線",
+    "municipality": "大鹿村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000054",
+    "name": "高平線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000055",
+    "name": "天白高烏谷線",
+    "municipality": "駒ヶ根市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000056",
+    "name": "陣馬形線",
+    "municipality": "中川村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000057",
+    "name": "銭峯線",
+    "municipality": "中川村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000058",
+    "name": "間沢川線",
+    "municipality": "松川町・豊丘村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=26m）／点検診断・保全整備（点検診断L=50m） | 点検診断・保全整備（保全整備L=13m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認",
+      "同名路線が複数市町村に存在する可能性あり"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=26m）／点検診断・保全整備（点検診断L=50m） | 点検診断・保全整備（保全整備L=13m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000059",
+    "name": "桧沢和合路線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000060",
+    "name": "万古川線",
+    "municipality": "泰阜村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=262m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=262m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000061",
+    "name": "中峰黒川線",
+    "municipality": "大鹿村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000062",
+    "name": "押の沢線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+        "note": ""
       }
     ]
   },
@@ -805,7 +2472,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "high",
     "osmWayIds": [
       154400734,
@@ -851,6 +2518,1565 @@
     ]
   },
   {
+    "id": "NGN-000064",
+    "name": "釜沢線",
+    "municipality": "大鹿村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000065",
+    "name": "虫川新野峠線",
+    "municipality": "天龍村・木曽町",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認",
+      "同名路線が複数市町村に存在する可能性あり"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000066",
+    "name": "熊沢幸沢線",
+    "municipality": "木曽町",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=224m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=224m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000067",
+    "name": "塩沢線",
+    "municipality": "木祖村・木曽町",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認",
+      "同名路線が複数市町村に存在する可能性あり"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000068",
+    "name": "栗の木線",
+    "municipality": "松本市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000069",
+    "name": "高遠線",
+    "municipality": "松本市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000070",
+    "name": "湯ノ原線",
+    "municipality": "松本市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000071",
+    "name": "片丘南部線",
+    "municipality": "塩尻市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000072",
+    "name": "雲根線",
+    "municipality": "生坂村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000073",
+    "name": "中俣線",
+    "municipality": "朝日村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000074",
+    "name": "樫俣線",
+    "municipality": "朝日村",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=129ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=129ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000075",
+    "name": "宮坂線",
+    "municipality": "長野市",
+    "region": "北信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000076",
+    "name": "佐野山線",
+    "municipality": "千曲市",
+    "region": "北信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000077",
+    "name": "中原入線",
+    "municipality": "千曲市",
+    "region": "北信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000078",
+    "name": "一ノ沢線",
+    "municipality": "安曇野市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画 第2回変更（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/henkou2.pdf | 長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000079",
+    "name": "虫川新野線",
+    "municipality": "天龍村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H27-H31）」 https://www.pref.nagano.lg.jp/ringyo/documents/keikaku01.pdf | 長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000080",
+    "name": "矢筈線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000081",
+    "name": "西部線",
+    "municipality": "辰野町",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000082",
+    "name": "宮沢線",
+    "municipality": "安曇野市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000083",
+    "name": "白馬小谷東山線",
+    "municipality": "小谷村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000084",
+    "name": "小河内線",
+    "municipality": "中川村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000085",
+    "name": "大沢線",
+    "municipality": "木曽町",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=6m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=6m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000086",
+    "name": "横根山線",
+    "municipality": "飯島町",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=115ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=115ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000087",
+    "name": "白坂砥石沢線",
+    "municipality": "筑北村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000088",
+    "name": "細野線",
+    "municipality": "白馬村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000089",
+    "name": "北野線",
+    "municipality": "長野県",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000090",
+    "name": "大池線",
+    "municipality": "小谷村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000091",
+    "name": "伊藤線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000092",
+    "name": "黒牛折草峠線",
+    "municipality": "中川村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000093",
+    "name": "池の平大原線",
+    "municipality": "木祖村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000094",
+    "name": "床並線",
+    "municipality": "木祖村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000095",
+    "name": "東沢線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "長野県R7-R11計画掲載。舗装計画記載のため未舗装候補としては低優先。入口・代表点未特定。 計画記載: 林道改良事業（舗装L=1330ｍ） | 林道改良事業（改良L=12ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認",
+      "同名OSM 1件は市町村不一致で除外",
+      "計画記載は施工完了や現況を保証しない"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（舗装L=1330ｍ） | 林道改良事業（改良L=12ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000096",
+    "name": "高町線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000097",
+    "name": "早稲田木曽畑線",
+    "municipality": "阿南町",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000098",
+    "name": "虻川線",
+    "municipality": "豊丘村",
+    "region": "南信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000099",
+    "name": "黒川線",
+    "municipality": "小谷村・松本市",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認",
+      "同名路線が複数市町村に存在する可能性あり"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000100",
+    "name": "鉢盛山線",
+    "municipality": "朝日村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000101",
+    "name": "中日影線",
+    "municipality": "高山村",
+    "region": "北信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000102",
+    "name": "堂ヶ入線",
+    "municipality": "山形村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000103",
+    "name": "八久保峠線",
+    "municipality": "木曽町",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000104",
+    "name": "妙高小谷線",
+    "municipality": "小谷村",
+    "region": "中信",
+    "priority": "D",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+    "summary": "入口・代表点未特定。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "長野県「農山漁村地域整備計画（H22-H26）」 https://www.pref.nagano.lg.jp/ringyo/documents/kyukeikaku.pdf",
+        "note": ""
+      }
+    ]
+  },
+  {
+    "id": "NGN-000105",
+    "name": "妙義荒船線",
+    "municipality": "佐久市",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L103=ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L103=ｍ）"
+      }
+    ]
+  },
+  {
     "id": "NGN-000106",
     "name": "九竜平線",
     "municipality": "佐久市",
@@ -890,7 +4116,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       156125459,
@@ -951,7 +4177,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       170035476,
@@ -978,6 +4204,562 @@
         "title": "OpenStreetMap way 170035476",
         "url": "https://www.openstreetmap.org/way/170035476",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000108",
+    "name": "山木1号線",
+    "municipality": "北相木村",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=32ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=32ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000109",
+    "name": "森泉山線",
+    "municipality": "御代田町",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=20ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=20ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000110",
+    "name": "大谷霧ヶ原線",
+    "municipality": "阿智村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=2,100ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=2,100ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000111",
+    "name": "本谷線",
+    "municipality": "豊丘村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=64ｍ） | 点検診断・保全整備（点検診断L=59m） | 点検診断・保全整備（保全整備L=31m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認",
+      "同名OSM 5件は市町村不一致で除外"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=64ｍ） | 点検診断・保全整備（点検診断L=59m） | 点検診断・保全整備（保全整備L=31m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000112",
+    "name": "樽沢線",
+    "municipality": "王滝村",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=12ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=12ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000113",
+    "name": "長峰線",
+    "municipality": "安曇野市",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=120ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=120ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000114",
+    "name": "中津川線",
+    "municipality": "山ノ内町",
+    "region": "北信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 林道改良事業（改良L=8ｍ）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "林道改良事業（改良L=8ｍ）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000115",
+    "name": "城山線",
+    "municipality": "佐久市",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=63m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=63m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000116",
+    "name": "虚空蔵線",
+    "municipality": "上田市",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=6m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=6m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000117",
+    "name": "氷沢線",
+    "municipality": "上田市",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=14m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=14m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000118",
+    "name": "和田武石線",
+    "municipality": "上田市",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=5m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=5m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000119",
+    "name": "沢山線",
+    "municipality": "上田市",
+    "region": "東信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=27m） | 点検診断・保全整備（点検診断L=82m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=27m） | 点検診断・保全整備（点検診断L=82m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000120",
+    "name": "小横川線",
+    "municipality": "辰野町",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=39m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=39m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000121",
+    "name": "中樽線",
+    "municipality": "箕輪町",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=165m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=165m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000122",
+    "name": "野底山線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=13m） | 点検診断・保全整備（点検診断L=557m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=13m） | 点検診断・保全整備（点検診断L=557m）"
       }
     ]
   },
@@ -1035,7 +4817,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "high",
     "osmWayIds": [
       151293896,
@@ -1057,6 +4839,43 @@
         "title": "OpenStreetMap way 151412259",
         "url": "https://www.openstreetmap.org/way/151412259",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000124",
+    "name": "千遠線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=350m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=350m）"
       }
     ]
   },
@@ -1085,7 +4904,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       151412226,
@@ -1104,6 +4923,266 @@
         "title": "OpenStreetMap way 151547134",
         "url": "https://www.openstreetmap.org/way/151547134",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000126",
+    "name": "畑の沢線",
+    "municipality": "飯田市",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=6m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=6m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000127",
+    "name": "松川線",
+    "municipality": "松川町",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=335m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=335m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000128",
+    "name": "弓矢沢線",
+    "municipality": "高森町",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=92m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=92m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000129",
+    "name": "忍沢線",
+    "municipality": "阿智村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=76m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=76m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000130",
+    "name": "鳥城線",
+    "municipality": "阿智村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=141m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=141m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000131",
+    "name": "小河内川線",
+    "municipality": "天龍村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=463m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認",
+      "同名OSM 12件は市町村不一致で除外"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=463m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000132",
+    "name": "外山線",
+    "municipality": "根羽村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=214m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=214m）"
       }
     ]
   },
@@ -1132,7 +5211,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       112754871,
@@ -1180,7 +5259,7 @@
     "cautions": [
       "通行可否・ゲート・路面は現地未確認"
     ],
-    "lastChecked": "2026-07-10",
+    "lastChecked": "2026-07-15",
     "confidence": "medium",
     "osmWayIds": [
       112927668,
@@ -1201,6 +5280,376 @@
         "title": "OpenStreetMap way 112927668",
         "url": "https://www.openstreetmap.org/way/112927668",
         "note": "名前一致・市町村境界確認済み"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000135",
+    "name": "大島虻川線",
+    "municipality": "豊丘村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=78m） | 点検診断・保全整備（保全整備L=15m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=78m） | 点検診断・保全整備（保全整備L=15m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000136",
+    "name": "郷士沢線",
+    "municipality": "豊丘村",
+    "region": "南信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=11m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=11m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000137",
+    "name": "大畑線",
+    "municipality": "上松町",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=18m） | 点検診断・保全整備（点検診断L=226m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=18m） | 点検診断・保全整備（点検診断L=226m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000138",
+    "name": "川向梛野線",
+    "municipality": "南木曽町",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=745m） | 点検診断・保全整備（点検診断L=188m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=745m） | 点検診断・保全整備（点検診断L=188m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000139",
+    "name": "長根線",
+    "municipality": "南木曽町",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=160m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=160m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000140",
+    "name": "洞ノ沢線",
+    "municipality": "木曽町",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=132m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=132m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000141",
+    "name": "東又線",
+    "municipality": "木曽町",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=5m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=5m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000142",
+    "name": "小曽部線",
+    "municipality": "塩尻市",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（保全整備L=7m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（保全整備L=7m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000143",
+    "name": "栃平線",
+    "municipality": "筑北村",
+    "region": "中信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=86m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=86m）"
+      }
+    ]
+  },
+  {
+    "id": "NGN-000144",
+    "name": "上和桐山線",
+    "municipality": "小川村",
+    "region": "北信",
+    "priority": "C",
+    "displayLat": null,
+    "displayLon": null,
+    "entryLat": null,
+    "entryLon": null,
+    "exitLat": null,
+    "exitLon": null,
+    "positionStatus": "位置未特定",
+    "entranceClassification": "unknown",
+    "entranceClassificationNote": "入口・代表点とも未特定。行政資料の候補として一覧表示する。",
+    "entrances": [],
+    "sourceType": "official-map",
+    "positionSource": "位置情報源未特定",
+    "candidateSource": "長野県『農山漁村地域整備計画（R7-R11）』 https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+    "summary": "長野県R7-R11計画掲載。入口・代表点未特定。 計画記載: 点検診断・保全整備（点検診断L=28m）。",
+    "surfaceSummary": "未確認",
+    "accessStatus": "要確認",
+    "cautions": [
+      "通行可否・ゲート・路面は現地未確認"
+    ],
+    "lastChecked": "2026-07-15",
+    "confidence": "low",
+    "osmWayIds": [],
+    "primaryOsmWayId": null,
+    "sourceLinks": [
+      {
+        "title": "行政計画",
+        "url": "https://www.pref.nagano.lg.jp/ringyo/documents/sinkeikaku2025.pdf",
+        "note": "点検診断・保全整備（点検診断L=28m）"
       }
     ]
   }

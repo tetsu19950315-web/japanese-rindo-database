@@ -78,8 +78,11 @@ def main() -> None:
         "Official Google Maps JavaScript API loader is missing",
     )
     require("google.com/vt" not in app_js, "Unofficial Google raster tiles must not be used")
-    require("./main.js?v=20260715" in app_html, "JavaScript cache-buster is missing")
-    require("./styles.css?v=20260715" in app_html, "CSS cache-buster is missing")
+    require("./main.js?v=20260715-2" in app_html, "JavaScript cache-buster is missing")
+    require("./styles.css?v=20260715-2" in app_html, "CSS cache-buster is missing")
+    require("candidateListButton" in parser.ids, "Candidate-list button is missing")
+    require("candidateSearch" in parser.ids, "Candidate search is missing")
+    require("candidateList" in parser.ids, "Candidate list is missing")
 
     manifest = json.loads((BUILD / "manifest.webmanifest").read_text(encoding="utf-8"))
     require(manifest.get("display") == "standalone", "PWA display must be standalone")
@@ -94,7 +97,22 @@ def main() -> None:
         require(target.exists(), f"Offline shell target is missing: {target}")
 
     roads = json.loads((BUILD / "data" / "processed" / "nagano_map_data.json").read_text(encoding="utf-8"))
+    require(len(roads) == 144, f"App candidate data must contain 144 roads, got {len(roads)}")
     road_ids = {road["id"] for road in roads}
+    require(len(road_ids) == len(roads), "Candidate IDs must be unique")
+    mapped_roads = [
+        road
+        for road in roads
+        if isinstance(road.get("displayLat"), (int, float))
+        and isinstance(road.get("displayLon"), (int, float))
+    ]
+    unlocated_roads = [road for road in roads if road not in mapped_roads]
+    require(len(mapped_roads) >= 24, f"At least 24 source-confirmed map roads are required, got {len(mapped_roads)}")
+    require(unlocated_roads, "Unlocated candidates must remain explicit until coordinates are sourced")
+    require(
+        all(road.get("displayLat") is None and road.get("displayLon") is None for road in unlocated_roads),
+        "Unlocated candidates must not receive placeholder coordinates",
+    )
     require(all(isinstance(road.get("entrances"), list) for road in roads), "Every road must have an entrances array")
     entrance_points = []
     multi_entrance_roads = []
@@ -135,6 +153,7 @@ def main() -> None:
         f"OK: {len(parser.ids)} UI ids, {len(features)} route lines "
         f"({relations['name-match']} name match), "
         f"{len(manifest.get('icons', []))} PWA icons, "
+        f"{len(roads)} candidates ({len(mapped_roads)} mapped), "
         f"{len(entrance_points)} entrances ({len(multi_entrance_roads)} two-sided roads)"
     )
 

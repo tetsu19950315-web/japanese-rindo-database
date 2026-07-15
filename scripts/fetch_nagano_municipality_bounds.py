@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import json
+import re
 import time
 import urllib.parse
 import urllib.request
@@ -14,6 +15,7 @@ from pathlib import Path
 CURRENT_PLAN = Path("data/processed/nagano_current_plan.csv")
 HISTORY = Path("data/processed/nagano_plan_history.csv")
 OSM_MATCHES = Path("data/processed/osm_nagano_candidate_matches.json")
+MASTER = Path("data/processed/nagano_candidate_master.csv")
 OUTPUT = Path("data/processed/nagano_municipality_bounds.json")
 USER_AGENT = "JapaneseRindoDB/0.2 (municipality verification)"
 
@@ -56,10 +58,18 @@ def main() -> int:
     municipalities = {"茅野市", "諏訪市"}
     for row in rows(CURRENT_PLAN) + rows(HISTORY):
         if row.get("林道名") in matched_names:
-            municipalities.add(row["関係市町村"])
+            municipalities.update(value for value in re.split(r"[・／,、]", row["関係市町村"]) if value)
+    if MASTER.exists():
+        for row in rows(MASTER):
+            municipalities.update(value for value in re.split(r"[・／,、]", row.get("関係市町村", "")) if value)
+    municipalities.discard("長野県")
 
-    output: dict[str, dict] = {}
+    existing = json.loads(OUTPUT.read_text(encoding="utf-8")) if OUTPUT.exists() else {}
+    output: dict[str, dict] = existing.get("municipalities", {})
     for index, municipality in enumerate(sorted(municipalities), start=1):
+        if municipality in output:
+            print(f"{index}/{len(municipalities)} {municipality}: CACHED", flush=True)
+            continue
         result = search(municipality)
         if result:
             output[municipality] = {
@@ -74,7 +84,7 @@ def main() -> int:
         time.sleep(1.1)
 
     payload = {
-        "generatedOn": "2026-07-10",
+        "generatedOn": "2026-07-15",
         "source": "OpenStreetMap Nominatim municipality search",
         "municipalities": output,
     }

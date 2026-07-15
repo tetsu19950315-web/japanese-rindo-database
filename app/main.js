@@ -21,6 +21,7 @@ const ENTRANCE_STATUS_LABEL = {
   verified: "確認済み入口",
   estimated: "OSM推定入口",
   representative: "代表点・入口未特定",
+  unlocated: "位置未特定",
 };
 
 const ENTRANCE_SUFFIXES = ["①", "②", "③", "④"];
@@ -110,6 +111,12 @@ const ui = {
   regionFilter: document.getElementById("regionFilter"),
   baseMapSelect: document.getElementById("baseMapSelect"),
   mapProviderMessage: document.getElementById("mapProviderMessage"),
+  candidateListButton: document.getElementById("candidateListButton"),
+  candidateBrowser: document.getElementById("candidateBrowser"),
+  candidateCloseButton: document.getElementById("candidateCloseButton"),
+  candidateSearch: document.getElementById("candidateSearch"),
+  candidateListSummary: document.getElementById("candidateListSummary"),
+  candidateList: document.getElementById("candidateList"),
   leafletMap: document.getElementById("map"),
   googleMap: document.getElementById("googleMap"),
   fieldRecord: document.getElementById("fieldRecord"),
@@ -160,6 +167,10 @@ function pointKey(roadId, entranceId = "REP") {
   return `${roadId}:${entranceId || "REP"}`;
 }
 
+function hasRoadPosition(road) {
+  return Number.isFinite(road.displayLat) && Number.isFinite(road.displayLon);
+}
+
 function getRoadPoints(road) {
   if (road.entrances.length > 0) {
     return road.entrances.map((entrance, index) => ({
@@ -173,6 +184,8 @@ function getRoadPoints(road) {
         : road.name,
     }));
   }
+
+  if (!hasRoadPosition(road)) return [];
 
   return [{
     key: pointKey(road.id),
@@ -189,11 +202,27 @@ function getRoadPoints(road) {
   }];
 }
 
+function getUnlocatedPoint(road) {
+  return {
+    key: pointKey(road.id),
+    roadId: road.id,
+    entranceId: null,
+    kind: "unlocated",
+    status: "unlocated",
+    lat: null,
+    lon: null,
+    label: road.name,
+    navEnabled: false,
+    description: road.entranceClassificationNote || "入口・代表点とも未特定です。候補出典のみ確認できます。",
+    source: road.positionSource || "位置情報源未特定",
+  };
+}
+
 function getSelectedPoint() {
   const road = getSelectedRoad();
   if (!road) return null;
   const points = getRoadPoints(road);
-  return points.find((point) => point.entranceId === state.selectedEntranceId) || points[0] || null;
+  return points.find((point) => point.entranceId === state.selectedEntranceId) || points[0] || getUnlocatedPoint(road);
 }
 
 function toLocalInputValue(value = new Date()) {
@@ -342,9 +371,89 @@ function getVisibleRoads() {
 function updateSummary() {
   const visibleRoads = getVisibleRoads();
   const visibleCount = visibleRoads.length;
+  const mappedCount = visibleRoads.filter((road) => getRoadPoints(road).length > 0).length;
   const entranceCount = visibleRoads.reduce((count, road) => count + road.entrances.length, 0);
   const recordCount = state.records.size;
-  ui.summaryText.textContent = `${VIEW_LABEL[state.view]} ${visibleCount}件 / 入口${entranceCount}点 / 候補${state.candidateCount}件${recordCount ? ` / 現地記録${recordCount}件` : ""}`;
+  ui.summaryText.textContent = `${VIEW_LABEL[state.view]} ${visibleCount}件 / 地図表示${mappedCount}件 / 入口${entranceCount}点 / 全候補${state.candidateCount}件${recordCount ? ` / 現地記録${recordCount}件` : ""}`;
+}
+
+function normalizeSearchText(...values) {
+  return values
+    .filter(Boolean)
+    .join(" ")
+    .normalize("NFKC")
+    .toLocaleLowerCase("ja-JP")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function candidateLocationLabel(road) {
+  if (road.entrances.length > 0) return `入口${road.entrances.length}点`;
+  if (hasRoadPosition(road)) return "代表点";
+  return "位置未特定";
+}
+
+function renderCandidateList() {
+  const query = normalizeSearchText(ui.candidateSearch.value);
+  const candidates = state.allRoads.filter((road) =>
+    !query || normalizeSearchText(road.id, road.name, road.municipality, road.region).includes(query),
+  );
+  const mappedCount = state.allRoads.filter(hasRoadPosition).length;
+  const unlocatedCount = state.allRoads.length - mappedCount;
+
+  ui.candidateList.innerHTML = "";
+  ui.candidateListSummary.textContent = query
+    ? `検索結果 ${candidates.length}件 / 全${state.allRoads.length}件`
+    : `全${state.allRoads.length}件 / 地図表示${mappedCount}件 / 位置未特定${unlocatedCount}件`;
+
+  if (candidates.length === 0) {
+    const empty = document.createElement("p");
+    empty.className = "candidate-list-empty";
+    empty.textContent = "該当する候補はありません";
+    ui.candidateList.appendChild(empty);
+    return;
+  }
+
+  candidates.forEach((road) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "candidate-item";
+    button.classList.toggle("is-selected", road.id === state.selectedId);
+    if (road.id === state.selectedId) button.setAttribute("aria-current", "true");
+
+    const name = document.createElement("span");
+    name.className = "candidate-item-name";
+    name.textContent = road.name;
+
+    const meta = document.createElement("span");
+    meta.className = "candidate-item-meta";
+    meta.textContent = `${road.id} / ${road.municipality || "自治体未整理"} / ${road.region}`;
+
+    const location = document.createElement("span");
+    location.className = "candidate-location-badge";
+    location.dataset.location = hasRoadPosition(road) ? "mapped" : "unlocated";
+    location.textContent = candidateLocationLabel(road);
+
+    button.append(name, meta, location);
+    button.addEventListener("click", () => {
+      closeCandidateBrowser();
+      selectRoad(road.id);
+    });
+    ui.candidateList.appendChild(button);
+  });
+}
+
+function openCandidateBrowser() {
+  renderCandidateList();
+  ui.candidateBrowser.hidden = false;
+  ui.candidateListButton.setAttribute("aria-expanded", "true");
+  window.setTimeout(() => ui.candidateSearch.focus(), 0);
+}
+
+function closeCandidateBrowser({ restoreFocus = true } = {}) {
+  ui.candidateBrowser.hidden = true;
+  ui.candidateListButton.setAttribute("aria-expanded", "false");
+  if (restoreFocus) ui.candidateListButton.focus();
 }
 
 function updateUrl() {
@@ -470,6 +579,8 @@ function renderCautions(road, point) {
     cautions.unshift("入口はOSM接続関係からの推定。ゲート・標識・Google Mapsの到達点を現地で確認");
   } else if (point?.kind === "representative") {
     cautions.unshift("このピンは代表点であり、林道入口ではありません");
+  } else if (point?.kind === "unlocated") {
+    cautions.unshift("位置未特定のため地図ピンとナビはありません。入口・代表点を追加調査してください");
   }
   cautions.forEach((text) => {
     const item = document.createElement("li");
@@ -481,6 +592,7 @@ function renderCautions(road, point) {
 function routeStatusLabel(road) {
   if (road.routeRelations.includes("name-match")) return "OSMで路線名一致（実線）";
   if (road.routeRelations.includes("nearby-track")) return "周辺OSM track（破線・参考）";
+  if (!hasRoadPosition(road)) return "位置・線形未特定";
   return "線形未確認（入口 / 代表点のみ）";
 }
 
@@ -515,7 +627,8 @@ function selectRoad(id, options = {}) {
 
   const points = getRoadPoints(road);
   const requestedEntranceId = options.entryId ?? (state.selectedId === road.id ? state.selectedEntranceId : null);
-  const point = points.find((item) => item.entranceId === requestedEntranceId) || points[0];
+  const point = points.find((item) => item.entranceId === requestedEntranceId) || points[0] || getUnlocatedPoint(road);
+  const hasCoordinates = Number.isFinite(point.lat) && Number.isFinite(point.lon);
   state.selectedId = road.id;
   state.selectedEntranceId = point.entranceId;
   setSheetState(options.expandSheet === false ? "collapsed" : "expanded");
@@ -537,19 +650,20 @@ function selectRoad(id, options = {}) {
   ui.entryBadge.dataset.status = point.status || "representative";
   ui.locationLabel.textContent = point.kind === "entrance"
     ? point.pointType === "approach" ? "入口 / 公道側アプローチ地点" : "入口"
-    : "代表点（入口未特定）";
+    : point.kind === "representative" ? "代表点（入口未特定）" : "位置未特定候補";
   ui.roadEntry.textContent = point.description || road.entryText || "入口情報未作成";
-  ui.entryCoordinates.textContent = `${point.lat.toFixed(6)}, ${point.lon.toFixed(6)}`;
+  ui.entryCoordinates.textContent = hasCoordinates ? `${point.lat.toFixed(6)}, ${point.lon.toFixed(6)}` : "座標未登録";
+  ui.copyCoordinatesButton.hidden = !hasCoordinates;
   ui.roadExit.textContent = road.exitText || "未作成";
   ui.roadRideNote.textContent = road.rideNote || "カルテ化済み候補";
   ui.positionSource.textContent = point.source || road.positionSource;
   ui.candidateSource.textContent = road.candidateSource;
-  ui.navButton.hidden = point.kind !== "entrance" || !point.navEnabled;
+  ui.navButton.hidden = point.kind !== "entrance" || !point.navEnabled || !hasCoordinates;
   ui.navButton.href = point.kind === "entrance" ? buildGoogleMapsUrl(point) : "#";
   ui.navButton.textContent = point.status === "estimated"
     ? "Google Mapsで推定入口までナビ"
     : "Google Mapsで入口までナビ";
-  ui.streetViewButton.hidden = point.kind !== "entrance";
+  ui.streetViewButton.hidden = point.kind !== "entrance" || !hasCoordinates;
   ui.streetViewButton.href = point.kind === "entrance" ? buildStreetViewUrl(point) : "#";
   renderEntranceSwitcher(road, point);
 
@@ -560,11 +674,12 @@ function selectRoad(id, options = {}) {
   updateDistanceDisplay();
   updateSelectionStyles();
   updateUrl();
+  if (!ui.candidateBrowser.hidden) renderCandidateList();
 
-  if (!options.skipFly && state.baseMap === "google" && state.googleMap) {
+  if (!options.skipFly && hasCoordinates && state.baseMap === "google" && state.googleMap) {
     state.googleMap.setCenter({ lat: point.lat, lng: point.lon });
     state.googleMap.setZoom(Math.max(state.googleMap.getZoom() || 0, 12));
-  } else if (!options.skipFly) {
+  } else if (!options.skipFly && hasCoordinates) {
     state.map.flyTo([point.lat, point.lon], Math.max(state.map.getZoom(), 12), {
       animate: true,
       duration: 0.5,
@@ -1029,6 +1144,7 @@ async function loadRoads() {
   state.routeFeatures = routeCollection.features || [];
   state.candidateCount = shortlist.counts?.master || roads.length;
   state.allRoads = enrichRoads(roads, karteRows, shortlist, state.routeFeatures);
+  ui.candidateListButton.textContent = `候補一覧 ${state.allRoads.length}`;
 }
 
 function locationErrorMessage(error) {
@@ -1355,6 +1471,15 @@ function bindUi() {
     button.addEventListener("click", () => setView(button.dataset.view));
   });
   ui.regionFilter.addEventListener("change", () => setRegion(ui.regionFilter.value));
+  ui.candidateListButton.addEventListener("click", () => {
+    if (ui.candidateBrowser.hidden) openCandidateBrowser();
+    else closeCandidateBrowser();
+  });
+  ui.candidateCloseButton.addEventListener("click", () => closeCandidateBrowser());
+  ui.candidateSearch.addEventListener("input", renderCandidateList);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !ui.candidateBrowser.hidden) closeCandidateBrowser();
+  });
   ui.baseMapSelect.addEventListener("change", () => {
     setBaseMap(ui.baseMapSelect.value).catch((error) => {
       console.error(error);
@@ -1382,7 +1507,7 @@ function bindUi() {
 
   ui.copyCoordinatesButton.addEventListener("click", async () => {
     const point = getSelectedPoint();
-    if (!point) return;
+    if (!point || !Number.isFinite(point.lat) || !Number.isFinite(point.lon)) return;
     await copyText(`${point.lat},${point.lon}`);
     ui.copyCoordinatesButton.textContent = "コピー済み";
     window.setTimeout(() => (ui.copyCoordinatesButton.textContent = "座標をコピー"), 1400);

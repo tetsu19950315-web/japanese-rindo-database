@@ -121,12 +121,27 @@ input[type="file"] {
 }
 
 .filter-chip,
+.candidate-list-trigger,
 .map-tool-button {
   border: 1px solid var(--line);
   background: rgba(249, 246, 238, 0.94);
   color: var(--muted);
   font-weight: 700;
   box-shadow: var(--shadow);
+}
+
+.candidate-list-trigger {
+  flex: 0 0 auto;
+  min-height: 36px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+}
+
+.candidate-list-trigger[aria-expanded="true"] {
+  border-color: transparent;
+  background: var(--blue);
+  color: #fff;
 }
 
 .filter-chip {
@@ -339,6 +354,154 @@ input[type="file"] {
   position: relative;
 }
 
+.candidate-browser {
+  position: absolute;
+  z-index: 1004;
+  top: max(150px, calc(env(safe-area-inset-top) + 136px));
+  right: 12px;
+  bottom: calc(12px + env(safe-area-inset-bottom));
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(249, 246, 238, 0.98);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 14px 42px rgba(31, 42, 34, 0.22);
+  overflow: hidden;
+}
+
+.candidate-browser-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.candidate-browser-kicker,
+.candidate-browser-header h2,
+.candidate-list-summary {
+  margin: 0;
+}
+
+.candidate-browser-kicker {
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.candidate-browser-header h2 {
+  margin-top: 2px;
+  font-size: 1.05rem;
+}
+
+.candidate-close-button {
+  min-height: 38px;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.candidate-search-field {
+  display: block;
+  margin-top: 12px;
+}
+
+.candidate-search-field span {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.candidate-search-field input {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid rgba(37, 51, 39, 0.22);
+  border-radius: 9px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 0.88rem;
+}
+
+.candidate-list-summary {
+  padding: 9px 0 7px;
+  color: var(--muted);
+  font-size: 0.74rem;
+  line-height: 1.45;
+}
+
+.candidate-list {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-top: 1px solid var(--line);
+}
+
+.candidate-item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px 10px;
+  width: 100%;
+  padding: 11px 4px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  text-align: left;
+}
+
+.candidate-item.is-selected {
+  background: rgba(80, 106, 63, 0.09);
+}
+
+.candidate-item-name {
+  min-width: 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.candidate-item-meta {
+  grid-column: 1;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.4;
+}
+
+.candidate-location-badge {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  padding: 5px 8px;
+  border-radius: 999px;
+  background: rgba(53, 111, 88, 0.13);
+  color: #285a46;
+  font-size: 0.68rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.candidate-location-badge[data-location="unlocated"] {
+  background: rgba(89, 104, 92, 0.1);
+  color: var(--muted);
+}
+
+.candidate-list-empty {
+  margin: 0;
+  padding: 24px 8px;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: center;
+}
+
 #map,
 #googleMap {
   position: absolute;
@@ -499,6 +662,11 @@ input[type="file"] {
 }
 
 .entrance-badge[data-status="representative"] {
+  background: rgba(89, 104, 92, 0.1);
+  color: var(--muted);
+}
+
+.entrance-badge[data-status="unlocated"] {
   background: rgba(89, 104, 92, 0.1);
   color: var(--muted);
 }
@@ -958,6 +1126,14 @@ input[type="file"] {
     right: auto;
     left: 16px;
     align-items: flex-start;
+  }
+
+  .candidate-browser {
+    top: 92px;
+    right: auto;
+    bottom: 16px;
+    left: 16px;
+    width: min(420px, calc(100vw - 464px));
   }
 
   .detail-sheet {

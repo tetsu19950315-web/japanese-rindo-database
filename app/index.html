@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
     <link rel="stylesheet" href="./vendor/maplibre/maplibre-gl.css" />
-    <link rel="stylesheet" href="./styles.css?v=20260715" />
+    <link rel="stylesheet" href="./styles.css?v=20260715-2" />
   </head>
   <body>
     <div class="app-shell">
@@ -37,6 +37,13 @@
                 <option value="北信">北信</option>
               </select>
             </label>
+            <button
+              class="candidate-list-trigger"
+              id="candidateListButton"
+              type="button"
+              aria-controls="candidateBrowser"
+              aria-expanded="false"
+            >候補一覧</button>
           </div>
         </div>
         <div class="legend" aria-label="地図凡例">
@@ -70,6 +77,29 @@
         <div id="googleMap" aria-label="Googleマップの林道候補マップ" hidden></div>
       </main>
 
+      <section
+        class="candidate-browser"
+        id="candidateBrowser"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="candidateBrowserTitle"
+        hidden
+      >
+        <div class="candidate-browser-header">
+          <div>
+            <p class="candidate-browser-kicker">長野県全域</p>
+            <h2 id="candidateBrowserTitle">林道候補144件</h2>
+          </div>
+          <button class="candidate-close-button" id="candidateCloseButton" type="button" aria-label="候補一覧を閉じる">閉じる</button>
+        </div>
+        <label class="candidate-search-field">
+          <span>林道名・市町村・IDで検索</span>
+          <input id="candidateSearch" type="search" placeholder="例: 茅野市、古城線、NGN-000001" autocomplete="off" />
+        </label>
+        <p class="candidate-list-summary" id="candidateListSummary" aria-live="polite"></p>
+        <div class="candidate-list" id="candidateList"></div>
+      </section>
+
       <aside class="detail-sheet" id="detailSheet" data-sheet-state="collapsed">
         <button class="sheet-toggle" id="sheetToggle" type="button" aria-expanded="false">
           <span class="sheet-handle"></span>
@@ -81,7 +111,7 @@
         <div class="sheet-body">
           <div class="detail-empty" id="detailEmpty">
             <p class="empty-title">候補をタップ</p>
-            <p class="empty-copy">茅野・諏訪周辺の候補林道を地図で確認できます。</p>
+            <p class="empty-copy">地図のピン、または候補一覧から長野県全域の林道候補を確認できます。</p>
           </div>
 
           <article class="detail-card hidden" id="detailCard">
@@ -265,6 +295,6 @@
         googleMapsApiKey: "",
       };
     </script>
-    <script src="./main.js?v=20260715"></script>
+    <script src="./main.js?v=20260715-2"></script>
   </body>
 </html>

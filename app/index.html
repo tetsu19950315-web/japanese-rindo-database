@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>日本林道データベース</title>
+    <meta name="description" content="長野県全域の林道候補を、地図・カルテ・現地記録で確認するモバイルWebアプリ" />
+    <meta name="theme-color" content="#314c24" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="icon" href="../icons/rindo-192.png" type="image/png" />
+    <link rel="apple-touch-icon" href="../icons/rindo-192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="./vendor/maplibre/maplibre-gl.css" />
+    <link rel="stylesheet" href="./styles.css?v=20260716-1" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="title-block">
+          <p class="eyebrow">長野県全域 / 高速調査版</p>
+          <h1>日本林道データベース</h1>
+          <p class="meta" id="summaryText">候補を読み込み中...</p>
+          <div class="filter-bar" role="tablist" aria-label="表示切替">
+            <button class="filter-chip is-active" type="button" data-view="trip" id="filterTrip">本命+予備</button>
+            <button class="filter-chip" type="button" data-view="selected" id="filterSelected">本命だけ</button>
+            <button class="filter-chip" type="button" data-view="all" id="filterAll">全部</button>
+            <label class="region-filter">
+              <span>地域</span>
+              <select id="regionFilter" aria-label="地域で絞り込み">
+                <option value="all">全県</option>
+                <option value="東信">東信</option>
+                <option value="南信">南信</option>
+                <option value="中信">中信</option>
+                <option value="北信">北信</option>
+              </select>
+            </label>
+            <button
+              class="candidate-list-trigger"
+              id="candidateListButton"
+              type="button"
+              aria-controls="candidateBrowser"
+              aria-expanded="false"
+            >候補一覧</button>
+          </div>
+        </div>
+        <div class="legend" aria-label="地図凡例">
+          <span class="legend-item"><i class="route-sample exact"></i>名前一致線形</span>
+          <span class="legend-item"><i class="dot entrance"></i>入口</span>
+          <span class="legend-item"><i class="dot representative"></i>代表点</span>
+          <span class="legend-item"><i class="dot current"></i>現在地</span>
+        </div>
+      </header>
+
+      <div class="map-tools" aria-label="地図ツール">
+        <span class="connection-badge" id="connectionBadge" aria-live="polite">オンライン</span>
+        <label class="basemap-control">
+          <span>背景地図</span>
+          <select id="baseMapSelect" aria-label="背景地図を切り替え">
+            <option value="osm">OSM</option>
+            <option value="openfreemap">OpenFreeMap</option>
+            <option value="gsi">地理院淡色</option>
+            <option value="gsi-photo">地理院航空写真</option>
+            <option value="google">Googleマップ</option>
+          </select>
+        </label>
+        <span class="map-provider-message" id="mapProviderMessage" role="status" aria-live="polite" hidden></span>
+        <button class="map-tool-button" id="installButton" type="button" hidden>ホーム画面に追加</button>
+        <button class="map-tool-button location-button" id="locationButton" type="button">現在地を表示</button>
+        <button class="map-tool-button" id="exportButton" type="button" hidden>記録を書き出す</button>
+      </div>
+
+      <main class="map-wrap">
+        <div id="map" aria-label="林道候補マップ"></div>
+        <div id="googleMap" aria-label="Googleマップの林道候補マップ" hidden></div>
+      </main>
+
+      <section
+        class="candidate-browser"
+        id="candidateBrowser"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="candidateBrowserTitle"
+        hidden
+      >
+        <div class="candidate-browser-header">
+          <div>
+            <p class="candidate-browser-kicker">長野県全域</p>
+            <h2 id="candidateBrowserTitle">林道候補を読み込み中</h2>
+          </div>
+          <button class="candidate-close-button" id="candidateCloseButton" type="button" aria-label="候補一覧を閉じる">閉じる</button>
+        </div>
+        <label class="candidate-search-field">
+          <span>林道名・市町村・IDで検索</span>
+          <input id="candidateSearch" type="search" placeholder="例: 茅野市、古城線、NGN-000001" autocomplete="off" />
+        </label>
+        <p class="candidate-list-summary" id="candidateListSummary" aria-live="polite"></p>
+        <div class="candidate-list" id="candidateList"></div>
+      </section>
+
+      <aside class="detail-sheet" id="detailSheet" data-sheet-state="collapsed">
+        <button class="sheet-toggle" id="sheetToggle" type="button" aria-expanded="false">
+          <span class="sheet-handle"></span>
+          <span class="sheet-toggle-copy">
+            <span class="sheet-toggle-title" id="sheetToggleTitle">候補をタップ</span>
+            <span class="sheet-toggle-hint" id="sheetToggleHint">カルテを開く</span>
+          </span>
+        </button>
+        <div class="sheet-body">
+          <div class="detail-empty" id="detailEmpty">
+            <p class="empty-title">候補をタップ</p>
+            <p class="empty-copy">地図のピン、または候補一覧から長野県全域の林道候補を確認できます。</p>
+          </div>
+
+          <article class="detail-card hidden" id="detailCard">
+            <div class="card-top">
+              <div>
+                <p class="card-id" id="roadId"></p>
+                <h2 id="roadName"></h2>
+              </div>
+              <div class="badge-stack">
+                <span class="badge ride-badge" id="rideBadge"></span>
+                <span class="badge entrance-badge" id="entryBadge"></span>
+                <span class="badge" id="sourceBadge"></span>
+                <span class="badge record-badge" id="recordBadge" hidden>記録済み</span>
+              </div>
+            </div>
+
+            <div class="distance-banner" id="distanceBanner" hidden>
+              <span>現在地から入口</span>
+              <strong id="entryDistance">—</strong>
+            </div>
+
+            <p class="card-summary" id="roadSummary"></p>
+
+            <section class="safety-panel" aria-labelledby="safetyTitle">
+              <div class="section-heading">
+                <h3 id="safetyTitle">現地判断</h3>
+                <span class="checked-label">確認 <span id="roadChecked"></span></span>
+              </div>
+              <p class="access-callout" id="roadAccess"></p>
+              <div class="confidence-row">
+                <span>情報信頼度</span>
+                <strong id="roadConfidence"></strong>
+              </div>
+              <ul class="caution-list" id="cautions"></ul>
+            </section>
+
+            <dl class="info-grid">
+              <div>
+                <dt>自治体</dt>
+                <dd id="roadMunicipality"></dd>
+              </div>
+              <div>
+                <dt>路面</dt>
+                <dd id="roadSurface"></dd>
+              </div>
+              <div class="info-wide">
+                <dt>地図上の線形</dt>
+                <dd id="roadRouteStatus"></dd>
+              </div>
+            </dl>
+
+            <div class="entry-block">
+              <p class="label" id="locationLabel">入口</p>
+              <div class="entrance-switcher" id="entranceSwitcher" aria-label="入口を切り替え" hidden></div>
+              <p id="roadEntry"></p>
+              <div class="coordinate-row">
+                <code id="entryCoordinates"></code>
+                <button class="text-button" id="copyCoordinatesButton" type="button">座標をコピー</button>
+              </div>
+            </div>
+
+            <div class="actions">
+              <a class="primary-action" id="navButton" href="#" target="_blank" rel="noreferrer">
+                Google Mapsで入口までナビ
+              </a>
+              <div class="action-grid">
+                <a class="secondary-action street-view-action" id="streetViewButton" href="#" target="_blank" rel="noreferrer">
+                  Street Viewで入口確認
+                </a>
+                <button class="secondary-action" id="shareButton" type="button">候補を共有</button>
+                <button class="secondary-action" id="openRecordButton" type="button">現地記録を開く</button>
+              </div>
+            </div>
+
+            <details class="detail-disclosure">
+              <summary>詳細情報と出典</summary>
+              <div class="source-block">
+                <p class="label">出口 / 終点</p>
+                <p id="roadExit"></p>
+              </div>
+              <div class="source-block">
+                <p class="label">選定理由</p>
+                <p id="roadRideNote"></p>
+              </div>
+              <div class="source-block">
+                <p class="label">位置ソース</p>
+                <p id="positionSource"></p>
+              </div>
+              <div class="source-block">
+                <p class="label">候補出典</p>
+                <p id="candidateSource"></p>
+              </div>
+              <div class="source-block" id="sourceLinksBlock" hidden>
+                <p class="label">参照リンク</p>
+                <ul id="sourceLinks"></ul>
+              </div>
+            </details>
+
+            <details class="field-record" id="fieldRecord">
+              <summary>
+                <span>現地記録</span>
+                <span class="record-summary-status" id="recordSummaryStatus">未記録</span>
+              </summary>
+              <form id="recordForm">
+                <p class="form-note">この端末内だけに保存されます。あとでJSONに書き出せます。</p>
+
+                <label class="form-field">
+                  <span>確認日時</span>
+                  <input id="recordObservedAt" type="datetime-local" required />
+                </label>
+
+                <div class="form-grid">
+                  <label class="form-field">
+                    <span>通行状況</span>
+                    <select id="recordAccess">
+                      <option value="未確認">未確認</option>
+                      <option value="通行可">通行可</option>
+                      <option value="通行注意">通行注意</option>
+                      <option value="通行不可">通行不可</option>
+                    </select>
+                  </label>
+                  <label class="form-field">
+                    <span>路面</span>
+                    <select id="recordSurface">
+                      <option value="未確認">未確認</option>
+                      <option value="舗装">舗装</option>
+                      <option value="砂利">砂利</option>
+                      <option value="土">土</option>
+                      <option value="混在">混在</option>
+                    </select>
+                  </label>
+                  <label class="form-field">
+                    <span>ゲート</span>
+                    <select id="recordGate">
+                      <option value="不明">不明</option>
+                      <option value="なし">なし</option>
+                      <option value="開放">開放</option>
+                      <option value="閉鎖">閉鎖</option>
+                    </select>
+                  </label>
+                </div>
+
+                <div class="record-location">
+                  <div>
+                    <span class="form-label">記録位置</span>
+                    <p id="recordLocationText">位置未記録</p>
+                  </div>
+                  <button class="text-button" id="recordLocationButton" type="button">現在地を記録</button>
+                </div>
+
+                <label class="form-field">
+                  <span>メモ</span>
+                  <textarea id="recordNote" rows="4" placeholder="倒木、崩落、路面、分岐など"></textarea>
+                </label>
+
+                <label class="form-field photo-field">
+                  <span>写真（最大3枚）</span>
+                  <input id="recordPhotos" type="file" accept="image/*" capture="environment" multiple />
+                </label>
+                <div class="photo-preview" id="photoPreview"></div>
+
+                <p class="record-message" id="recordMessage" aria-live="polite"></p>
+                <div class="record-actions">
+                  <button class="primary-action button-reset" type="submit">この記録を保存</button>
+                  <button class="danger-action" id="deleteRecordButton" type="button" hidden>この記録を削除</button>
+                </div>
+              </form>
+            </details>
+          </article>
+        </div>
+      </aside>
+    </div>
+
+    <script src="./vendor/leaflet/leaflet.js"></script>
+    <script src="./vendor/maplibre/maplibre-gl.js"></script>
+    <script src="./vendor/maplibre/leaflet-maplibre-gl.js"></script>
+    <script>
+      window.RINDO_APP_CONFIG = {
+        dataBasePath: "../data/processed",
+        serviceWorkerPath: "../sw.js",
+        googleMapsApiKey: "",
+      };
+    </script>
+    <script src="./main.js?v=20260716-1"></script>
+  </body>
+</html>

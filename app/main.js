@@ -113,6 +113,7 @@ const ui = {
   mapProviderMessage: document.getElementById("mapProviderMessage"),
   candidateListButton: document.getElementById("candidateListButton"),
   candidateBrowser: document.getElementById("candidateBrowser"),
+  candidateBrowserTitle: document.getElementById("candidateBrowserTitle"),
   candidateCloseButton: document.getElementById("candidateCloseButton"),
   candidateSearch: document.getElementById("candidateSearch"),
   candidateListSummary: document.getElementById("candidateListSummary"),
@@ -427,7 +428,7 @@ function renderCandidateList() {
 
     const meta = document.createElement("span");
     meta.className = "candidate-item-meta";
-    meta.textContent = `${road.id} / ${road.municipality || "自治体未整理"} / ${road.region}`;
+    meta.textContent = `${road.id} / ${road.level || "Lv0"} / ${road.municipality || "自治体未整理"} / ${road.region}`;
 
     const location = document.createElement("span");
     location.className = "candidate-location-badge";
@@ -472,7 +473,7 @@ function updateUrl() {
 
 function setBadge(road) {
   const meta = SOURCE_META[road.sourceType] || SOURCE_META["official-map"];
-  ui.sourceBadge.textContent = meta.label;
+  ui.sourceBadge.textContent = `${road.level || "Lv0"} / ${meta.label}`;
   ui.sourceBadge.style.color = meta.color;
 
   const tierMeta = getTierMeta(road);
@@ -655,7 +656,7 @@ function selectRoad(id, options = {}) {
   ui.entryCoordinates.textContent = hasCoordinates ? `${point.lat.toFixed(6)}, ${point.lon.toFixed(6)}` : "座標未登録";
   ui.copyCoordinatesButton.hidden = !hasCoordinates;
   ui.roadExit.textContent = road.exitText || "未作成";
-  ui.roadRideNote.textContent = road.rideNote || "カルテ化済み候補";
+  ui.roadRideNote.textContent = road.rideNote || road.levelReason || "カルテ化済み候補";
   ui.positionSource.textContent = point.source || road.positionSource;
   ui.candidateSource.textContent = road.candidateSource;
   ui.navButton.hidden = point.kind !== "entrance" || !point.navEnabled || !hasCoordinates;
@@ -1142,8 +1143,9 @@ async function loadRoads() {
   const shortlist = await shortlistResponse.json();
   const routeCollection = await routesResponse.json();
   state.routeFeatures = routeCollection.features || [];
-  state.candidateCount = shortlist.counts?.master || roads.length;
+  state.candidateCount = roads.length;
   state.allRoads = enrichRoads(roads, karteRows, shortlist, state.routeFeatures);
+  ui.candidateBrowserTitle.textContent = `林道候補${state.allRoads.length}件`;
   ui.candidateListButton.textContent = `候補一覧 ${state.allRoads.length}`;
 }
 

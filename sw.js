@@ -1,4 +1,4 @@
-const CACHE_VERSION = "rindo-v8-20260715";
+const CACHE_VERSION = "rindo-v9-20260716";
 const APP_CACHE = `${CACHE_VERSION}-app`;
 const RUNTIME_CACHE = `${CACHE_VERSION}-runtime`;
 const fromRoot = (path) => new URL(path, self.location.href).toString();
@@ -8,8 +8,8 @@ const APP_SHELL = [
   fromRoot("./index.html"),
   fromRoot("./app/"),
   fromRoot("./app/index.html"),
-  fromRoot("./app/main.js?v=20260715-2"),
-  fromRoot("./app/styles.css?v=20260715-2"),
+  fromRoot("./app/main.js?v=20260716-1"),
+  fromRoot("./app/styles.css?v=20260716-1"),
   fromRoot("./app/vendor/leaflet/leaflet.js"),
   fromRoot("./app/vendor/leaflet/leaflet.css"),
   fromRoot("./app/vendor/maplibre/maplibre-gl.js"),

@@ -1,0 +1,29 @@
+{
+  "generatedOn": "2026-07-15",
+  "mode": "OSM-first Lv0 / named-road high-speed extraction",
+  "area": "長野県",
+  "source": "OpenStreetMap contributors via Overpass API",
+  "license": "ODbL 1.0",
+  "rawNamedWayCount": 6467,
+  "bboxCandidateWayCount": 6459,
+  "weakOrNonForestWayExcludedCount": 359,
+  "naganoCandidateWayCount": 2377,
+  "geometryWayCount": 2377,
+  "mergedCandidateCount": 975,
+  "existingInputCount": 144,
+  "matchedExistingCount": 56,
+  "existingUnmatchedCount": 88,
+  "newIdCount": 919,
+  "finalLv0Count": 1063,
+  "firstNewId": "NGN-000145",
+  "lastId": "NGN-001063",
+  "ambiguousNameComponentCount": 11,
+  "municipalityInferredCount": 956,
+  "limitations": [
+    "OSM上で名称のないtrackは対象外",
+    "Lv0は林道の法的区分や通行可否を確定しない",
+    "林道根拠が名称末尾の『線』だけの道路、および国道・街道・古道等の明確な非林道名は除外",
+    "同名wayは共有ノードまたは端点5km以内を同一路線候補として統合",
+    "長野県境判定はOSM way代表点を使用し、県境をまたぐwayは代表点側の県へ分類"
+  ]
+}

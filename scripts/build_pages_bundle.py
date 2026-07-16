@@ -50,6 +50,18 @@ FILES_TO_COPY = [
         ROOT / "data" / "processed" / "nagano_candidate_master.csv",
         OUTPUT_DIR / "data" / "processed" / "nagano_candidate_master.csv",
     ),
+    (
+        ROOT / "data" / "processed" / "nagano_level_master.csv",
+        OUTPUT_DIR / "data" / "processed" / "nagano_level_master.csv",
+    ),
+    (
+        ROOT / "data" / "processed" / "nagano_level_evidence.csv",
+        OUTPUT_DIR / "data" / "processed" / "nagano_level_evidence.csv",
+    ),
+    (
+        ROOT / "data" / "processed" / "nagano_level_report.json",
+        OUTPUT_DIR / "data" / "processed" / "nagano_level_report.json",
+    ),
 ]
 
 

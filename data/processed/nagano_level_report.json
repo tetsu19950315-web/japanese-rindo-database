@@ -1,0 +1,72 @@
+{
+  "generatedOn": "2026-07-16",
+  "protocol": "docs/LEVELING_PROTOCOL.md",
+  "mode": "行政資料優先の完全照合 + 公開林道カタログ補完",
+  "totalCandidates": 1063,
+  "auditedCandidates": 1063,
+  "levelCounts": {
+    "Lv0": 724,
+    "Lv1": 104,
+    "Lv2": 235
+  },
+  "promotedCandidates": 339,
+  "cohortLevelCounts": {
+    "original144": {
+      "Lv1": 88,
+      "Lv2": 56
+    },
+    "newOsm919": {
+      "Lv0": 724,
+      "Lv1": 16,
+      "Lv2": 179
+    }
+  },
+  "promotionBasis": {
+    "Lv2OfficialAndOsm": 235,
+    "Lv1OfficialBasicOnly": 88,
+    "Lv1PublicOnly": 16,
+    "officialRowsAlsoSupplementedByPublicWeb": 14
+  },
+  "sourceCoverage": {
+    "withOsm": 975,
+    "withOfficialEvidence": 323,
+    "withPublicWebEvidence": 30,
+    "withoutMunicipality": 108
+  },
+  "unresolved": {
+    "total": 724,
+    "withoutMunicipality": 104,
+    "reason": "独立資料との一意一致なし。OSM候補として保持し、個別調査対象へ送る。"
+  },
+  "evidenceRows": 1527,
+  "evidenceBySourceType": {
+    "current-prefectural-plan": 63,
+    "existing-official": 233,
+    "municipal-forest-plan": 115,
+    "national-forest-plan": 109,
+    "osm": 975,
+    "public-catalog": 31,
+    "public-detail": 1
+  },
+  "municipalPlanResearch": {
+    "municipalitiesIndexed": 52,
+    "withDocuments": 47,
+    "withoutDocuments": [
+      "根羽村",
+      "辰野町",
+      "阿南町",
+      "飯島町",
+      "高森町"
+    ]
+  },
+  "individualWebSearch": {
+    "cachedRows": 1,
+    "errorRows": 1,
+    "note": "検索サービスのHTTP 429後は連続検索を停止。公開カタログと公式資料で補完。"
+  },
+  "rules": {
+    "Lv0": "独立資料との一意一致なし",
+    "Lv1": "独立公開資料 + 基本情報",
+    "Lv2": "位置付きOSM + 行政資料、または独立直接資料2ドメイン以上 + 詳細属性2項目以上"
+  }
+}

@@ -78,8 +78,8 @@ def main() -> None:
         "Official Google Maps JavaScript API loader is missing",
     )
     require("google.com/vt" not in app_js, "Unofficial Google raster tiles must not be used")
-    require("./main.js?v=20260715-2" in app_html, "JavaScript cache-buster is missing")
-    require("./styles.css?v=20260715-2" in app_html, "CSS cache-buster is missing")
+    require("./main.js?v=20260716-1" in app_html, "JavaScript cache-buster is missing")
+    require("./styles.css?v=20260716-1" in app_html, "CSS cache-buster is missing")
     require("candidateListButton" in parser.ids, "Candidate-list button is missing")
     require("candidateSearch" in parser.ids, "Candidate search is missing")
     require("candidateList" in parser.ids, "Candidate list is missing")
@@ -97,7 +97,7 @@ def main() -> None:
         require(target.exists(), f"Offline shell target is missing: {target}")
 
     roads = json.loads((BUILD / "data" / "processed" / "nagano_map_data.json").read_text(encoding="utf-8"))
-    require(len(roads) == 144, f"App candidate data must contain 144 roads, got {len(roads)}")
+    require(len(roads) == 1063, f"App candidate data must contain 1063 roads, got {len(roads)}")
     road_ids = {road["id"] for road in roads}
     require(len(road_ids) == len(roads), "Candidate IDs must be unique")
     mapped_roads = [
@@ -107,7 +107,12 @@ def main() -> None:
         and isinstance(road.get("displayLon"), (int, float))
     ]
     unlocated_roads = [road for road in roads if road not in mapped_roads]
-    require(len(mapped_roads) >= 24, f"At least 24 source-confirmed map roads are required, got {len(mapped_roads)}")
+    require(len(mapped_roads) >= 975, f"At least 975 OSM-positioned map roads are required, got {len(mapped_roads)}")
+    levels = Counter(road.get("level") for road in roads)
+    require(
+        levels == Counter({"Lv0": 724, "Lv1": 104, "Lv2": 235}),
+        f"Unexpected level counts: {dict(levels)}",
+    )
     require(unlocated_roads, "Unlocated candidates must remain explicit until coordinates are sourced")
     require(
         all(road.get("displayLat") is None and road.get("displayLon") is None for road in unlocated_roads),

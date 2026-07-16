@@ -132,10 +132,11 @@ def append_current_plan_to_lv0(current: list[dict]) -> list[dict]:
         rows.append(row)
         by_norm[key] = row
         additions += 1
+    fieldnames = list(rows[0]) if rows else ["ID", "林道名", "取得元"]
     with path.open("w", encoding="utf-8-sig", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=["ID", "林道名", "取得元"])
+        writer = csv.DictWriter(handle, fieldnames=fieldnames)
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows({field: row.get(field, "") for field in fieldnames} for row in rows)
     print(f"Lv0: {len(rows)} rows ({additions} appended)")
     return rows
 
